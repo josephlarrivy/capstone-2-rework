@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+
+.testing-buttons {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: black;
+  margin-left: 80vw;
+}

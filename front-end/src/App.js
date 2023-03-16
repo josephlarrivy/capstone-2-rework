@@ -1,23 +1,34 @@
 import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
+
+import Map from './components/Map';
+import { useEffect, useState } from 'react';
 
 function App() {
+
+  const [zoom, setZoom] = useState(2)
+
+  useEffect(() => {
+    changeZoom(2)
+  }, [])
+
+
+
+  const changeZoom = (num) => {
+    setZoom(num)
+  }
+
+  const increaseZoom = () => {
+    setZoom(zoom + 1)
+    console.log(zoom)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Map zoom={zoom}/>
+      {/* <div className='testing-buttons'>
+        <button onClick={increaseZoom}>IN</button>
+      </div> */}
     </div>
   );
 }
