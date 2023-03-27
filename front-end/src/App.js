@@ -8,20 +8,20 @@ function App() {
 
   const [zoom, setZoom] = useState(2)
 
-  useEffect(() => {
-    changeZoom(2)
-  }, [])
+  // useEffect(() => {
+  //   changeZoom(2)
+  // }, [])
 
 
 
-  const changeZoom = (num) => {
-    setZoom(num)
-  }
+  // const changeZoom = (num) => {
+  //   setZoom(num)
+  // }
 
-  const increaseZoom = () => {
-    setZoom(zoom + 1)
-    console.log(zoom)
-  }
+  // const increaseZoom = () => {
+  //   setZoom(zoom + 1)
+  //   console.log(zoom)
+  // }
 
   return (
     <div className="App">

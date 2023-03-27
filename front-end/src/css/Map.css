@@ -1,4 +1,4 @@
-#map {
+.mapContainer {
     position: absolute;
     overflow: hidden;
     height: 100%;

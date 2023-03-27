@@ -20,7 +20,7 @@ const Map = ({zoom}) => {
       <MapContainer
         key={'mapContainer'}
         center={[0,0]}
-        zoom={mapZoom}>
+        zoom={2}>
         <TileLayer
           key={'tileLayer'}
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
