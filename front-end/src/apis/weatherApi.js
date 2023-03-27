@@ -22,7 +22,8 @@ class weatherAPI {
         date: new Date(data.list[i].dt * 1000),
         temperature: data.list[i].main.temp,
         description: data.list[i].weather[0].description,
-        icon: data.list[i].weather[0].icon
+        icon: data.list[i].weather[0].icon,
+        iconUrl: `https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png`
       };
       formattedData.push(weather);
     }

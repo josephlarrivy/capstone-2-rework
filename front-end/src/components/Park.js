@@ -5,11 +5,9 @@ import { useParams } from 'react-router';
 
 import '../css/Park.css'
 import MiniMap from "./MiniMap";
+import Weather from "./Weather";
 
 import NParksServiceRequest from "../apis/nationalParksApi";
-import WeatherAPI from "../apis/weatherApi";
-import { weatherApiKey } from '../keys'
-const weatherAPI = new WeatherAPI(weatherApiKey);
 
 
 
@@ -21,7 +19,6 @@ const Park = () => {
   const [centerPosition, setCenterPosition] = useState(null)
   const [images, setImages] = useState(null)
 
-  const [weather, setWeather] = useState(null)
 
   useEffect(() => {
     const getSingleParkData = async () => {
@@ -29,18 +26,11 @@ const Park = () => {
       setParkData(data)
       console.log(data)
       setCenterPosition([data.latitude, data.longitude])
-      weatherAPI.getWeather(data.latitude, data.longitude)
-        .then(data => console.log(data))
-        .catch(error => console.error(error));
+      
     }
-    getSingleParkData()
-
-    
+    getSingleParkData()    
   }, [])
 
-  useEffect(() => {
-    
-  }, [parkData])
 
   if (parkData === null) {
     return (
@@ -74,7 +64,10 @@ const Park = () => {
           <p><b>Weather:</b> {parkData.weatherInfo}</p>
           <a href={parkData.url} target='blank'>Visit Official Website</a>
         </div>
-        
+        <br></br>
+        <Weather
+          centerPosition={centerPosition}
+        />
       </div>
     )
   }
