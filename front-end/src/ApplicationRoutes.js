@@ -20,42 +20,35 @@ const ApplicationRoutes = ({token, setToken}) => {
         token={token}
         setToken={setToken}
       />
-        <Routes>
-          
-          <Route
-            exact path="/"
-            element={
-              <Home
-              />
-            }/>
-          
-          <Route exact path="/register"
-            element={
-            <RegisterForm
-            setToken={setToken}/>}
-          />
-          <Route exact path="/login"
-            element={<LoginForm 
-            setToken={setToken} />}
-          />
+      <Routes>
+        <Route
+          exact path="/"
+          element={
+            <Home
+            />
+          }/>
+        <Route exact path="/register"
+          element={
+          <RegisterForm
+          setToken={setToken}/>}
+        />
+        <Route exact path="/login"
+          element={<LoginForm 
+          setToken={setToken} />}
+        />
 
-          {/* <Route exact path="/allParks" element={<AllParks
+        {/* <Route 
+          exact path="/park/:code"
+          element={<Park 
             showingParks={showingParks}
+            setShowingParks={setShowingParks}
             changeZoom={changeZoom}
-          />} /> */}
+          />}
+        /> */}
 
-          {/* <Route 
-            exact path="/park/:code"
-            element={<Park 
-              showingParks={showingParks}
-              setShowingParks={setShowingParks}
-              changeZoom={changeZoom}
-            />}
-          /> */}
+      {/* <Route exact path="/map" element={<Map /> } /> */}
 
-        {/* <Route exact path="/map" element={<Map /> } /> */}
-
-        </Routes>
+      </Routes>
 
     </>
   )
