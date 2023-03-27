@@ -49,8 +49,6 @@ const MainMap = ({showingParks}) => {
                       className='popup-image'
                       src={park.images[0].url}
                     ></img>
-                    
-                    
                   </div>
 
 
