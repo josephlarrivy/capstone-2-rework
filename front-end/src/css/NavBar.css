@@ -1,0 +1,28 @@
+nav {
+    /* position: absolute; */
+    /* background-color: rgb(255,255,255); */
+    /* padding: 10px; */
+    z-index: 1;
+
+}
+
+.nav-item {
+    /* width: 10vh; */
+    display: inline-block;
+    margin-left: 2vh;
+}
+
+nav a {
+    color: gray;
+    text-decoration: none;
+}
+
+nav a.active {
+    color: black;
+    text-decoration: none;
+}
+
+#nav-logout {
+    color: gray;
+    text-decoration: none;
+}
