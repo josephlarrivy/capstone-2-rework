@@ -61,13 +61,15 @@ const Park = () => {
           <p><b>Location:</b> {parkData.addresses[0].city}, {parkData.addresses[0].stateCode}</p>
           <p><b>Designation:</b> {parkData.designation}</p>
           <p>{parkData.description}</p>
-          <p><b>Weather:</b> {parkData.weatherInfo}</p>
+          <p><b>Typical Weather:</b> {parkData.weatherInfo}</p>
           <a href={parkData.url} target='blank'>Visit Official Website</a>
         </div>
         <br></br>
-        <Weather
-          centerPosition={centerPosition}
-        />
+        <div className="weather">
+          <Weather
+            centerPosition={centerPosition}
+          />
+        </div>
       </div>
     )
   }

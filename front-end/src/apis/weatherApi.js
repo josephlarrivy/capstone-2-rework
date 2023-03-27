@@ -17,7 +17,7 @@ class weatherAPI {
 
   formatData(data) {
     const formattedData = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 3; i++) {
       const weather = {
         date: new Date(data.list[i].dt * 1000),
         temperature: data.list[i].main.temp,

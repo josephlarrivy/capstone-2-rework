@@ -38,7 +38,11 @@ const MainMap = ({showingParks}) => {
                 ]}
               >
                 <Popup>
-                  <h4>{park.fullName}</h4>
+                  <h4>{park.fullName} - <Link
+                    to={`/park/${park.parkCode}`
+                    }>More Info
+                  </Link></h4>
+                  
 
                   <div className='popup-image-div'>
                     <img
@@ -46,10 +50,7 @@ const MainMap = ({showingParks}) => {
                       src={park.images[0].url}
                     ></img>
                     
-                    <Link
-                      to={`/park/${park.parkCode}`
-                      }>Info
-                    </Link>
+                    
                   </div>
 
 

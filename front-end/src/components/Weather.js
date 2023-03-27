@@ -26,17 +26,19 @@ const Weather = ({centerPosition}) => {
 
   if (weather === null) {
     return (
-      <h4>Loading</h4>
+      <h4>Loading Weather</h4>
     )
   } else {
     console.log(weather)
     return(
       <>
-        <h4>Weather</h4>
+        <h4>Upcoming Weather</h4>
         {weather && weather.map(w => {
           return (
             <>
-              <p>test: {w.description}</p>
+              <p><b>Next {w.date.getHours()} hours</b></p>
+              <p><b>{w.description}</b> and <b>{w.temperature} &#8457;</b></p>
+              {/* <img src={w.url}></img> */}
             </> 
           )
         }
