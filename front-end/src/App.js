@@ -16,12 +16,7 @@ function App() {
   useEffect(() => {
     const token = localRetrieveToken()
     setToken(token)
-    console.log(token)
   }, [])
-
-
-
-
 
 
   return (

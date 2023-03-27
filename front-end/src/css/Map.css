@@ -6,3 +6,13 @@
     z-index: 0;
 }
 
+.leaflet-container {
+    position: absolute;
+    /* z-index: 1; */
+    /* margin-top: -2vh; */
+    /* margin-bottom: 0vh; */
+    height: fill;
+    /* margin-left: 0vw; */
+    width: fill;
+    overflow: hidden;
+}

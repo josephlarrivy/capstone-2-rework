@@ -4,23 +4,15 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
 import '../css/Map.css'
 
-const Map = ({zoom}) => {
-
-  const [mapZoom, setMapZoom] = useState(zoom)
-
-  useEffect(() => {
-    setMapZoom(zoom)
-    console.log('Map detecting zoom change')
-    console.log('mapZoom:', mapZoom)
-  }, [zoom])
+const Map = ({zoom, centerPosition, showingParks}) => {
 
 
   return (
     <div className='map-container'>
       <MapContainer
         key={'mapContainer'}
-        center={[0,0]}
-        zoom={2}>
+        center={centerPosition}
+        zoom={zoom}>
         <TileLayer
           key={'tileLayer'}
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -29,7 +21,7 @@ const Map = ({zoom}) => {
 
 
 
-        {/* {showingParks &&
+        {showingParks &&
           showingParks.map(park => {
             return (
               <Marker
@@ -47,10 +39,10 @@ const Map = ({zoom}) => {
                       className='popup-image'
                       src={park.images[0].url}
                     ></img>
-                    <Link
+                    {/* <Link
                       to={`/park/${park.parkCode}`
                       }>test
-                    </Link>
+                    </Link> */}
                   </div>
 
 
@@ -61,7 +53,7 @@ const Map = ({zoom}) => {
               </Marker>
             )
           })
-        } */}
+        }
 
 
 
