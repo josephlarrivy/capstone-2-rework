@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 
-import Map from '../components/Map'
+
+import MainMap from './MainMap'
 import NParksServiceRequest from '../nationalParksApi';
 
+import '../css/Home.css'
 
 
 const Home = () => {
 
-  const [zoom, setZoom] = useState(2)
-  const [centerPosition, setCenterPosition] = useState([0,0])
   const [showingParks, setShowingParks] = useState(null)
+
 
   useEffect(() => {
     const getInitialParks = async () => {
@@ -21,9 +22,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <Map
-        zoom={zoom}
-        centerPosition={centerPosition}
+      <MainMap
         showingParks={showingParks}
       />
     </div>

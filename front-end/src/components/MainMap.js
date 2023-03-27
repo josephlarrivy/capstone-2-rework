@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
+
 
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
-import '../css/Map.css'
+import '../css/MainMap.css'
 
-const Map = ({zoom, centerPosition, showingParks}) => {
+const MainMap = ({showingParks}) => {
 
+  const [zoom, setZoom] = useState(2)
+  const [centerPosition, setCenterPosition] = useState([0, 0])
 
   return (
     <div className='map-container'>
       <MapContainer
-        key={'mapContainer'}
+        key={'MapContainer'}
         center={centerPosition}
         zoom={zoom}>
         <TileLayer
@@ -39,10 +43,11 @@ const Map = ({zoom, centerPosition, showingParks}) => {
                       className='popup-image'
                       src={park.images[0].url}
                     ></img>
-                    {/* <Link
+                    
+                    <Link
                       to={`/park/${park.parkCode}`
                       }>test
-                    </Link> */}
+                    </Link>
                   </div>
 
 
@@ -63,4 +68,4 @@ const Map = ({zoom, centerPosition, showingParks}) => {
 }
 
 
-export default Map;
+export default MainMap;

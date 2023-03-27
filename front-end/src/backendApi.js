@@ -1,6 +1,4 @@
 import axios from "axios";
-// import { control } from "leaflet";
-// const jwt_decode = require("jwt-decode");
 import jwtDecode from "jwt-decode";
 
 const BASE_URL = "http://localhost:3001";

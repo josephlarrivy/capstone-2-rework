@@ -1,0 +1,19 @@
+.miniMapContainer {
+    /* position: absolute; */
+    /* overflow: hidden; */
+    /* height: 40px; */
+    /* width: 40px; */
+    z-index: 0;
+}
+
+.leaflet-container {
+    /* position: absolute; */
+    /* z-index: 1; */
+    /* margin-top: -2vh; */
+    /* margin-bottom: 0vh; */
+    height: 40vh;
+    /* margin-left: 0vw; */
+    width: 40vh;
+    /* overflow: hidden; */
+    /* background-color: rgb(155, 202, 215); */
+}

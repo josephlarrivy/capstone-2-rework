@@ -1,0 +1,19 @@
+.park {
+  /* background-color: aqua; */
+}
+
+.park-banner {
+  display: flex;
+  justify-content: space-around;
+}
+
+.park-image {
+  width: 40vw;
+  /* margin-left: 5%; */
+}
+
+.mini-map-conatiner {
+  width: 40vw;
+  /* margin-left: 5%; */
+  /* background-color: black; */
+}

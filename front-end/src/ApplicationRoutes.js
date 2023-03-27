@@ -6,7 +6,7 @@ import NavBar from './NavBar'
 import RegisterForm from "./forms/RegisterForm";
 import LoginForm from "./forms/LoginForm";
 // import AllParks from "./parksComponents/AllParks";
-// import Park from "./Park";
+import Park from "./components/Park";
 
 import './css/NavBar.css'
 
@@ -37,16 +37,11 @@ const ApplicationRoutes = ({token, setToken}) => {
           setToken={setToken} />}
         />
 
-        {/* <Route 
+        <Route 
           exact path="/park/:code"
           element={<Park 
-            showingParks={showingParks}
-            setShowingParks={setShowingParks}
-            changeZoom={changeZoom}
           />}
-        /> */}
-
-      {/* <Route exact path="/map" element={<Map /> } /> */}
+        />
 
       </Routes>
 
