@@ -8,6 +8,7 @@ import '../css/MiniMap.css'
 
 const MiniMap = ({ zoom, centerPosition }) => {
 
+  const rand = Math.random()
 
   return (
     <>
@@ -20,6 +21,7 @@ const MiniMap = ({ zoom, centerPosition }) => {
           park => {
             return (
               <Marker
+                key={rand}
                 position={[
                   centerPosition[0],
                   centerPosition[1]

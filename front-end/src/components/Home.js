@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 
 import MainMap from './MainMap'
-import NParksServiceRequest from '../nationalParksApi';
+import NParksServiceRequest from '../apis/nationalParksApi';
 
 import '../css/Home.css'
 
@@ -25,6 +25,7 @@ const Home = () => {
       <MainMap
         showingParks={showingParks}
       />
+      {/* <TestMap /> */}
     </div>
   )
 }

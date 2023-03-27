@@ -5,6 +5,8 @@
 .park-banner {
   display: flex;
   justify-content: space-around;
+  /* height: 20vh; */
+  /* overflow: hidden; */
 }
 
 .park-image {
@@ -14,6 +16,12 @@
 
 .mini-map-conatiner {
   width: 40vw;
+  margin-right: 20vh;
   /* margin-left: 5%; */
   /* background-color: black; */
+}
+
+.park-info {
+  width: 40vw;
+  margin-left: 2vw;
 }

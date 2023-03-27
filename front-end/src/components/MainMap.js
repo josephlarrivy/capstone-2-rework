@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
+
 import '../css/MainMap.css'
 
 const MainMap = ({showingParks}) => {
 
-  const [zoom, setZoom] = useState(2)
-  const [centerPosition, setCenterPosition] = useState([0, 0])
+  const [zoom, setZoom] = useState(4)
+  const [centerPosition, setCenterPosition] = useState([35, -94])
 
   return (
     <div className='map-container'>
@@ -17,6 +18,7 @@ const MainMap = ({showingParks}) => {
         key={'MapContainer'}
         center={centerPosition}
         zoom={zoom}>
+        
         <TileLayer
           key={'tileLayer'}
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -46,7 +48,7 @@ const MainMap = ({showingParks}) => {
                     
                     <Link
                       to={`/park/${park.parkCode}`
-                      }>test
+                      }>Info
                     </Link>
                   </div>
 

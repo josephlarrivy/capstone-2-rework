@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { parks_api_key } from "./keys";
+import { parks_api_key } from "../keys";
 
 const PARKS_BASE_URL = "https://developer.nps.gov/api/v1";
 
