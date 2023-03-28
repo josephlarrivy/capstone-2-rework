@@ -26,7 +26,7 @@ const Park = ({token, setToken}) => {
   useEffect(() => {
     const getSingleParkData = async () => {
       let data = await NParksServiceRequest.getSingleParkData(parkCode.code)
-      // console.log(data)
+      console.log(data)
 
       setParkData(data)
       setCenterPosition([data.latitude, data.longitude])
@@ -65,51 +65,60 @@ const Park = ({token, setToken}) => {
           setToken={setToken}
         />
 
-        {/* <div className="park-top"> */}
-          
-          <div className="mini-map-conatiner">
-            <MiniMap 
-              zoom={zoom}
-              centerPosition={centerPosition}
-            />
+        <div className="park-leftside">
+
+          <div className="park-header">
+            <h1>{parkData.fullName}</h1>
+            <p><b>Location:</b> {parkData.addresses[0].city}, {parkData.addresses[0].stateCode}</p>
+            <p><b>Designation:</b> {parkData.designation}</p>
+            <p>{parkData.description}</p>
           </div>
 
-          <div className="images">
-            <div className="image-buttons-container">
-              {currentImageIdx > 0
-                ? <button onClick={decreaseCurrentImageIdx}>prev image</button>
-                : <button>prev image</button>
-              }
-              {currentImageIdx < numImages - 1
-                ? <button onClick={increaseCurrentImageIdx}>next image</button>
-                : <button>next image</button>
-              }
+          <br></br>
 
-            </div>
-            <img
-              className='park-image'
-              src={parkData.images[currentImageIdx].url}
-            ></img>
-          </div>
-
-        {/* </div> */}
-        
-        <div className="park-info">
-          <h3>{parkData.fullName}</h3>
-          <p><b>Location:</b> {parkData.addresses[0].city}, {parkData.addresses[0].stateCode}</p>
-          <p><b>Designation:</b> {parkData.designation}</p>
-          <h4>Upcoming Weather</h4>
           <div className="weather">
             <Weather
               centerPosition={centerPosition}
             />
           </div>
-          <h4>Description</h4>
-          <p>{parkData.description}</p>
-          <p><b>Typical Weather:</b> {parkData.weatherInfo}</p>
-          <a href={parkData.url} target='blank'>Visit Official Website</a>
-        </div>
         
+          <div className="park-info">            
+            {/* <a href={parkData.url} target='blank'>Visit Official Website</a> */}
+          </div>
+
+          <br></br>
+          <br></br>
+
+          <div className="mini-map-conatiner">
+            <MiniMap
+              zoom={zoom}
+              centerPosition={centerPosition}
+            />
+          </div>
+
+          <br></br>
+          <br></br>
+        
+        </div>
+
+        <div className="images">
+          <div className="image-buttons-container">
+            {currentImageIdx > 0
+              ? <div className="back-arrow" onClick={decreaseCurrentImageIdx}><p>prev</p></div>
+              : <div className="back-arrow-off"><p>prev</p></div>
+            }
+            {currentImageIdx < numImages - 1
+              ? <div className="forward-arrow" onClick={increaseCurrentImageIdx}><p>next</p></div>
+              : <div className="forward-arrow-off"><p>next</p></div>
+            }
+          </div>
+
+          <img
+            className='park-image'
+            src={parkData.images[currentImageIdx].url}
+          ></img>
+        </div>
+
 
         
       </div>

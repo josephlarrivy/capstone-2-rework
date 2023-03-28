@@ -4,33 +4,56 @@
   /* background-color: aqua; */
 }
 
-
-
-
-
-.park-top {
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* width: 100%; */
-  /* background-color: aqua; */
+.park-leftside {
+  position: absolute;
 }
 
+.park-header {
+  position: relative;
+  width: 48vw;
+  margin-top: 2vh;
+  margin-left: 2vw;
+  border: 1px solid black;
+  border-radius: 1vh;
+  padding: 1vh;
+  padding-left: 2vh;
+
+  animation: drop-in;
+  animation-duration: 4s;
+}
+
+@keyframes drop-in {
+  0% {
+    max-height: 0px;
+    overflow: hidden;
+  }
+
+  50% {
+    max-height: 300px;
+    overflow: hidden;
+  }
+
+  100% {
+    max-height: 300px;
+    overflow: hidden;
+  }
+}
 
 .mini-map-conatiner {
-  position: absolute;
+  position: relative;
   width: 50vw;
   height: 50vh;
   margin-left: 2vw;
-  margin-top: 3vh;
+  /* margin-top: 3vh; */
   /* margin-left: 5%; */
   /* background-color: black; */
 }
 
 .park-info {
-  position: absolute;
+  position: relative;
   width: 48vw;
   margin-left: 2vw;
-  margin-top: 55vh;
+  /* margin-top: 55vh; */
 }
 
 .weather {
@@ -60,6 +83,8 @@
   display: flex;
   justify-content: space-between;
   z-index: 5;
+
+  
 }
 
 .park-image {
@@ -70,6 +95,7 @@
   /* padding: 1vw 2vw 2vw 2vw; */
   /* margin-left: 5%; */
   content: 'test';
+  
 }
 
 
@@ -77,4 +103,92 @@
 
 
 
+.back-arrow {
+  background-color: white;
+  border-left: 2px solid rgb(34, 108, 191);
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  line-height: 40px;
+  border-radius: 50%;
+  margin-left: -2.5vw;
+  cursor: pointer;
 
+  animation: appear;
+  animation-duration: 500ms;
+  animation-iteration-count: one;
+}
+
+.back-arrow-off {
+  background-color: white;
+  border-left: 2px solid rgb(34, 108, 191);
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  line-height: 40px;
+  border-radius: 50%;
+  margin-left: -2.5vw;
+
+  opacity: 0;
+  animation: disappear;
+  animation-duration: 500ms;
+  animation-iteration-count: one;
+}
+
+.forward-arrow {
+  background-color: white;
+  border-right: 2px solid rgb(34, 108, 191);
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  line-height: 40px;
+  border-radius: 50%;
+  margin-right: -2.5vw;
+  cursor: pointer;
+
+  animation: appear;
+  animation-duration: 500ms;
+  animation-iteration-count: one;
+}
+
+.forward-arrow-off {
+  background-color: white;
+  border-right: 2px solid rgb(34, 108, 191);
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  line-height: 40px;
+  border-radius: 50%;
+  margin-right: -2.5vw;
+
+  opacity: 0;
+  animation: disappear;
+  animation-duration: 500ms;
+  animation-iteration-count: one;
+}
+
+
+@keyframes disappear {
+  0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    }
+}
+
+@keyframes appear {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    /* opacity: 1; */
+    transform: scale(1);
+    opacity: 1;
+  }
+}
