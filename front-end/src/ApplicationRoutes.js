@@ -16,15 +16,17 @@ const ApplicationRoutes = ({token, setToken}) => {
 
   return (
     <>
-      <NavBar
+      {/* <NavBar
         token={token}
         setToken={setToken}
-      />
+      /> */}
       <Routes>
         <Route
           exact path="/"
           element={
             <Home
+              token={token}
+              setToken={setToken}
             />
           }/>
         <Route exact path="/register"
@@ -40,6 +42,8 @@ const ApplicationRoutes = ({token, setToken}) => {
         <Route 
           exact path="/park/:code"
           element={<Park 
+            token={token}
+            setToken={setToken}
           />}
         />
 

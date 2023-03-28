@@ -1,21 +1,23 @@
 .MapContainer {
-    position: absolute;
+    width: inherit;
+    height: inherit;
+    
+    /* position: absolute;
     overflow: hidden;
     height: 100%;
     width: 100%;
-    z-index: 0;
+    z-index: 0; */
 }
 
 .leaflet-container {
-    position: absolute;
-    /* z-index: 1; */
-    /* margin-top: -2vh; */
-    /* margin-bottom: 0vh; */
+    width: inherit;
+    height: inherit;
+
+    /* position: absolute;
     height: fill;
-    /* margin-left: 0vw; */
     width: fill;
     overflow: hidden;
-    background-color: white;
+    background-color: white; */
 }
 
 
@@ -66,6 +68,19 @@
 .leaflet-popup-content-wrapper {
     display: flex;
     width: 50vw;
+    border: 1px solid black;
+    animation: test;
+    animation-duration: 1s;
+}
+
+@keyframes test {
+    0% {
+        
+    }
+
+    100% {
+
+    }
 }
 
 .leaflet-popup-content {

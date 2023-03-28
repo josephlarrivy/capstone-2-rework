@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 
 
 import '../css/Park.css'
+import NavBar from "../NavBar";
 import MiniMap from "./MiniMap";
 import Weather from "./Weather";
 
@@ -11,7 +12,7 @@ import NParksServiceRequest from "../apis/nationalParksApi";
 
 
 
-const Park = () => {
+const Park = ({token, setToken}) => {
 
   const parkCode = useParams();
   const [parkData, setParkData] = useState(null)
@@ -39,6 +40,10 @@ const Park = () => {
   } else {
     return (
       <div className="park">
+        <NavBar
+        token={token}
+        setToken={setToken}
+      />
 
         <div className="park-banner">
           <div className="images">

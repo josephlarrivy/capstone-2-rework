@@ -15,10 +15,11 @@
 }
 
 .mini-map-conatiner {
-  width: 40vw;
-  margin-right: 20vh;
+  width: 40vw !important;
+  height: 40vh !important;
+  margin-right: 20vh !important;
   /* margin-left: 5%; */
-  /* background-color: black; */
+  background-color: black;
 }
 
 .park-info {

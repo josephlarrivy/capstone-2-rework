@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 
 
 import MainMap from './MainMap'
+import NavBar from "../NavBar";
 import NParksServiceRequest from '../apis/nationalParksApi';
 
+import '../css/NavBar.css'
 import '../css/Home.css'
 
 
-const Home = () => {
+const Home = ({token, setToken}) => {
 
   const [showingParks, setShowingParks] = useState(null)
 
@@ -22,9 +24,15 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <MainMap
-        showingParks={showingParks}
+      <NavBar
+        token={token}
+        setToken={setToken}
       />
+      <div className="main-map-container">
+        <MainMap
+          showingParks={showingParks}
+        />
+      </div>
       {/* <TestMap /> */}
     </div>
   )
