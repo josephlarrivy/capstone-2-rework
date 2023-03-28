@@ -101,6 +101,7 @@ const Park = ({token, setToken}) => {
         
         </div>
 
+        
         <div className="images">
           <div className="image-buttons-container">
             {currentImageIdx > 0
