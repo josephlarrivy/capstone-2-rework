@@ -1,26 +1,56 @@
 .park {
+  width: 100%;
+  overflow: hidden;
   /* background-color: aqua; */
 }
 
-.park-banner {
+
+
+
+
+.park-top {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  /* background-color: aqua; */
+}
+
+.images {
+  width: 50vw;
+}
+
+.image-buttons-container {
+  width: 40vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-top: 1vh;
   display: flex;
   justify-content: space-around;
-  /* height: 20vh; */
-  /* overflow: hidden; */
 }
 
 .park-image {
-  width: 60vw;
+  width: 40vw;
+  padding: 1vw 2vw 2vw 2vw;
   /* margin-left: 5%; */
 }
 
 .mini-map-conatiner {
-  width: 40vw !important;
-  height: 40vh !important;
-  margin-right: 20vh !important;
+  width: 50vw;
+  height: 50vh;
+  margin-right: 2vw;
+  margin-top: 3vw;
   /* margin-left: 5%; */
   background-color: black;
 }
+
+
+
+
+
+
+
+
+
 
 .park-info {
   width: 50vw;

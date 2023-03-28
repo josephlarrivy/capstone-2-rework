@@ -15,22 +15,41 @@ import NParksServiceRequest from "../apis/nationalParksApi";
 const Park = ({token, setToken}) => {
 
   const parkCode = useParams();
-  const [parkData, setParkData] = useState(null)
-  const [zoom, setZoom] = useState(6)
-  const [centerPosition, setCenterPosition] = useState(null)
-  const [images, setImages] = useState(null)
 
+  const [parkData, setParkData] = useState(null)
+  const [zoom, setZoom] = useState(5)
+  const [centerPosition, setCenterPosition] = useState(null)
+
+  const [numImages, setNumImages] = useState(null)
+  const [currentImageIdx, setCurrentImageIdx] = useState(0)
 
   useEffect(() => {
     const getSingleParkData = async () => {
       let data = await NParksServiceRequest.getSingleParkData(parkCode.code)
-      setParkData(data)
       console.log(data)
+
+      setParkData(data)
       setCenterPosition([data.latitude, data.longitude])
+      setNumImages(data.images.length)
       
     }
     getSingleParkData()    
   }, [])
+
+
+  const increaseCurrentImageIdx = () => {
+    setCurrentImageIdx(currentImageIdx + 1)
+  }
+
+  const decreaseCurrentImageIdx = () => {
+    setCurrentImageIdx(currentImageIdx - 1)
+  }
+
+
+
+
+
+
 
 
   if (parkData === null) {
@@ -40,16 +59,21 @@ const Park = ({token, setToken}) => {
   } else {
     return (
       <div className="park">
-        <NavBar
-        token={token}
-        setToken={setToken}
-      />
 
-        <div className="park-banner">
+        <NavBar
+          token={token}
+          setToken={setToken}
+        />
+
+        <div className="park-top">
           <div className="images">
+            <div className="image-buttons-container">
+              <button onClick={decreaseCurrentImageIdx}>prev image</button>
+              <button onClick={increaseCurrentImageIdx}>next image</button>
+            </div>
             <img
               className='park-image'
-              src={parkData.images[0].url}
+              src={parkData.images[currentImageIdx].url}
             ></img>
           </div>
 

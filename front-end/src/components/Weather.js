@@ -17,7 +17,7 @@ const Weather = ({centerPosition}) => {
     // console.log('#################')
     const getWeatherData = async () => {
       const data = await weatherAPI.getWeather(centerPosition[0], centerPosition[1])
-      console.log(data)
+      // console.log(data)
       setWeather(data)
     }
     getWeatherData()
@@ -29,7 +29,6 @@ const Weather = ({centerPosition}) => {
       <h4>Loading Weather</h4>
     )
   } else {
-    console.log(weather)
     return(
       <>
         <h4>Upcoming Weather</h4>
