@@ -9,6 +9,7 @@ import LoginForm from "./forms/LoginForm";
 import Park from "./components/Park";
 
 import './css/NavBar.css'
+import PhotoGallery from "./components/PhotoGallery";
 
 const ApplicationRoutes = ({token, setToken}) => {
 
@@ -38,10 +39,16 @@ const ApplicationRoutes = ({token, setToken}) => {
           element={<LoginForm 
           setToken={setToken} />}
         />
-
         <Route 
           exact path="/park/:code"
           element={<Park 
+            token={token}
+            setToken={setToken}
+          />}
+        />
+        <Route
+          exact path="/gallery"
+          element={<PhotoGallery
             token={token}
             setToken={setToken}
           />}

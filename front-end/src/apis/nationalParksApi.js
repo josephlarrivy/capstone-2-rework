@@ -27,7 +27,6 @@ class NParksServiceRequest {
     for (let park of list) {
       parksArray.push(park)
     }
-    // console.log(parksArray)
     return parksArray
   }
 
@@ -37,6 +36,33 @@ class NParksServiceRequest {
     return singleParkData
   }
 
+  static async getRandomImages(limit = '700') {
+    const resp = await this.makeRequest(`/parks?limit=${limit}`)
+    const list = resp.data.data
+
+    const idxArr = []
+    while (idxArr.length < 10) {
+      const num = Math.floor(Math.random()*468)
+      if (!idxArr.includes(num)) {
+        idxArr.push(num)
+      }
+    }
+
+    const parksArray = []
+    for (let park of list) {
+      parksArray.push(park)
+    }
+    console.log(parksArray)
+
+    const imagesArray = []
+    for (let idx of idxArr) {
+      const parkName = parksArray[idx].name
+      const imageUrl = parksArray[idx].images[0].url
+      imagesArray.push({parkName, imageUrl})
+    }
+    
+    return imagesArray
+  }
 
 }
 

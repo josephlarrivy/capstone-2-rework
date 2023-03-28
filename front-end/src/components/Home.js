@@ -20,7 +20,7 @@ const Home = ({token, setToken}) => {
       setShowingParks(resp)
     }
     getInitialParks()
-  })
+  }, [])
 
   return (
     <div className="home-container">

@@ -33,6 +33,9 @@ const NavBar = ({token, setToken}) => {
               <NavLink to="/">Home</NavLink>
             </NavItem>
             <NavItem >
+              <NavLink to="/gallery">Gallery</NavLink>
+            </NavItem>
+            <NavItem >
               <NavLink to="/register">Register</NavLink>
             </NavItem>
             <NavItem>
@@ -49,6 +52,9 @@ const NavBar = ({token, setToken}) => {
           <Nav >
             <NavItem >
               <NavLink to="/">Home</NavLink>
+            </NavItem>
+            <NavItem >
+              <NavLink to="/gallery">Gallery</NavLink>
             </NavItem>
             <NavItem>
               <NavLink onClick={logOut} id="nav-logout">Log Out</NavLink>
