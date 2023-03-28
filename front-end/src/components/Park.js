@@ -26,7 +26,7 @@ const Park = ({token, setToken}) => {
   useEffect(() => {
     const getSingleParkData = async () => {
       let data = await NParksServiceRequest.getSingleParkData(parkCode.code)
-      console.log(data)
+      // console.log(data)
 
       setParkData(data)
       setCenterPosition([data.latitude, data.longitude])
@@ -65,11 +65,26 @@ const Park = ({token, setToken}) => {
           setToken={setToken}
         />
 
-        <div className="park-top">
+        {/* <div className="park-top"> */}
+          
+          <div className="mini-map-conatiner">
+            <MiniMap 
+              zoom={zoom}
+              centerPosition={centerPosition}
+            />
+          </div>
+
           <div className="images">
             <div className="image-buttons-container">
-              <button onClick={decreaseCurrentImageIdx}>prev image</button>
-              <button onClick={increaseCurrentImageIdx}>next image</button>
+              {currentImageIdx > 0
+                ? <button onClick={decreaseCurrentImageIdx}>prev image</button>
+                : <button>prev image</button>
+              }
+              {currentImageIdx < numImages - 1
+                ? <button onClick={increaseCurrentImageIdx}>next image</button>
+                : <button>next image</button>
+              }
+
             </div>
             <img
               className='park-image'
@@ -77,28 +92,26 @@ const Park = ({token, setToken}) => {
             ></img>
           </div>
 
-          <div className="mini-map-conatiner">
-            <MiniMap 
-              zoom={zoom}
-              centerPosition={centerPosition}
-            />
-          </div>
-        </div>
+        {/* </div> */}
         
         <div className="park-info">
           <h3>{parkData.fullName}</h3>
           <p><b>Location:</b> {parkData.addresses[0].city}, {parkData.addresses[0].stateCode}</p>
           <p><b>Designation:</b> {parkData.designation}</p>
+          <h4>Upcoming Weather</h4>
+          <div className="weather">
+            <Weather
+              centerPosition={centerPosition}
+            />
+          </div>
+          <h4>Description</h4>
           <p>{parkData.description}</p>
           <p><b>Typical Weather:</b> {parkData.weatherInfo}</p>
           <a href={parkData.url} target='blank'>Visit Official Website</a>
         </div>
-        <br></br>
-        <div className="weather">
-          <Weather
-            centerPosition={centerPosition}
-          />
-        </div>
+        
+
+        
       </div>
     )
   }

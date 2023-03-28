@@ -1,0 +1,25 @@
+
+.weather-container {
+    width: inherit;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.weather-day {
+    text-align: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 1vh;
+    padding: 1vh;
+}
+
+
+
+.weather-image {
+    /* background-color: black; */
+    /* border: 1px solid black; */
+    width: 15vh;
+    height: 15vh;
+    background-size: 15vh;
+}
