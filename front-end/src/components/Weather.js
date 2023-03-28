@@ -25,32 +25,36 @@ const Weather = ({centerPosition}) => {
 
   if (weather === null) {
     return (
-      <h4>Loading Weather</h4>
+      <></>
     )
   } else {
     return(
-      <div className='weather-container'>
-        {weather && weather.map(w => {
-          return (
-            <div className="weather-day">
-              <p><b>Next {w.date.getHours()} hours</b></p>
+      <div className="weather-container">
+        <h2>Weather Forcast</h2>
+        <div className='weather-days-container'>
+          {weather && weather.map(w => {
+            return (
+              <div className="weather-day">
+                <p><b>Next {w.date.getHours()} hours</b></p>
 
-              <div
-                className='weather-image'
-                style={{
-                  backgroundImage: `url(${w.iconUrl})`
-                }}
-              ></div>
+                <div
+                  className='weather-image'
+                  style={{
+                    backgroundImage: `url(${w.iconUrl})`
+                  }}
+                ></div>
 
-              <p>{w.description}</p>
-              <p>{w.temperature} &#8457;</p>
+                <p>{w.description}</p>
+                <p>{w.temperature} &#8457;</p>
 
-              
-            </div> 
-          )
-        }
-        )}
+
+              </div>
+            )
+          }
+          )}
+        </div>
       </div>
+      
     )
   }
 }
