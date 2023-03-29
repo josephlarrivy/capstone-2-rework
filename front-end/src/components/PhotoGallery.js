@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from "react";
+import { Link } from 'react-router-dom';
+
 
 import NavBar from "../NavBar";
 import NParksServiceRequest from '../apis/nationalParksApi';
@@ -9,19 +11,21 @@ import '../css/PhotoGallery.css'
 
 const PhotoGallery = ({token, setToken}) => {
 
-  const [images, setImages] = useState(null)
+  const [images, setImages] = useState([])
+  const [hoveredId, setHoveredId] = useState(null);
+  
   
   useEffect(() => {
-    const getInitialParks = async () => {
+    const getInitialImages = async () => {
       let resp = await NParksServiceRequest.getRandomImages(700)
       // console.log(resp)
       setImages(resp)
     }
-    getInitialParks()
+    getInitialImages()
   }, [])
 
   return (
-    <div className="gallery-full-container">
+    <div className="gallery-page-container">
       <NavBar
         token={token}
         setToken={setToken}
@@ -30,12 +34,21 @@ const PhotoGallery = ({token, setToken}) => {
         {images && images.map(image => {
           return(
             <div
-              key={image.parkName}
+              key={image.imageUrl}
               className="image"
               style={{
                 backgroundImage: `url(${image.imageUrl})`
               }}
+              onMouseEnter={() => setHoveredId(image.imageUrl)}
+              onMouseLeave={() => setHoveredId(null)}
             >
+              {hoveredId === image.imageUrl && (
+                <div className="image-hover-div">
+                  <p><b><Link
+                    to={`/park/${image.parkCode}`
+                    }>{image.parkName}</Link> - {image.state}</b></p>
+                </div>
+              )}
             </div>
           )
           }

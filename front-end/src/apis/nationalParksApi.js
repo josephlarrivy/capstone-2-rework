@@ -41,7 +41,7 @@ class NParksServiceRequest {
     const list = resp.data.data
 
     const idxArr = []
-    while (idxArr.length < 10) {
+    while (idxArr.length < 12) {
       const num = Math.floor(Math.random()*468)
       if (!idxArr.includes(num)) {
         idxArr.push(num)
@@ -58,7 +58,9 @@ class NParksServiceRequest {
     for (let idx of idxArr) {
       const parkName = parksArray[idx].name
       const imageUrl = parksArray[idx].images[0].url
-      imagesArray.push({parkName, imageUrl})
+      const state = parksArray[idx].states
+      const parkCode = parksArray[idx].parkCode
+      imagesArray.push({parkName, imageUrl, state, parkCode})
     }
     
     return imagesArray

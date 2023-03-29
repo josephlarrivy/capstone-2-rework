@@ -33,7 +33,7 @@ const NavBar = ({token, setToken}) => {
               <NavLink to="/">Home</NavLink>
             </NavItem>
             <NavItem >
-              <NavLink to="/gallery">Gallery</NavLink>
+              <NavLink to="/gallery">Image Gallery</NavLink>
             </NavItem>
             <NavItem >
               <NavLink to="/register">Register</NavLink>
@@ -54,7 +54,7 @@ const NavBar = ({token, setToken}) => {
               <NavLink to="/">Home</NavLink>
             </NavItem>
             <NavItem >
-              <NavLink to="/gallery">Gallery</NavLink>
+              <NavLink to="/gallery">Image Gallery</NavLink>
             </NavItem>
             <NavItem>
               <NavLink onClick={logOut} id="nav-logout">Log Out</NavLink>
