@@ -13,16 +13,28 @@ const PhotoGallery = ({token, setToken}) => {
 
   const [images, setImages] = useState([])
   const [hoveredId, setHoveredId] = useState(null);
-  
+  const [loadingMoreImages, setLoadingMoreImages] = useState(false)
   
   useEffect(() => {
     const getInitialImages = async () => {
-      let resp = await NParksServiceRequest.getRandomImages(700)
+      let resp = await NParksServiceRequest.getRandomImages()
       // console.log(resp)
       setImages(resp)
     }
     getInitialImages()
   }, [])
+
+  const loadMoreImages = async () => {
+    const resp = await NParksServiceRequest.getRandomImages()
+    for (let anotherImage of resp) {
+      images.push(anotherImage)
+    }
+    setLoadingMoreImages(false)
+  }
+
+  const turnOnIsLoadingImages = () => {
+    setLoadingMoreImages(true)
+  }
 
   return (
     <div className="gallery-page-container">
@@ -53,6 +65,17 @@ const PhotoGallery = ({token, setToken}) => {
           )
           }
         )}
+        <div className="page-bottom">
+          {loadingMoreImages
+            ? <p>loading</p>
+            : <button
+              onClick={() => {
+                loadMoreImages()
+                turnOnIsLoadingImages()
+              }}
+            >Load more images</button>
+          }
+        </div>
       </div>
     </div>
   )

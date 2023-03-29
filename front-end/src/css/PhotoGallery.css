@@ -67,6 +67,10 @@
     margin-right: 10px;
 }
 
+.image-hover-div p a {
+    color: black;
+}
+
 /* .image-hover-div .link {
     text-align: left;
 } */
@@ -74,4 +78,10 @@
 .image-hover-div:hover {
     opacity: 90%;
     transition: 300ms ease-in-out;
+}
+
+.page-bottom {
+    /* width: 100%; */
+    height: 10vh;
+    padding-top: 3vh;
 }
