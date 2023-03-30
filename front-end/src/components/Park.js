@@ -72,6 +72,7 @@ const Park = ({token, setToken}) => {
             <p><b>Location:</b> {parkData.addresses[0].city}, {parkData.addresses[0].stateCode}</p>
             <p><b>Designation:</b> {parkData.designation}</p>
             <p>{parkData.description}</p>
+            <a href={parkData.url} target='blank'>Visit Official Website</a>
           </div>
 
           <br></br>
@@ -83,7 +84,6 @@ const Park = ({token, setToken}) => {
           </div>
         
           <div className="park-info">            
-            {/* <a href={parkData.url} target='blank'>Visit Official Website</a> */}
           </div>
 
           <br></br>
