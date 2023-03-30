@@ -9,6 +9,8 @@ import '../css/NavBar.css'
 import '../css/PhotoGallery.css'
 
 
+
+
 const PhotoGallery = ({token, setToken}) => {
 
   const [images, setImages] = useState([])
