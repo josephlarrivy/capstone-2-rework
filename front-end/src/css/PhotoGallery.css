@@ -139,10 +139,12 @@
     0%{
         background-color: white;
         margin-top: 2vh;
+        width: 0vw;
     }
-    50% {
+    25% {
         background-color: black;
         margin-top: 2vh;
+        width: 80vw;
     }
     100% {
         background-color: black;
