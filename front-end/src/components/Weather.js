@@ -5,7 +5,6 @@ import { weatherApiKey } from '../keys'
 
 import '../css/Weather.css'
 
-
 const weatherAPI = new WeatherAPI(weatherApiKey);
 
 
@@ -16,11 +15,13 @@ const Weather = ({centerPosition}) => {
   useEffect(() => {
     const getWeatherData = async () => {
       const data = await weatherAPI.getWeather(centerPosition[0], centerPosition[1])
-      console.log(data)
       setWeather(data)
     }
     getWeatherData()
+
   }, [])
+
+
 
 
   if (weather === null) {
@@ -29,16 +30,18 @@ const Weather = ({centerPosition}) => {
     )
   } else {
     return(
-      <div className="weather-container">
+      <div key="weather-container" className="weather-container">
         <h2>Weather Forcast</h2>
-        <div className='weather-days-container'>
+        <div key='weather-days-container' className='weather-days-container'>
           {weather && weather.map(w => {
+
             return (
-              <div className="weather-day">
+              <div key={w.temperature} className="weather-day">
                 <p><b>Next {w.date.getHours()} hours</b></p>
 
                 <div
                   className='weather-image'
+                  key={w.temperature}
                   style={{
                     backgroundImage: `url(${w.iconUrl})`
                   }}

@@ -9,6 +9,7 @@ import MiniMap from "./MiniMap";
 import Weather from "./Weather";
 
 import NParksServiceRequest from "../apis/nationalParksApi";
+import SunriseSunset from "../apis/sunriseSunsetApi";
 
 
 
@@ -23,10 +24,12 @@ const Park = ({token, setToken}) => {
   const [numImages, setNumImages] = useState(null)
   const [currentImageIdx, setCurrentImageIdx] = useState(0)
 
+  const [sunData, setSunData] = useState(null)
+
   useEffect(() => {
     const getSingleParkData = async () => {
       let data = await NParksServiceRequest.getSingleParkData(parkCode.code)
-      console.log(data)
+      // console.log(data)
 
       setParkData(data)
       setCenterPosition([data.latitude, data.longitude])
@@ -35,6 +38,15 @@ const Park = ({token, setToken}) => {
     }
     getSingleParkData()    
   }, [])
+
+  useEffect(() => {
+    const getSunData = async () => {
+      let data = await SunriseSunset.getSunriseSunset(centerPosition[0], centerPosition[1])
+      // console.log(data)
+      setSunData(data)
+    }
+    getSunData()
+  }, [centerPosition])
 
 
   const increaseCurrentImageIdx = () => {
@@ -76,6 +88,20 @@ const Park = ({token, setToken}) => {
           </div>
 
           <br></br>
+            {sunData && 
+            <div className="sun-data-container">
+              <div className="sunrise">
+                {sunData.sunrise}
+                <p>sunrise</p>
+              </div>
+              <div className="sunset">
+                {sunData.sunset}
+                <p>sunset</p>
+              </div>
+            </div>
+            }
+          <br></br>
+
 
           <div className="weather">
             <Weather

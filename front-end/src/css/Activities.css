@@ -1,0 +1,21 @@
+.activities-page-container {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    /* margin-top: 5vh; */
+    /* background-color: black; */
+    /* overflow: hidden; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.activities-container {
+    position: absolute;
+    height: 95vh;
+    width: 100%;
+    
+}
+
+.activities-buttons-container {
+    background-color: aqua;
+}

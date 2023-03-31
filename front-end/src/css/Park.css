@@ -28,6 +28,38 @@
   margin-left: 2vw;
 }
 
+
+
+
+
+.sun-data-container {
+  width: 80%;
+  margin-left: 10%;
+  height: 100px;
+  background-color: aqua;
+  display: flex;
+  justify-content: space-around;
+}
+
+.sunrise {
+  width: 100px;
+  height: 100%;
+  background-color: black;
+  color: white;
+}
+
+.sunset {
+  width: 100px;
+  height: 100%;
+  background-color: black;
+  color: white;
+}
+
+
+
+
+
+
 .weather {
   width: 50vw;
   height: 40vh;

@@ -11,6 +11,8 @@ import Park from "./components/Park";
 import './css/NavBar.css'
 import PhotoGallery from "./components/PhotoGallery";
 
+import Activities from "./components/Activities";
+
 const ApplicationRoutes = ({token, setToken}) => {
 
   
@@ -49,6 +51,13 @@ const ApplicationRoutes = ({token, setToken}) => {
         <Route
           exact path="/gallery"
           element={<PhotoGallery
+            token={token}
+            setToken={setToken}
+          />}
+        />
+        <Route
+          exact path="/activities"
+          element={<Activities
             token={token}
             setToken={setToken}
           />}
