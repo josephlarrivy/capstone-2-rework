@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link, Navigate, Route, Routes } from 'react-router-dom';
 import { useParams } from 'react-router';
 
-
 import '../css/Park.css'
+
 import NavBar from "../NavBar";
 import MiniMap from "./MiniMap";
 import Weather from "./Weather";
@@ -56,8 +56,6 @@ const Park = ({token, setToken}) => {
   const decreaseCurrentImageIdx = () => {
     setCurrentImageIdx(currentImageIdx - 1)
   }
-
-
 
 
 
