@@ -9,7 +9,7 @@ import MiniMap from "./MiniMap";
 import Weather from "./Weather";
 
 import NParksServiceRequest from "../apis/nationalParksApi";
-import SunriseSunset from "../apis/sunriseSunsetApi";
+import Sun from "./Sun";
 
 
 
@@ -24,7 +24,6 @@ const Park = ({token, setToken}) => {
   const [numImages, setNumImages] = useState(null)
   const [currentImageIdx, setCurrentImageIdx] = useState(0)
 
-  const [sunData, setSunData] = useState(null)
 
   useEffect(() => {
     const getSingleParkData = async () => {
@@ -38,15 +37,6 @@ const Park = ({token, setToken}) => {
     }
     getSingleParkData()    
   }, [])
-
-  useEffect(() => {
-    const getSunData = async () => {
-      let data = await SunriseSunset.getSunriseSunset(centerPosition[0], centerPosition[1])
-      // console.log(data)
-      setSunData(data)
-    }
-    getSunData()
-  }, [centerPosition])
 
 
   const increaseCurrentImageIdx = () => {
@@ -83,35 +73,23 @@ const Park = ({token, setToken}) => {
             <p><b>Designation:</b> {parkData.designation}</p>
             <p>{parkData.description}</p>
             <a href={parkData.url} target='blank'>Visit Official Website</a>
+
+            <h2>Conditions</h2>
+
           </div>
 
           <br></br>
-            {sunData && 
-            <div className="sun-data-container">
-              <div className="sunrise">
-                {sunData.sunrise}
-                <p>sunrise</p>
-              </div>
-              <div className="sunset">
-                {sunData.sunset}
-                <p>sunset</p>
-              </div>
-            </div>
-            }
+
+          <br></br>
+            <Sun centerPosition={centerPosition} />
           <br></br>
 
 
           <div className="weather">
-            <Weather
-              centerPosition={centerPosition}
-            />
-          </div>
-        
-          <div className="park-info">            
+            <Weather centerPosition={centerPosition}/>
           </div>
 
-          <br></br>
-          <br></br>
+          <br></br><br></br>
 
           <div className="mini-map-conatiner">
             <MiniMap
@@ -120,8 +98,7 @@ const Park = ({token, setToken}) => {
             />
           </div>
 
-          <br></br>
-          <br></br>
+          <br></br><br></br>
         
         </div>
 

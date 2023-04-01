@@ -35,7 +35,7 @@
 .weather-day {
     text-align: center;
     align-items: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 1vh;
     padding: 1vh;
 

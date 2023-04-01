@@ -35,9 +35,9 @@ const NavBar = ({token, setToken}) => {
             <NavItem >
               <NavLink to="/gallery">Image Gallery</NavLink>
             </NavItem>
-            <NavItem >
+            {/* <NavItem >
               <NavLink to="/activities">Activities</NavLink>
-            </NavItem>
+            </NavItem> */}
             <NavItem >
               <NavLink to="/register">Register</NavLink>
             </NavItem>
@@ -59,9 +59,9 @@ const NavBar = ({token, setToken}) => {
             <NavItem >
               <NavLink to="/gallery">Image Gallery</NavLink>
             </NavItem>
-            <NavItem >
+            {/* <NavItem >
               <NavLink to="/activities">Activities</NavLink>
-            </NavItem>
+            </NavItem> */}
             <NavItem>
               <NavLink onClick={logOut} id="nav-logout">Log Out</NavLink>
             </NavItem>

@@ -31,7 +31,7 @@ const Weather = ({centerPosition}) => {
   } else {
     return(
       <div key="weather-container" className="weather-container">
-        <h2>Weather Forcast</h2>
+        {/* <h2>Weather Forcast</h2> */}
         <div key='weather-days-container' className='weather-days-container'>
           {weather && weather.map(w => {
 
