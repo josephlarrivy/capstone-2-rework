@@ -1,12 +1,11 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "../NavBar";
 
 import '../css/Home.css'
+import Banner from "./Banner";
 
-const Home = ({token, setToken}) => {
-
-
-
+const Home = ({ token, setToken }) => {
+  
 
   return (
     <div className="home-container">
@@ -15,8 +14,8 @@ const Home = ({token, setToken}) => {
         setToken={setToken}
       />
       <div className="home-main">
-        <h1>Home</h1>
-
+        <h1>Discover Your Next Adventure</h1>
+        <Banner />      
       </div>
     </div>
   )
