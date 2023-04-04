@@ -70,7 +70,7 @@ const PhotoGallery = ({token, setToken}) => {
         )}
         <div className="page-bottom">
           {loadingMoreImages
-            ? <div className="loading-div"></div>
+            ? <div>Loading</div>
             : <button
               className="load-more-images-button"
               onClick={() => {

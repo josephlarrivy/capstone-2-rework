@@ -2,12 +2,11 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Route, Routes } from 'react-router-dom';
 
 import Map from "./components/Map";
-import NavBar from './NavBar'
 import RegisterForm from "./forms/RegisterForm";
 import LoginForm from "./forms/LoginForm";
-// import AllParks from "./parksComponents/AllParks";
 import Park from "./components/Park";
 import Home from "./components/Home";
+import Supplemental from "./components/Supplemental";
 
 import './css/NavBar.css'
 import PhotoGallery from "./components/PhotoGallery";
@@ -61,7 +60,13 @@ const ApplicationRoutes = ({token, setToken}) => {
             setToken={setToken}
           />}
         />
-
+        <Route
+          exact path="supplemental/:type/:USstate"
+          element={<Supplemental
+            token={token}
+            setToken={setToken}
+          />}
+        />
       </Routes>
 
     </>
