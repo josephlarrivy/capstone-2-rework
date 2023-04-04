@@ -1,17 +1,17 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Route, Routes } from 'react-router-dom';
 
-import Home from "./components/Home";
+import Map from "./components/Map";
 import NavBar from './NavBar'
 import RegisterForm from "./forms/RegisterForm";
 import LoginForm from "./forms/LoginForm";
 // import AllParks from "./parksComponents/AllParks";
 import Park from "./components/Park";
+import Home from "./components/Home";
 
 import './css/NavBar.css'
 import PhotoGallery from "./components/PhotoGallery";
 
-import Activities from "./components/Activities";
 
 const ApplicationRoutes = ({token, setToken}) => {
 
@@ -24,14 +24,20 @@ const ApplicationRoutes = ({token, setToken}) => {
         setToken={setToken}
       /> */}
       <Routes>
-        <Route
-          exact path="/"
+        <Route exact path="/"
           element={
             <Home
               token={token}
               setToken={setToken}
-            />
-          }/>
+            />}
+        />
+        <Route exact path="/map"
+          element={
+            <Map
+              token={token}
+              setToken={setToken}
+            />}
+        />
         <Route exact path="/register"
           element={
           <RegisterForm
@@ -51,13 +57,6 @@ const ApplicationRoutes = ({token, setToken}) => {
         <Route
           exact path="/gallery"
           element={<PhotoGallery
-            token={token}
-            setToken={setToken}
-          />}
-        />
-        <Route
-          exact path="/activities"
-          element={<Activities
             token={token}
             setToken={setToken}
           />}
