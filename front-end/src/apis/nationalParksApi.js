@@ -12,7 +12,7 @@ class NParksServiceRequest {
       const method = 'get'
       const url = `${PARKS_BASE_URL}${endpoint}`
       const resp = await axios({ method, url, headers })
-      console.log(url)
+      // console.log(url)
       return (resp)
     } catch (err) {
       console.error(err);
@@ -68,11 +68,24 @@ class NParksServiceRequest {
 
   static async getSupplementalData(type, USstate) {
 
+    // if (type === 'events') {
+    //   const resp = await this.makeRequest(`/${type}?stateCode=${USstate}`)
+    //   console.log(resp.data.data)
+
+    // } else if (type === 'articles') {
+    //   const resp = await this.makeRequest(`/${type}?stateCode=${USstate}`)
+    //   console.log(resp.data.data)
+
+    // } else if (type === 'thingstodo') {
+    //   const resp = await this.makeRequest(`/${type}?stateCode=${USstate}`)
+    //   console.log(resp.data.data)
+
+    // }
+
     const resp = await this.makeRequest(`/${type}?stateCode=${USstate}`)
-    console.log(resp.data)
+    // console.log(resp.data.data)
 
-
-    return 'success'
+    return resp.data.data
   }
 
 
