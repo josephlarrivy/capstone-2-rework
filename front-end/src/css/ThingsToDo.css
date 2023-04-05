@@ -1,0 +1,22 @@
+#things-to-do-container {
+
+}
+
+.supplemental-things-to-do-item-container {
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin-bottom: 20px;
+    /* width: 95%; */
+    display: flex;
+    justify-content: space-around;
+}
+
+.supplemental-things-to-do-item-container-main {
+    width: 65%;
+    background-color: aqua;
+}
+
+.supplemental-articles-item-container-other {
+   width: 30%;
+   background-color: pink;
+}

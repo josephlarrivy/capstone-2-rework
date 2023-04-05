@@ -22,12 +22,6 @@ h4 {
     margin-bottom: 10px;
 }
 
-.tags-contaier {
-    width: inherit;
-    display: flex;
-    justify-content: space-between;
-}
-
 .supplemental-articles-item-container a {
     text-decoration: none;
     font-size: 16px;
@@ -37,6 +31,15 @@ h4 {
     text-decoration: underline black;
 }
 
-.supplemental-articles-item-container a:hover::after {
-    text-decoration: underline black;
+
+
+
+
+.supplemental-articles-item-container-main {
+    width: 70%;
+}
+
+
+.supplemental-articles-item-container-other{
+   width: 30%;
 }

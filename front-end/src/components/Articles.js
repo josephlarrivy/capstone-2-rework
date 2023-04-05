@@ -15,10 +15,11 @@ const Articles = ({ stateName, data }) => {
       {data && data.map(item => {
         return (
           <div key={item.id} className="supplemental-articles-item-container">
-            <a href={item.url} target="_blank"><h4>{item.title}</h4></a>
-            <p>{item.listingDescription}</p>
-            
-            <div className="tags-contaier">
+            <div className="supplemental-articles-item-container-main">
+              <a href={item.url} target="_blank"><h4>{item.title}</h4></a>
+              <p>{item.listingDescription}</p>
+            </div>
+            <div className="supplemental-articles-item-container-other">
               {/* {item.tags && item.tags.map(tag => {
                 return (
                   <p>{tag}</p>
