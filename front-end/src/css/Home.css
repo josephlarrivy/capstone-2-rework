@@ -1,8 +1,10 @@
 .home-container {
+    overflow-x: hidden;
+    /* overflow-y: scroll; */
 }
 
 .home-main {
     text-align: center;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
