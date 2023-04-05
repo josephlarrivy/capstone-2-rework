@@ -14,19 +14,32 @@ const Articles = ({ stateName, data }) => {
       <h1>Articles about {stateName}</h1>
       {data && data.map(item => {
         return (
-          <div key={item.id} className="supplemental-articles-item-container">
-            <div className="supplemental-articles-item-container-main">
-              <a href={item.url} target="_blank"><h4>{item.title}</h4></a>
-              <p>{item.listingDescription}</p>
-            </div>
-            <div className="supplemental-articles-item-container-other">
-              {/* {item.tags && item.tags.map(tag => {
-                return (
-                  <p>{tag}</p>
-                )
-              })} */}
-            </div>
-          </div>
+          <>
+            {item.listingImage.url
+            ?
+              <div key={item.id} className="supplemental-articles-item-container">
+
+                <div className="supplemental-articles-image-container">
+                  {item.listingImage.url
+                    ? <div className="supplemental-articles-item-image-container">
+                      <img src={item.listingImage.url}></img>
+                    </div>
+                    : <div className="supplemental-articles-item-noimage-container">
+                      <p>no image</p>
+                    </div>
+                  }
+                </div>
+
+                <div className="supplemental-articles-item-container-info">
+                  <a href={item.url} target="_blank"><h4>{item.title}</h4></a>
+                  <p>{item.listingDescription}</p>
+                </div>
+
+              </div>
+            : <></>
+            }
+          </>
+          
         )
       })}
     </div>

@@ -45,3 +45,7 @@
   background-color: black;
   margin-left: 80vw;
 }
+
+body {
+  /* overflow-y: hidden; */
+}

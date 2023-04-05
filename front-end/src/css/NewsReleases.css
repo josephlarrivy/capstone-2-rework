@@ -32,6 +32,11 @@
     padding: 10px;
 }
 
+.news-release-info-container a {
+    color: black;
+    text-decoration: underline black;
+}
+
 .news-release-title {
     font-size: 24px;
     margin: 10px 0;
