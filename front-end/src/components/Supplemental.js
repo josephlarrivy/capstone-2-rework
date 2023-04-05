@@ -7,6 +7,8 @@ import Events from "./Events";
 import Articles from "./Articles";
 import ThingsToDo from "./ThingsToDo";
 
+import '../css/Banner.css'
+
 const Supplemental = ({token, setToken}) => {
 
   const [data, setData] = useState(null)
@@ -21,10 +23,6 @@ const Supplemental = ({token, setToken}) => {
     getData()
     convertStateName(USstate)
   }, [])
-
-  // useEffect(() => {
-  //   console.log(data)
-  // }, [data])
 
   return (
     <div id="supplemental-container">

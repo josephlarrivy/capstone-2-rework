@@ -40,7 +40,7 @@ h4 {
 .supplemental-events-item-container-main {
     width: 67%;
     min-height: 100%;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
 
@@ -48,7 +48,7 @@ h4 {
     width: 32%;
     margin-left: 2%;
     min-height: 100%;
-    background-color: pink;
+    /* background-color: pink; */
 }
 
 .supplemental-events-item-container-other p {

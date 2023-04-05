@@ -1,5 +1,7 @@
 #things-to-do-container {
-
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .supplemental-things-to-do-item-container {
@@ -9,14 +11,15 @@
     /* width: 95%; */
     display: flex;
     justify-content: space-around;
+    
 }
 
 .supplemental-things-to-do-item-container-main {
     width: 65%;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
 .supplemental-articles-item-container-other {
    width: 30%;
-   background-color: pink;
+   /* background-color: pink; */
 }

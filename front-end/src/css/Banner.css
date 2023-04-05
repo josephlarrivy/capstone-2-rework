@@ -4,6 +4,7 @@
     height: 250px;
     display: flex;
     justify-content: space-around;
+    overflow-x: hidden;
 }
 
 #banner-one-div-one {
@@ -37,4 +38,8 @@
 }
 #banner-one-div-three:hover {
     scale: 1.02;
+}
+
+#supplemental-container {
+    overflow: hidden;
 }

@@ -4,8 +4,10 @@ import '../css/ThingsToDo.css'
 
 const ThingsToDo = ({ stateName, data }) => {
 
+
   useEffect(() => {
     console.log(data)
+    
   }, [])
 
 
@@ -15,13 +17,21 @@ const ThingsToDo = ({ stateName, data }) => {
       {data && data.map(item => {
         return (
           <div key={item.id} className="supplemental-things-to-do-item-container">
-
             <div className="supplemental-things-to-do-item-container-main">
               <h4>{item.title}</h4>
+              {item.location &&
+                <p><b>Location: </b>{item.location}</p>
+              }
               <p>{item.shortDescription}</p>
               <a href={item.url} target="_blank">nps.gov</a>
             </div>
             <div className="supplemental-articles-item-container-other">
+              <p>
+                <b>Activity: </b>
+                {item.activities && (
+                  <span>{item.activities[0].name}</span>
+                )}
+              </p>
               
             </div>
           </div>
