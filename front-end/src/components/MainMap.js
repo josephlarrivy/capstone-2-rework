@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
-
 import '../css/MainMap.css'
 
 const MainMap = ({showingParks}) => {

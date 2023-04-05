@@ -3,6 +3,7 @@ import NavBar from "../NavBar";
 
 import '../css/Home.css'
 import Banner from "./Banner";
+import NewsReleases from "./NewsReleases";
 
 const Home = ({ token, setToken }) => {
   
@@ -15,7 +16,8 @@ const Home = ({ token, setToken }) => {
       />
       <div className="home-main">
         <h1>Discover Your Next Adventure</h1>
-        <Banner />      
+        <Banner />
+        <NewsReleases />      
       </div>
     </div>
   )

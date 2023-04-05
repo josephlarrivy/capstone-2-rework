@@ -68,23 +68,13 @@ class NParksServiceRequest {
 
   static async getSupplementalData(type, USstate) {
 
-    // if (type === 'events') {
-    //   const resp = await this.makeRequest(`/${type}?stateCode=${USstate}`)
-    //   console.log(resp.data.data)
-
-    // } else if (type === 'articles') {
-    //   const resp = await this.makeRequest(`/${type}?stateCode=${USstate}`)
-    //   console.log(resp.data.data)
-
-    // } else if (type === 'thingstodo') {
-    //   const resp = await this.makeRequest(`/${type}?stateCode=${USstate}`)
-    //   console.log(resp.data.data)
-
-    // }
-
     const resp = await this.makeRequest(`/${type}?stateCode=${USstate}`)
-    // console.log(resp.data.data)
 
+    return resp.data.data
+  }
+
+  static async getNewsReleases(limit = '5') {
+    const resp = await this.makeRequest(`/newsreleases?limit=${limit}`)
     return resp.data.data
   }
 
