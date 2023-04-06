@@ -10,7 +10,6 @@ const NewsReleases = () => {
   useEffect(() => {
     const getData = async () => {
       const response = await NParksServiceRequest.getNewsReleases(6)
-      console.log(response)
       setReleases(response)
     }
     getData()

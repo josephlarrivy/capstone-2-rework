@@ -78,6 +78,10 @@ class NParksServiceRequest {
     return resp.data.data
   }
 
+  static async getAlerts(limit = '9') {
+    const resp = await this.makeRequest(`/alerts?stateCode=&limit=${limit}`)
+    return resp.data.data
+  }
 
 }
 
