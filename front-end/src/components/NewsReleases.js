@@ -6,14 +6,15 @@ import '../css/NewsReleases.css'
 const NewsReleases = () => {
 
   const [releases, setReleases] = useState(null)
+  const [numReleases, setNumReleases] = useState(6)
 
   useEffect(() => {
     const getData = async () => {
-      const response = await NParksServiceRequest.getNewsReleases(6)
+      const response = await NParksServiceRequest.getNewsReleases(numReleases)
       setReleases(response)
     }
     getData()
-  }, [])
+  }, [numReleases])
 
   function formatDate(dateString) {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -31,6 +32,10 @@ const NewsReleases = () => {
     return (`${month} ${day}, ${year} at ${formattedHour}:${formattedMinute} ${period}`);
   }
 
+  function getMoreReleases() {
+    setNumReleases(numReleases + 6)
+    console.log('get more releases')
+  }
 
   return (
     <div id="news-releases-inner-container">
@@ -52,14 +57,14 @@ const NewsReleases = () => {
               <a href={item.url} target="_blank">
                 <p className="news-release-title">{item.title}</p>
               </a>
-              <p className="news-release-abstract">{item.abstract}</p>
               <p className="news-release-date">{forMattedDate}</p>
-              
+              <p className="news-release-abstract">{item.abstract}</p>
             </div>
           </div>
         )
       })
       }
+      <button onClick={getMoreReleases}>See More News Releases</button>
     </div>
   )
 }

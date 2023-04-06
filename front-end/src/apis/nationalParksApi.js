@@ -83,6 +83,12 @@ class NParksServiceRequest {
     return resp.data.data
   }
 
+  static async getParkName(code) {
+    const resp = await this.makeRequest(`/parks?parkCode=${code}`)
+    const data = resp.data.data[0].fullName
+    console.log(data)
+  }
+
 }
 
 export default NParksServiceRequest;
