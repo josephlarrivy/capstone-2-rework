@@ -1,43 +1,64 @@
-#banner-one {
-    background-color: black;
-    width: 100%;
-    height: 250px;
+#banner-one-container {
+    /* background-color: black; */
+        background-image: url('../images/everyglades-banner-image.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 30% 70%;
+        width: 94%;
+        margin-left: 3%;
+        height: 250px;
+}
+
+#banner-one-buttons {
     display: flex;
     justify-content: space-around;
     overflow-x: hidden;
+    padding: 30px;
 }
 
+#banner-one-container h1 {
+    color: white;
+}
+
+#state-select {
+    /* background-color: white; */
+}
+
+
 #banner-one-div-one {
-    background-color: red;
-    height: 230px;
-    margin-top: 10px;
-    width: 32%;
+    background-color: white;
+    height: 50px;
+    margin: auto auto;
+    width: 150px;
+    border-radius: 10px;
     transition: 300ms ease-in-out;
 }
 #banner-one-div-one:hover {
-    scale: 1.02;
+    scale: 1.08;
 }
 
 #banner-one-div-two {
-    background-color: red;
-    height: 230px;
-    margin-top: 10px;
-    width: 32%;
+    background-color: white;
+    height: 50px;
+    margin: auto auto;
+    width: 150px;
+    border-radius: 10px;
     transition: 300ms ease-in-out;
 }
 #banner-one-div-two:hover {
-    scale: 1.02;
+    scale: 1.08;
 }
 
 #banner-one-div-three {
-    background-color: red;
-    height: 230px;
-    margin-top: 10px;
-    width: 32%;
+    background-color: white;
+    height: 50px;
+    margin: auto auto;
+    width: 150px;
+    border-radius: 10px;
     transition: 300ms ease-in-out;
 }
 #banner-one-div-three:hover {
-    scale: 1.02;
+    scale: 1.08;
 }
 
 #supplemental-container {

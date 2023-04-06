@@ -1,0 +1,11 @@
+#state-select {
+    /* background-color: white; */
+}
+
+#state-select-dropdown {
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+}

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../css/StateSelect.css'
+
 const StateSelect = ({ USstate, setUSstate }) => {
 
   const handleStateSelect = (event) => {
@@ -9,8 +11,9 @@ const StateSelect = ({ USstate, setUSstate }) => {
   return (
     <div id="state-select">
       <form>
-        <label htmlFor="state-select">Select a state:</label>
-        <select id="state-select" name="state-select" onChange={handleStateSelect}>
+        <label htmlFor="state-select"></label>
+        <select id="state-select-dropdown" name="state-select" onChange={handleStateSelect}>
+          <option value="placeholder">Select a state</option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
           <option value="AZ">Arizona</option>

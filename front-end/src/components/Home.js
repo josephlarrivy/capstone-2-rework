@@ -15,8 +15,8 @@ const Home = ({ token, setToken }) => {
         setToken={setToken}
       />
       <div className="home-main">
-        <h1>Discover Your Next Adventure</h1>
         <Banner />
+        <br></br>
         <NewsReleases />      
       </div>
     </div>

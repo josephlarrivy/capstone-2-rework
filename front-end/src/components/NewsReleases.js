@@ -9,7 +9,7 @@ const NewsReleases = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await NParksServiceRequest.getNewsReleases(5)
+      const response = await NParksServiceRequest.getNewsReleases(6)
       console.log(response)
       setReleases(response)
     }
@@ -44,13 +44,14 @@ const NewsReleases = () => {
               ? <div className="news-release-image-container">
                   <img src={item.image.url}></img>
                 </div>
-              : <div className="news-release-missing-image-container">
-                  <p>no image</p>
+              : <div className="news-release-image-container">
+                <img src={require('../images/black.png')}></img>
+                {/* <p>no image</p> */}
                 </div>
             }
             <div className="news-release-info-container">
               <a href={item.url} target="_blank">
-                <h4 className="news-release-title">{item.title}</h4>
+                <p className="news-release-title">{item.title}</p>
               </a>
               <p className="news-release-abstract">{item.abstract}</p>
               <p className="news-release-date">{forMattedDate}</p>
