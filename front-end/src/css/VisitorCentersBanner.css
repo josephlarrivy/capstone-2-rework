@@ -1,0 +1,38 @@
+#visitor-center-search-container {
+    /* background-color: black; */
+    background-image: url('../images/visitor-center.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 30% 70%;
+    width: 94%;
+    margin-left: 3%;
+    height: 300px;
+}
+
+#visitor-center-search-container h1 {
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    padding-top: 30px;
+}
+
+#state-select {
+    /* background-color: white; */
+}
+
+#search-button {
+    background-color: white;
+    height: 50px;
+    margin: auto auto;
+    width: 150px;
+    border-radius: 10px;
+    transition: 300ms ease-in-out;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#search-button:hover {
+    scale: 1.1;
+}

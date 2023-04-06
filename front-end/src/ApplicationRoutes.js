@@ -7,6 +7,7 @@ import LoginForm from "./forms/LoginForm";
 import Park from "./components/Park";
 import Home from "./components/Home";
 import Supplemental from "./components/Supplemental";
+import VisitorCenters from "./components/VisitorCenters";
 
 import './css/NavBar.css'
 import PhotoGallery from "./components/PhotoGallery";
@@ -63,6 +64,13 @@ const ApplicationRoutes = ({token, setToken}) => {
         <Route
           exact path="supplemental/:type/:USstate"
           element={<Supplemental
+            token={token}
+            setToken={setToken}
+          />}
+        />
+        <Route
+          exact path="visitorcenters/:USstate"
+          element={<VisitorCenters
             token={token}
             setToken={setToken}
           />}

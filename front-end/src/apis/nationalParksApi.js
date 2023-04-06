@@ -89,6 +89,12 @@ class NParksServiceRequest {
     console.log(data)
   }
 
+  static async getVisitorCentersByState(state) {
+    const resp = await this.makeRequest(`/visitorcenters?stateCode=${state}`)
+    const data = resp.data.data
+    console.log(data)
+  }
+
 }
 
 export default NParksServiceRequest;

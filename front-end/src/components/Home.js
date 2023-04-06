@@ -5,6 +5,7 @@ import '../css/Home.css'
 import Banner from "./Banner";
 import NewsReleases from "./NewsReleases";
 import Alerts from "./Alerts";
+import VisitorCentersBanner from "./VisitorCentersBanner";
 
 const Home = ({ token, setToken }) => {
   
@@ -18,7 +19,11 @@ const Home = ({ token, setToken }) => {
       <div className="home-main">
         <Banner />
         <br></br>
+        <br></br>
         <NewsReleases />
+        <br></br>
+        <VisitorCentersBanner />
+        <br></br>
         <br></br>
         <Alerts />
       </div>
