@@ -47,13 +47,13 @@ const VisitorCenters = ({token, setToken}) => {
               </div>
               <div className="visitor-centers-item-header">
                 <p className="visitor-center-name">{item.name}</p>
-                <p className="visitor-center-description">{item.description}</p>
-              </div>
-              <div className="visitor-centers-item-info">  
-                {item.addresses.length>0
+                {item.addresses.length > 0
                   ? <p>{item.addresses[0].line1} {item.addresses[0].city}, {item.addresses[0].stateCode} {item.addresses[0].postalCode}</p>
                   : <p></p>
                 }
+                <p className="visitor-center-description">{item.description}</p>
+              </div>
+              <div className="visitor-centers-item-info">  
                 {item.contacts.emailAddresses.length > 0
                   ? <p>email: {item.contacts.emailAddresses[0].emailAddress}</p>
                   : <p></p>

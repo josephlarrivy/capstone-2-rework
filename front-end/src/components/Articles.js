@@ -22,11 +22,12 @@ const Articles = ({ stateName, data }) => {
                 <div className="supplemental-articles-image-container">
                   {item.listingImage.url
                     ? <div className="supplemental-articles-item-image-container">
-                      <img src={item.listingImage.url}></img>
-                    </div>
-                    : <div className="supplemental-articles-item-noimage-container">
-                      <p>no image</p>
-                    </div>
+                        <img src={item.listingImage.url}></img>
+                      </div>
+                    : <div
+                        className="supplemental-articles-item-noimage-container">
+                        <p>no image</p>
+                      </div>
                   }
                 </div>
 

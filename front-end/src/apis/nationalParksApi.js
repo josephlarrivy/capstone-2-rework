@@ -32,8 +32,7 @@ class NParksServiceRequest {
 
   static async getSingleParkData(code) {
     const resp = await this.makeRequest(`/parks?parkCode=${code}`)
-    const singleParkData = (resp.data.data[0])
-    return singleParkData
+    return resp.data.data[0]
   }
 
   static async getRandomImages(limit = '700') {
@@ -52,7 +51,7 @@ class NParksServiceRequest {
     for (let park of list) {
       parksArray.push(park)
     }
-    console.log(parksArray)
+    // console.log(parksArray)
 
     const imagesArray = []
     for (let idx of idxArr) {
@@ -83,8 +82,7 @@ class NParksServiceRequest {
 
   static async getParkName(code) {
     const resp = await this.makeRequest(`/parks?parkCode=${code}`)
-    const data = resp.data.data[0].fullName
-    console.log(data)
+    return resp.data.data[0].fullName
   }
 
   static async getVisitorCentersByState(state) {

@@ -11,7 +11,7 @@ const Alerts = () => {
   useEffect(() => {
     const getData = async () => {
       const response = await NParksServiceRequest.getAlerts(numAlerts)
-      console.log(response)
+      // console.log(response)
       setAlerts(response)
     }
     getData()
@@ -46,16 +46,20 @@ const Alerts = () => {
 
   function getMoreAlerts() {
     setNumAlerts(numAlerts+6)
-    console.log('get more alerts')
+    // console.log('get more alerts')
   }
+
+  
 
   return (
     <div id="alerts-container">
       <h1>Alerts</h1>
       <div id="alerts-items">
         {alerts && alerts.map(item => {
+
           let forMattedDate = formatDate(item.lastIndexedDate)
           let convertedAlertType = convertAlertType(item.category)
+          
           return (
             <div key={item.id} className="alert-item">
               <div className={convertedAlertType}>
