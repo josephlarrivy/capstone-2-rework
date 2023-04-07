@@ -22,10 +22,13 @@ const Home = ({ token, setToken }) => {
         <br></br>
         <NewsReleases />
         <br></br>
+        <br></br>
         <VisitorCentersBanner />
         <br></br>
         <br></br>
         <Alerts />
+        <br></br>
+        <br></br>
       </div>
     </div>
   )

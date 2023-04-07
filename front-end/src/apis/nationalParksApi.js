@@ -67,9 +67,7 @@ class NParksServiceRequest {
   }
 
   static async getSupplementalData(type, USstate) {
-
     const resp = await this.makeRequest(`/${type}?stateCode=${USstate}`)
-
     return resp.data.data
   }
 
@@ -91,8 +89,7 @@ class NParksServiceRequest {
 
   static async getVisitorCentersByState(state) {
     const resp = await this.makeRequest(`/visitorcenters?stateCode=${state}`)
-    const data = resp.data.data
-    console.log(data)
+    return resp.data.data
   }
 
 }
