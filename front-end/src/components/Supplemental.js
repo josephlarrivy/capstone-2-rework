@@ -8,6 +8,7 @@ import Articles from "./Articles";
 import ThingsToDo from "./ThingsToDo";
 
 import '../css/Banner.css'
+import Loading from "./Loading";
 
 const Supplemental = ({token, setToken}) => {
 
@@ -31,7 +32,7 @@ const Supplemental = ({token, setToken}) => {
         setToken={setToken}
       />
       {data===null
-      ? <p>loading</p>
+      ? <Loading />
       : <div className="supplemental-main">
         {type==='events'&& 
           <Events stateName={stateName} data={data}/>

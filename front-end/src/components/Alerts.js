@@ -53,7 +53,7 @@ const Alerts = () => {
 
   return (
     <div id="alerts-container">
-      <h1>Alerts</h1>
+      <h1>Park Alerts</h1>
       <div id="alerts-items">
         {alerts && alerts.map(item => {
 
@@ -82,7 +82,7 @@ const Alerts = () => {
         })
         }
       </div>
-      <button onClick={getMoreAlerts}>See More Alerts</button>
+      <button id='load-more-home-button' onClick={getMoreAlerts}>See More Alerts</button>
     </div>
   )
 }

@@ -34,6 +34,8 @@
     width: 150px;
     border-radius: 10px;
     transition: 300ms ease-in-out;
+    border: 2px solid black;
+    font-weight: bold;
 }
 #banner-one-div-one:hover {
     scale: 1.08;
@@ -47,6 +49,8 @@
     width: 150px;
     border-radius: 10px;
     transition: 300ms ease-in-out;
+    border: 2px solid black;
+    font-weight: bold;
 }
 #banner-one-div-two:hover {
     scale: 1.08;
@@ -60,7 +64,10 @@
     width: 150px;
     border-radius: 10px;
     transition: 300ms ease-in-out;
+    border: 2px solid black;
+    font-weight: bold;
 }
+
 #banner-one-div-three:hover {
     scale: 1.08;
     cursor: pointer;

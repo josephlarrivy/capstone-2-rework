@@ -3,11 +3,17 @@
 }
 
 
+
 #state-select-dropdown {
     width: 50%;
     height: 40px;
+    background-color: white;
+    height: 50px;
+    margin: auto auto;
     border-radius: 10px;
-    font-size: 20px;
+    transition: 300ms ease-in-out;
+    border: 2px solid black;
+    font-weight: bold;
     text-align: center;
-    cursor: pointer;
+    font-size: larger;
 }
