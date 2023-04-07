@@ -15,30 +15,20 @@ const Articles = ({ stateName, data }) => {
       {data && data.map(item => {
         return (
           <>
-            {item.listingImage.url
-            ?
-              <div key={item.id} className="supplemental-articles-item-container">
-
-                <div className="supplemental-articles-image-container">
-                  {item.listingImage.url
-                    ? <div className="supplemental-articles-item-image-container">
-                        <img src={item.listingImage.url}></img>
-                      </div>
-                    : <div
-                        className="supplemental-articles-item-noimage-container">
-                        <p>no image</p>
-                      </div>
-                  }
-                </div>
-
-                <div className="supplemental-articles-item-container-info">
-                  <a href={item.url} target="_blank"><h4>{item.title}</h4></a>
-                  <p>{item.listingDescription}</p>
-                </div>
-
+            <div className="articles-item-container">
+              {item.listingImage.url
+                ? <div className="articles-item-image-container">
+                    <img src={item.listingImage.url}></img>
+                  </div>
+                : <div className="articles-item-image-container">
+                    <img src={require('../images/black.png')}></img>
+                  </div>
+              }
+              <div className="articles-item-container-info">
+                <a href={item.url} target="_blank"><h4>{item.title}</h4></a>
+                <p>{item.listingDescription}</p>
               </div>
-            : <></>
-            }
+            </div>
           </>
           
         )
