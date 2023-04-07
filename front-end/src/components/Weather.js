@@ -15,13 +15,26 @@ const Weather = ({centerPosition}) => {
   useEffect(() => {
     const getWeatherData = async () => {
       const data = await weatherAPI.getWeather(centerPosition[0], centerPosition[1])
-      setWeather(data)
+      console.log(data)
+      const [first, , last] = data.slice(0, 3)
+      setWeather([first, last])
     }
     getWeatherData()
 
   }, [])
 
-
+  function convertTimestampToDayAndTime(timestamp) {
+    const date = new Date(timestamp);
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const dayOfWeek = daysOfWeek[date.getDay()];
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const formattedHours = hours % 12 || 12;
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+    const time = `${formattedHours}:${formattedMinutes} ${ampm}`;
+    return `${dayOfWeek} ${time}`;
+  }
 
 
   if (weather === null) {
@@ -35,9 +48,11 @@ const Weather = ({centerPosition}) => {
         <div key='weather-days-container' className='weather-days-container'>
           {weather && weather.map(w => {
 
+            const convertedDay = convertTimestampToDayAndTime(w.date.getTime())
+
             return (
-              <div key={w.temperature} className="weather-day">
-                <p><b>Next {w.date.getHours()} hours</b></p>
+              <div key={w.date} className="weather-day">
+                <p>{convertedDay}</p>
 
                 <div
                   className='weather-image'

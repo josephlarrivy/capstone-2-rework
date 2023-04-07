@@ -26,11 +26,11 @@ const VisitorCentersBanner = () => {
       {USstate === 'placeholder'
         ? <p></p>
         : <div
-          id="search-button"
-          onClick={(e) => handleFindVisitorCenters(e, 'events')}
-        >
-          <p>Find</p>
-        </div>
+            id="search-button"
+            onClick={(e) => handleFindVisitorCenters(e, 'events')}
+              >
+            <p>Find</p>
+          </div>
       }
     </div>
   )

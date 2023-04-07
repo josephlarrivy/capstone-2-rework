@@ -23,7 +23,7 @@ class weatherAPI {
 
   formatData(data) {
     const formattedData = [];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 5; i+=2) {
       const convertedTemp = this.convertCELtoFAH(data.list[i].main.temp)
       const weather = {
         date: new Date(data.list[i].dt * 1000),

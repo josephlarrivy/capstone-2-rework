@@ -29,12 +29,10 @@ const Park = ({token, setToken}) => {
   useEffect(() => {
     const getSingleParkData = async () => {
       let data = await NParksServiceRequest.getSingleParkData(parkCode.code)
-      // console.log(data)
-
+      console.log(data)
       setParkData(data)
       setCenterPosition([data.latitude, data.longitude])
       setNumImages(data.images.length)
-      
     }
     getSingleParkData()    
   }, [])
@@ -60,16 +58,43 @@ const Park = ({token, setToken}) => {
   } else {
     return (
       <div className="park">
-
         <NavBar
           token={token}
           setToken={setToken}
         />
+        <div className="park-main-container">
+
+          <div className="weather">
+            <Weather centerPosition={centerPosition} />
+          </div>
+
+          <div className="park-header-map-conatiner">
+            <MiniMap
+              zoom={zoom}
+              centerPosition={centerPosition}
+            />
+          </div>
+
+          <div className="park-header-nav">
+
+          </div>
+
+          <div className="park-header-main">
+            <h1>{parkData.fullName}</h1>
+          </div>
+
+
+        </div>
+
+
+
+
+
+
 
         <div className="park-leftside">
 
           <div className="park-header">
-            <h1>{parkData.fullName}</h1>
             <p><b>Location:</b> {parkData.addresses[0].city}, {parkData.addresses[0].stateCode}</p>
             <p><b>Designation:</b> {parkData.designation}</p>
             <p>{parkData.description}</p>
@@ -86,20 +111,12 @@ const Park = ({token, setToken}) => {
           <br></br>
 
 
-          <div className="weather">
-            <Weather centerPosition={centerPosition}/>
-          </div>
+          
 
           <br></br><br></br>
 
-          <div className="mini-map-conatiner">
-            <MiniMap
-              zoom={zoom}
-              centerPosition={centerPosition}
-            />
-          </div>
 
-          <br></br><br></br>
+          
         
         </div>
 
