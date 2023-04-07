@@ -1,8 +1,25 @@
 .sun-data-container {
-    width: 80%;
-    margin-left: 10%;
-    height: 150px;
-    /* background-color: aqua; */
+    width: 40%;
+    margin-left: 60%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+}
+
+.sunrise {
+    width: 30vw;
+    height: 100%;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+.sunset {
+    width: 30vw;
+    height: 100%;
+    text-align: center;
+    color: white;
     display: flex;
     justify-content: space-around;
 }
@@ -10,40 +27,18 @@
 
 
 
-.sunrise {
-    width: 100px;
-    height: 100%;
-    text-align: center;
-
-    /* background-color: black; */
-    color: black;
-    animation: drop-in;
-    animation-duration: 4s;
-}
-
-@keyframes drop-in {
-    0% {
-        max-height: 0px;
-        overflow: hidden;
-        opacity: 0;
-    }
-
-    50% {
-        max-height: 0px;
-        overflow: hidden;
-        opacity: 0;
-    }
-
-    100% {
-        max-height: 300px;
-        overflow: hidden;
-    }
-}
-
 #sunrise-animation {
-    width: 50px;
-    height: 50px;
-    margin-left: 25px;
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    background: yellow;
+    border-radius: 50%;
+    position: relative;
+}
+#sunset-animation {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
     background: yellow;
     border-radius: 50%;
     position: relative;
@@ -58,51 +53,8 @@
     height: 200%;
     border-radius: 50%;
     background: rgba(255, 255, 0, 0.3);
-    animation: sunrise 5s linear infinite;
+    animation: sunglow 5s linear infinite;
 }
-
-@keyframes sunrise {
-    0% {
-        transform: scale(0.7);
-    }
-
-    50% {
-        transform: scale(1.2);
-    }
-
-    100% {
-        transform: scale(0.7);
-    }
-}
-
-
-
-
-
-
-
-
-.sunset {
-    width: 100px;
-    height: 100%;
-    text-align: center;
-
-    /* background-color: black; */
-    color: black;
-    animation: drop-in;
-    animation-duration: 4s;
-}
-
-
-#sunset-animation {
-    width: 50px;
-    height: 50px;
-    margin-left: 25px;
-    background: yellow;
-    border-radius: 50%;
-    position: relative;
-}
-
 #sunset-animation:before {
     content: "";
     position: absolute;
@@ -112,10 +64,10 @@
     height: 200%;
     border-radius: 50%;
     background: rgba(255, 255, 0, 0.3);
-    animation: sunset 5s linear infinite;
+    animation: sunglow 5s linear infinite;
 }
 
-@keyframes sunset {
+@keyframes sunglow {
     0% {
         transform: scale(0.7);
     }
@@ -128,3 +80,16 @@
         transform: scale(0.7);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

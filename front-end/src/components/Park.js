@@ -75,8 +75,8 @@ const Park = ({token, setToken}) => {
             />
           </div>
 
-          <div className="park-header-nav">
-
+          <div className="park-map-footer">
+            <Sun centerPosition={centerPosition} />
           </div>
 
           <div className="park-header-main">
@@ -103,18 +103,6 @@ const Park = ({token, setToken}) => {
             <h2>Conditions</h2>
 
           </div>
-
-          <br></br>
-
-          <br></br>
-            <Sun centerPosition={centerPosition} />
-          <br></br>
-
-
-          
-
-          <br></br><br></br>
-
 
           
         
