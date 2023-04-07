@@ -10,6 +10,7 @@ import Weather from "./Weather";
 
 import NParksServiceRequest from "../apis/nationalParksApi";
 import Sun from "./Sun";
+import Loading from "./Loading";
 
 
 
@@ -54,7 +55,7 @@ const Park = ({token, setToken}) => {
 
   if (parkData === null) {
     return (
-      <h1>Loading</h1>
+      <Loading />
     )
   } else {
     return (

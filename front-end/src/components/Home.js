@@ -6,6 +6,7 @@ import Banner from "./Banner";
 import NewsReleases from "./NewsReleases";
 import Alerts from "./Alerts";
 import VisitorCentersBanner from "./VisitorCentersBanner";
+import ParksByStateBanner from "./ParksByStateBanner";
 
 const Home = ({ token, setToken }) => {
   
@@ -27,6 +28,11 @@ const Home = ({ token, setToken }) => {
         <br></br>
         <br></br>
         <Alerts />
+        <br></br>
+        <br></br>
+        <ParksByStateBanner />
+        <br></br>
+        <br></br>
         <br></br>
         <br></br>
       </div>

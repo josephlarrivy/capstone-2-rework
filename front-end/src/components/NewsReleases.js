@@ -39,7 +39,7 @@ const NewsReleases = () => {
 
   return (
     <div id="news-releases-inner-container">
-      <h1>NewsReleases</h1>
+      <h1>News Releases</h1>
       {releases && releases.map(item => {
         let forMattedDate = formatDate(item.releaseDate)
         return (

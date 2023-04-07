@@ -90,6 +90,11 @@ class NParksServiceRequest {
     return resp.data.data
   }
 
+  static async getParksByState(state) {
+    const resp = await this.makeRequest(`/parks?stateCode=${state}`)
+    return resp.data.data
+  }
+
 }
 
 export default NParksServiceRequest;
