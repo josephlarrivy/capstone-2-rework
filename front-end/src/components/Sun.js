@@ -12,7 +12,6 @@ const Sun = ({centerPosition}) => {
     const getSunData = async () => {
       let data = await SunriseSunset.getSunriseSunset(centerPosition[0], centerPosition[1])
       setSunData(data)
-      console.log(data.sunrise)
     }
     getSunData()
   }, [])

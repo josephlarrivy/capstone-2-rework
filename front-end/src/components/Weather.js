@@ -15,7 +15,7 @@ const Weather = ({centerPosition}) => {
   useEffect(() => {
     const getWeatherData = async () => {
       const data = await weatherAPI.getWeather(centerPosition[0], centerPosition[1])
-      console.log(data)
+      // console.log(data)
       const [first, , last] = data.slice(0, 3)
       setWeather([first, last])
     }

@@ -19,7 +19,7 @@
     text-align: center;
     align-items: center;
     /* border: 1px solid black; */
-    width: 30vw;
+    min-width: 25vw;
     height: 25px;
     color: white;
 

@@ -33,6 +33,16 @@
   margin-left: 30px;
 }
 
+.more-info-icon-park-page {
+  /* position: absolute; */
+  bottom: 0;
+  right: 0;
+  width: 15px;
+  height: auto;
+  opacity: 0.6;
+  margin: 3px;
+}
+
 
 /* ############################ */
 /* ############################ */
@@ -61,12 +71,11 @@
   position: absolute;
 } */
 
-.park-header {
+/* .park-header {
   position: relative;
   width: 48vw;
   margin-top: 2vh;
   margin-left: 2vw;
-  /* border: 1px solid black; */
   border-radius: 1vh;
   padding: 1vh;
   padding-left: 2vh;
@@ -79,7 +88,7 @@
   position: relative;
   width: 48vw;
   margin-left: 2vw;
-}
+} */
 
 
 
@@ -111,9 +120,9 @@
   }
 }
 
-.mini-map-conatiner {
+/* .mini-map-conatiner {
   
-}
+} */
 
 
 

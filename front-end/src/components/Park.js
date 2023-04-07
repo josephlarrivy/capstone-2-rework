@@ -80,33 +80,17 @@ const Park = ({token, setToken}) => {
           </div>
 
           <div className="park-header-main">
-            <h1>{parkData.fullName}</h1>
-          </div>
-
-
-        </div>
-
-
-
-
-
-
-
-        <div className="park-leftside">
-
-          <div className="park-header">
+            <h1>{parkData.fullName}  <a href={parkData.url} target='blank'><img className="more-info-icon-park-page" src={require('../images/more-info-icon.png')}></img></a></h1>
             <p><b>Location:</b> {parkData.addresses[0].city}, {parkData.addresses[0].stateCode}</p>
             <p><b>Designation:</b> {parkData.designation}</p>
             <p>{parkData.description}</p>
-            <a href={parkData.url} target='blank'>Visit Official Website</a>
-
-            <h2>Conditions</h2>
-
           </div>
 
           
-        
+
         </div>
+
+       
 
         
         <div className="images">
@@ -127,7 +111,10 @@ const Park = ({token, setToken}) => {
           ></img>
         </div>
 
-
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         
       </div>
     )
