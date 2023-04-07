@@ -31,11 +31,15 @@
     background-color: white;
     height: 50px;
     margin: auto auto;
-    width: 150px;
+    margin-top: 10px !important;
+    width: 250px;
     border-radius: 10px;
     transition: 300ms ease-in-out;
     border: 2px solid black;
     font-weight: bold;
+
+    animation: show-form;
+    animation-duration: 1s;
 }
 #banner-one-div-one:hover {
     scale: 1.08;
@@ -46,11 +50,15 @@
     background-color: white;
     height: 50px;
     margin: auto auto;
-    width: 150px;
+    margin-top: 10px !important;
+    width: 250px;
     border-radius: 10px;
     transition: 300ms ease-in-out;
     border: 2px solid black;
     font-weight: bold;
+
+    animation: show-form;
+    animation-duration: 1s;
 }
 #banner-one-div-two:hover {
     scale: 1.08;
@@ -61,11 +69,15 @@
     background-color: white;
     height: 50px;
     margin: auto auto;
-    width: 150px;
+    margin-top: 10px !important;
+    width: 250px;
     border-radius: 10px;
     transition: 300ms ease-in-out;
     border: 2px solid black;
     font-weight: bold;
+
+    animation: show-form;
+    animation-duration: 1s;
 }
 
 #banner-one-div-three:hover {
@@ -79,4 +91,22 @@
 
 .supplemental-main {
     /* overflow: scroll; */
+}
+
+
+
+@keyframes show-form {
+    0% {
+        opacity: 0;
+        margin-top: -100px;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: 10px;
+    }
 }

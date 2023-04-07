@@ -18,18 +18,25 @@ const VisitorCentersBanner = () => {
 
   return (
     <div id="visitor-center-search-container">
-      <h1>Find a Visitor Center</h1>
+      <h1>Find Visitor Centers</h1>
       <div id="state-select">
         <StateSelect USstate={USstate} setUSstate={setUSstate} />
       </div>
-      <div
-        id="search-button"
-        onClick={(e) => handleFindVisitorCenters(e, 'events')}
-      >
-        <p>Search</p>
-      </div>
+
+      {USstate === 'placeholder'
+        ? <p></p>
+        : <div
+          id="search-button"
+          onClick={(e) => handleFindVisitorCenters(e, 'events')}
+        >
+          <p>Find</p>
+        </div>
+      }
     </div>
   )
 }
+
+
+
 
 export default VisitorCentersBanner;

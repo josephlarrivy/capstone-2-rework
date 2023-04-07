@@ -63,7 +63,7 @@ const ThingsToDo = ({ stateName, data }) => {
                 ? <p><b>Duration: </b>{item.duration}</p>
                 : <p></p>
               }
-              {item.season
+              {item.season.length >0
                 ? <p><b>Seasons: </b>{seasonsBroken}</p>
                 : <p></p>
               }

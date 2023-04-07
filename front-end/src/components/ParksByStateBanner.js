@@ -41,7 +41,7 @@ const ParksByStateBanner = () => {
   return (
     <div id='parks-by-state-container'>
       {USstate === null
-        ? <h1>Pick a state to find Parks</h1>
+        ? <h1>Find a Park</h1>
         : <h1>Parks in {stateName}</h1>
       }
 
