@@ -7,6 +7,7 @@ import NewsReleases from "./NewsReleases";
 import Alerts from "./Alerts";
 import VisitorCentersBanner from "./VisitorCentersBanner";
 import ParksByStateBanner from "./ParksByStateBanner";
+import { Button } from "reactstrap";
 
 const Home = ({ token, setToken }) => {
   
@@ -24,13 +25,15 @@ const Home = ({ token, setToken }) => {
         <NewsReleases />
         <br></br>
         <br></br>
-        <VisitorCentersBanner />
+        <ParksByStateBanner />
+
         <br></br>
         <br></br>
         <Alerts />
         <br></br>
         <br></br>
-        <ParksByStateBanner />
+        <VisitorCentersBanner />
+
         <br></br>
         <br></br>
         <br></br>

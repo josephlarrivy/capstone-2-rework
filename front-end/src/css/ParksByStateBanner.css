@@ -6,8 +6,10 @@
     background-position: 30% 70%;
     width: 94%;
     margin-left: 3%;
-    height: 500px;
+    height: 350px;
 }
+
+
 
 #parks-by-state-container h1 {
     color: white;
@@ -28,7 +30,10 @@
     transition: 300ms ease-in-out;
     border: 2px solid black;
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 10px;
+
+    animation: show-form;
+    animation-duration: 1s;
 }
 
 #search-button:hover {
@@ -37,16 +42,51 @@
 }
 
 
-#search-parks-by-state-banner-items-container {
-    width: 90%;
-    height: 500px;
 
-    display: flex;
-    align-items: row;
+
+
+
+
+
+#park-select {
+    margin-top: 20px;
+    cursor: pointer;
 }
 
-.search-parks-by-state-banner-item {
-    width: 50px;
+
+
+#park-select-dropdown {
+    width: 50%;
+    height: 40px;
+    background-color: white;
     height: 50px;
-    background-color: aqua;
+    margin: auto auto;
+    border-radius: 10px;
+    transition: 300ms ease-in-out;
+    border: 2px solid black;
+    font-weight: bold;
+    text-align: center;
+    font-size: larger;
+    margin-top: 10px;
+
+    animation: show-form;
+    animation-duration: 1s;
+    }
+    
+@keyframes show-form {
+    0% {
+        opacity: 0;
+        margin-top: -100px;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: 10px;
+    }
 }
+
+

@@ -10,44 +10,74 @@ const ParksByStateBanner = () => {
 
   const [USstate, setUSstate] = useState(null)
   const [stateName, convertStateName] = useStateNameConverter();
-  const [parksList, setParksList] = useState([1])
+  const [parksList, setParksList] = useState(null)
+  const [selectedPark, setSelectedPark] = useState(null)
   const navigate = useNavigate();
 
   useEffect(() => {
     convertStateName(USstate)
+    const getParks = async () => {
+      if (USstate === null) {
+        console.log('null')
+      } else {
+        const response = await NParksServiceRequest.getParksByState(USstate)
+        console.log(response)
+        setParksList(response)
+      }
+    }
+    getParks()
   }, [USstate])
 
-  const handleFingParksByState = async (e) => {
-    if (USstate === null) {
-      console.log('null')
-    } else {
-      const response = await NParksServiceRequest.getParksByState(USstate)
-      console.log(response)
-    }
+
+  const handleParkSelect = (event) => {
+    // console.log(event.target.value)
+    setSelectedPark(event.target.value)
+  }
+
+  const handleGoToPark = async (e) => {
+    navigate(`/park/${selectedPark}`)
   }
 
   return (
-    <div id="parks-by-state-container">
+    <div id='parks-by-state-container'>
       {USstate === null
         ? <h1>Pick a state to find Parks</h1>
-        : <h1> See Parks in {stateName}</h1>
+        : <h1>Parks in {stateName}</h1>
       }
+
       <div id="state-select">
         <StateSelect USstate={USstate} setUSstate={setUSstate} />
       </div>
-      <div
-        id="search-button"
-        onClick={(e) => handleFingParksByState(e)}
-      >
-        <p>Search</p>
-      </div>
-      <div id="search-parks-by-state-banner-items-container">
-        <div className="search-parks-by-state-banner-item"></div>
-        <div className="search-parks-by-state-banner-item"></div>
-        <div className="search-parks-by-state-banner-item"></div>
-        <div className="search-parks-by-state-banner-item"></div>
-        <div className="search-parks-by-state-banner-item"></div>
-      </div>
+
+      {parksList && 
+        <form>
+          <label htmlFor="park-select"></label>
+          <select id="park-select-dropdown" name="park-select" onChange={handleParkSelect}>
+            {parksList.map(item => {
+              return (
+                <option
+                  key={item.parkCode}
+                  value={item.parkCode}
+                  onClick={handleParkSelect}
+                  >{item.name}
+                </option>
+              )
+            })}
+          </select>
+        </form>
+      }
+
+      {selectedPark === null
+        ? <p></p>
+        : <div
+            id="search-button"
+            onClick={(e) => handleGoToPark(e)}
+          ><p>View Park</p>
+          </div>
+      }
+      
+
+
     </div>
   )
 }
