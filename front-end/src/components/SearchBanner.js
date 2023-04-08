@@ -27,7 +27,7 @@ const SearchBanner = () => {
       return term.replace(/ /g, '%20');
     }
     const convertedSearchTerm = convertQuery(searchTerm)
-    // navigate(`${searchType}/${convertedSearchTerm}`)
+    navigate(`${searchType}/${convertedSearchTerm}`)
     console.log(`${searchType}/${convertedSearchTerm}`)
   }
 
@@ -35,27 +35,29 @@ const SearchBanner = () => {
     <div id='search-banner-container'>
       <h1>Search United States National Parks</h1>
       {/* <label for="searchBox">Search National Parks</label> */}
-      <input type="text" id="searchBox" name="username" onChange={handleChange}></input>
+      <input type="text" id="searchBox" name="username" onChange={handleChange} placeholder='search'></input>
 
+      {searchTerm === null
+        ? <p></p>
+        : 
       <form>
         <fieldset>
           <div>
+            <input type="radio" id="search-parks" name="searchType" value="searchParks" onClick={(e) => { selectSearchType(e) }} />
+            <label className="radio-label" htmlFor="search-parks">Parks</label>
 
-            <input type="radio" id="search-people" name="searchType" value="searchPeople" onClick={(e) => {selectSearchType(e)}}/>
-            <label htmlFor="search-people">People</label>
+            <input type="radio" id="search-articles" name="searchType" value="searchArticles" onClick={(e) => {selectSearchType(e)}}/>
+            <label className="radio-label" htmlFor="search-articles">Articles</label>
 
             <input type="radio" id="search-tours" name="searchType" value="searchTours" onClick={(e) => {selectSearchType(e)}}/>
-            <label htmlFor="search-tours">Tours</label>
-
-            <input type="radio" id="search-parks" name="searchType" value="searchParks" onClick={(e) => { selectSearchType(e) }} />
-            <label htmlFor="search-parks">Parks</label>
-
+            <label className="radio-label" htmlFor="search-tours">Tours</label>
           </div>
         </fieldset>
       </form>
+      }
 
 
-      {searchTerm === null
+      {searchType === null
         ? <p></p>
         : <div
           id="search-button"

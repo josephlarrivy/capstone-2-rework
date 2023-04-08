@@ -70,12 +70,12 @@ class NParksServiceRequest {
     return resp.data.data
   }
 
-  static async getNewsReleases(limit = '5') {
+  static async getNewsReleases(limit='5') {
     const resp = await this.makeRequest(`/newsreleases?limit=${limit}`)
     return resp.data.data
   }
 
-  static async getAlerts(limit = '9') {
+  static async getAlerts(limit='9') {
     const resp = await this.makeRequest(`/alerts?stateCode=&limit=${limit}`)
     return resp.data.data
   }
@@ -95,10 +95,18 @@ class NParksServiceRequest {
     return resp.data.data
   }
 
-  static async searchInParks(searchTerm, limit) {
-    console.log(searchTerm)
-    console.log(limit)
+  static async searchInParks(searchTerm, limit='10') {
     const resp = await this.makeRequest(`/parks?stateCode=&q=${searchTerm}&limit=${limit}`)
+    return resp.data.data
+  }
+
+  static async searchInArticles(searchTerm, limit='10') {
+    const resp = await this.makeRequest(`/articles?stateCode=&q=${searchTerm}&limit=${limit}`)
+    return resp.data.data
+  }
+
+  static async searchInTours(searchTerm, limit = '10') {
+    const resp = await this.makeRequest(`/tours?stateCode=&q=${searchTerm}&limit=${limit}`)
     return resp.data.data
   }
 

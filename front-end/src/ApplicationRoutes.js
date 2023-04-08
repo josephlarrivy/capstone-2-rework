@@ -12,6 +12,8 @@ import VisitorCenters from "./components/VisitorCenters";
 import './css/NavBar.css'
 import PhotoGallery from "./components/PhotoGallery";
 import ParksSearchResults from "./components/ParksSearchResults";
+import ArticlesSearchResults from "./components/ArticlesSearchResults";
+import ToursSearchResults from "./components/ToursSearchResults";
 
 
 const ApplicationRoutes = ({token, setToken}) => {
@@ -77,14 +79,27 @@ const ApplicationRoutes = ({token, setToken}) => {
           />}
         />
         <Route
-          exact path="/search/:searchTerm"
+          exact path="/searchParks/:searchTerm"
           element={<ParksSearchResults
             token={token}
             setToken={setToken}
           />}
         />
+        <Route
+          exact path="/searchArticles/:searchTerm"
+          element={<ArticlesSearchResults
+            token={token}
+            setToken={setToken}
+          />}
+        />
+        <Route
+          exact path="/searchTours/:searchTerm"
+          element={<ToursSearchResults
+            token={token}
+            setToken={setToken}
+          />}
+        />
       </Routes>
-
     </>
   )
 }

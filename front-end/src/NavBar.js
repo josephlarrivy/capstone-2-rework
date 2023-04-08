@@ -1,9 +1,9 @@
 import './css/NavBar.css'
 
 import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 import { Navbar, Nav, NavItem } from "reactstrap";
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 
 import useLocalStorage from './hooks/useLocalStorage';
 
@@ -11,6 +11,7 @@ import useLocalStorage from './hooks/useLocalStorage';
 const NavBar = ({token, setToken}) => {
 
   const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
+  const navigate = useNavigate();
 
   const logOut = () => {
     localRemoveToken()
@@ -22,6 +23,9 @@ const NavBar = ({token, setToken}) => {
     // console.log(token)
   },[])
   
+  const goBack = () => {
+    navigate(-1)
+  }
   
 
   if (token === undefined || token === null) {
@@ -29,6 +33,7 @@ const NavBar = ({token, setToken}) => {
       <div className='NavBar'>
         <Navbar>
           <Nav >
+            <button onClick={goBack}>Back</button>
             <NavItem >
               <NavLink to="/">Home</NavLink>
             </NavItem>
@@ -52,8 +57,9 @@ const NavBar = ({token, setToken}) => {
     return (
       <div className='NavBar'>
         <Navbar>
-          <Nav >
-            <NavItem >
+          <Nav>
+            <button onClick={goBack}>Back</button>
+            <NavItem>
               <NavLink to="/">Home</NavLink>
             </NavItem>
             <NavItem >

@@ -23,10 +23,10 @@ const Home = ({ token, setToken }) => {
         <SearchBanner />
         <br></br>
         <br></br>
-        <Banner />
-        <br></br>
-        <br></br>
         <NewsReleases />
+        <br></br>
+        <br></br>
+        <Banner />
         <br></br>
         <br></br>
         <ParksByStateBanner />

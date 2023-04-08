@@ -1,0 +1,43 @@
+#tours-search-results-main-container {}
+
+#tours-search-results-main-container h1 {
+    text-align: center;
+}
+
+#tours-search-results-items-container {
+    width: 90%;
+    margin: auto;
+}
+
+.tours-search-results-item-container {
+    border: 1px solid black;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.tours-search-result-image {
+    width: 180px;
+    height: 180px;
+}
+
+.tours-search-result-image img {
+    width: 180px;
+    height: 180px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.tours-search-results-info {
+    margin-left: 20px;
+}
+
+.tours-load-more-search-results {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: large;
+
+    cursor: pointer;
+}

@@ -30,7 +30,7 @@
     margin-top: 10px;
 
     animation: show-button;
-    animation-duration: 1s;
+    animation-duration: 300ms;
 }
 
 #search-button:hover {
@@ -46,12 +46,16 @@
     height: 50px;
     margin: auto auto;
     border-radius: 10px;
-    /* transition: 300ms ease-in-out; */
     border: 2px solid black;
-    /* font-weight: bold; */
     text-align: center;
     font-size: larger;
     cursor: pointer;
+    outline: none;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: black !important;
 }
 
 @keyframes show-button {
@@ -72,19 +76,34 @@
 
 
 
-fieldset {
+form fieldset {
     border: none;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
-label {
+.radio-label {
     font-weight: bold;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 300ms ease-in-out;
+    border: 2px solid black;
+
+    animation: show-button;
+    animation-duration: 1s;
 }
 
 input[type="radio"] {
-    font-weight: bold;
+    display: none;
 }
 
-input[type="radio"]:checked {
-    font-weight: bold;
+input[type="radio"]:checked+label {
+    background-color: black;
+    border: 2px solid white;
+    color: white;
 }
