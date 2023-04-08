@@ -95,8 +95,10 @@ class NParksServiceRequest {
     return resp.data.data
   }
 
-  static async searchNationalParks(searchTerm) {
-    const resp = await this.makeRequest(`/parks?stateCode=&q=${searchTerm}`)
+  static async searchInParks(searchTerm, limit) {
+    console.log(searchTerm)
+    console.log(limit)
+    const resp = await this.makeRequest(`/parks?stateCode=&q=${searchTerm}&limit=${limit}`)
     return resp.data.data
   }
 

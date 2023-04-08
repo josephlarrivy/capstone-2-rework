@@ -11,6 +11,7 @@ import VisitorCenters from "./components/VisitorCenters";
 
 import './css/NavBar.css'
 import PhotoGallery from "./components/PhotoGallery";
+import ParksSearchResults from "./components/ParksSearchResults";
 
 
 const ApplicationRoutes = ({token, setToken}) => {
@@ -71,6 +72,13 @@ const ApplicationRoutes = ({token, setToken}) => {
         <Route
           exact path="visitorcenters/:USstate"
           element={<VisitorCenters
+            token={token}
+            setToken={setToken}
+          />}
+        />
+        <Route
+          exact path="/search/:searchTerm"
+          element={<ParksSearchResults
             token={token}
             setToken={setToken}
           />}

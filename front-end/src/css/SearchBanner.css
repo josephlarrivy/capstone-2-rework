@@ -54,9 +54,6 @@
     cursor: pointer;
 }
 
-
-
-
 @keyframes show-button {
     0% {
         opacity: 0;
@@ -71,4 +68,23 @@
         opacity: 1;
         margin-top: 10px;
     }
+}
+
+
+
+fieldset {
+    border: none;
+    background-color: aqua;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="radio"] {
+    font-weight: bold;
+}
+
+input[type="radio"]:checked {
+    font-weight: bold;
 }
