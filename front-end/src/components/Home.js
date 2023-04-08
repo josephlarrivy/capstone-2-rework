@@ -8,6 +8,7 @@ import Alerts from "./Alerts";
 import VisitorCentersBanner from "./VisitorCentersBanner";
 import ParksByStateBanner from "./ParksByStateBanner";
 import { Button } from "reactstrap";
+import SearchBanner from "./SearchBanner";
 
 const Home = ({ token, setToken }) => {
   
@@ -19,6 +20,9 @@ const Home = ({ token, setToken }) => {
         setToken={setToken}
       />
       <div className="home-main">
+        <SearchBanner />
+        <br></br>
+        <br></br>
         <Banner />
         <br></br>
         <br></br>

@@ -1,0 +1,74 @@
+#search-banner-container {
+    /* background-color: black; */
+    background-image: url('../images/9224B04F-1DD8-B71B-0B6D9AC425D7B332HiResProxy.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 30% 70%;
+    width: 94%;
+    margin-left: 3%;
+    height: 300px;
+}
+
+
+
+#search-banner-container h1 {
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    padding-top: 30px;
+}
+
+
+#search-button {
+    background-color: white;
+    height: 50px;
+    margin: auto auto;
+    width: 150px;
+    border-radius: 10px;
+    transition: 300ms ease-in-out;
+    border: 2px solid black;
+    font-weight: bold;
+    margin-top: 10px;
+
+    animation: show-button;
+    animation-duration: 1s;
+}
+
+#search-button:hover {
+    scale: 1.08;
+    cursor: pointer;
+}
+
+
+#searchBox {
+    width: 50%;
+    height: 40px;
+    background-color: white;
+    height: 50px;
+    margin: auto auto;
+    border-radius: 10px;
+    /* transition: 300ms ease-in-out; */
+    border: 2px solid black;
+    /* font-weight: bold; */
+    text-align: center;
+    font-size: larger;
+    cursor: pointer;
+}
+
+
+
+
+@keyframes show-button {
+    0% {
+        opacity: 0;
+        margin-top: -100px;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: 10px;
+    }
+}
