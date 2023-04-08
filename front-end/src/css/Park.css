@@ -1,11 +1,11 @@
-.park {
+#park {
   width: 100%;
   /* overflow: hidden; */
   /* background-color: aqua; */
 }
 
 
-.park-main-container  {
+#park-main-container  {
   width: 100%;
   /* background-color: aqua; */
 }
@@ -43,6 +43,49 @@
   margin: 3px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#images-main-container {
+  width: 100%;
+  margin-bottom: 20vh;
+  height: 500px;
+  background-color: aqua;
+}
+
+#image-buttons-container {
+  /* position: absolute; */
+  /* width: 40vw; */
+  /* padding-left: 2vw; */
+  /* padding-right: 2vw; */
+  /* padding-top: 5vh; */
+  display: flex;
+  justify-content: space-between;
+  /* z-index: 5; */
+  background-color: black;
+}
+
+.park-image {
+  position: absolute;
+  width: 40vw;
+  margin-top: 3vh;
+  margin-left: 2vw;
+  /* padding: 1vw 2vw 2vw 2vw; */
+  /* margin-left: 5%; */
+  content: 'test';
+}
 
 /* ############################ */
 /* ############################ */
@@ -100,7 +143,7 @@
 
 
 
-@keyframes drop-in {
+/* @keyframes drop-in {
   0% {
     max-height: 0px;
     overflow: hidden;
@@ -118,7 +161,7 @@
     overflow: hidden;
     opacity: 1;
   }
-}
+} */
 
 /* .mini-map-conatiner {
   
@@ -128,36 +171,19 @@
 
 
 
-.images {
+/* .images {
   position: absolute;
   width: 44vw;
   margin-left: 54vw;
 
-}
+} */
 
 
 
 
-.image-buttons-container {
-  position: absolute;
-  width: 40vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  padding-top: 5vh;
-  display: flex;
-  justify-content: space-between;
-  z-index: 5;
-}
 
-.park-image {
-  position: absolute;
-  width: 40vw;
-  margin-top: 3vh;
-  margin-left: 2vw;
-  /* padding: 1vw 2vw 2vw 2vw; */
-  /* margin-left: 5%; */
-  content: 'test';
-}
+
+
 
 
 
@@ -172,7 +198,7 @@
   height: 80px;
   line-height: 40px;
   border-radius: 1vh;
-  margin-left: -2.5vw;
+  /* margin-left: -2.5vw; */
   cursor: pointer;
   
   animation: appear-images-arrow;
@@ -188,7 +214,7 @@
   height: 80px;
   line-height: 40px;
   border-radius: 1vh;
-  margin-left: -2.5vw;
+  /* margin-left: -2.5vw; */
 
   opacity: 0;
   animation: disappear-images-arrow;
@@ -204,7 +230,7 @@
   height: 80px;
   line-height: 40px;
   border-radius: 1vh;
-  margin-right: -2.5vw;
+  /* margin-right: -2.5vw; */
   cursor: pointer;
 
   animation: appear-images-arrow;
@@ -220,7 +246,7 @@
   height: 80px;
   line-height: 40px;
   border-radius: 1vh;
-  margin-right: -2.5vw;
+  /* margin-right: -2.5vw; */
 
   opacity: 0;
   animation: disappear-images-arrow;

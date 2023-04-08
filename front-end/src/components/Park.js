@@ -57,12 +57,12 @@ const Park = ({token, setToken}) => {
     )
   } else {
     return (
-      <div className="park">
+      <div id="park">
         <NavBar
           token={token}
           setToken={setToken}
         />
-        <div className="park-main-container">
+        <div id="park-main-container">
 
           <div className="weather">
             <Weather centerPosition={centerPosition} />
@@ -93,8 +93,8 @@ const Park = ({token, setToken}) => {
        
 
         
-        <div className="images">
-          <div className="image-buttons-container">
+        <div id="images-main-container">
+          <div id="image-buttons-container">
             {currentImageIdx > 0
               ? <div className="back-arrow" onClick={decreaseCurrentImageIdx}><p>prev</p></div>
               : <div className="back-arrow-off"><p>prev</p></div>
