@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import NParksServiceRequest from "../apis/nationalParksApi";
 import NavBar from "../NavBar";
 import '../css/ToursSearchResults.css'
@@ -9,11 +9,12 @@ const ToursSearchResults = ({ token, setToken }) => {
   const { searchTerm } = useParams()
   const [numResults, setNumResults] = useState(10)
   const [results, setResults] = useState(null)
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const doSearch = async () => {
       const response = await NParksServiceRequest.searchInTours(searchTerm, numResults)
-      console.log(searchTerm)
       console.log(response)
       setResults(response)
     }
@@ -24,13 +25,18 @@ const ToursSearchResults = ({ token, setToken }) => {
     setNumResults(numResults + 10)
   }
 
+  const viewTourDetails = (id) => {
+    console.log(`/tourDetails/${id}`)
+    navigate(`/tourDetails/${id}`)
+  }
+
   return (
     <div id="tours-search-results-main-container">
       <NavBar
         token={token}
         setToken={setToken}
       />
-      <h1>Search Results</h1>
+      <h1>Tours Search Results</h1>
       <div id="tours-search-results-items-container">
         {results && results.map(item => {
           return (
@@ -41,7 +47,9 @@ const ToursSearchResults = ({ token, setToken }) => {
                 ></img>
               </div>
               <div className="tours-search-results-info">
-                <p>{item.title}</p>
+                <h4>{item.title}</h4>
+                <button onClick={(e) => viewTourDetails(item.id)} >See More</button>
+                <p><b>Location:</b> {item.park.fullName}</p>
                 <p>{item.description}</p>
               </div>
             </div>

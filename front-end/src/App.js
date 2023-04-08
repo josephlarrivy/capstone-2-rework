@@ -18,6 +18,9 @@ function App() {
     setToken(token)
   }, [])
 
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+
 
   return (
     <>

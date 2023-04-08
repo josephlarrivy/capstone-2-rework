@@ -110,6 +110,18 @@ class NParksServiceRequest {
     return resp.data.data
   }
 
+  static async getTourDetails(id) {
+    const resp = await this.makeRequest(`/tours?id=${id}`)
+    return resp.data.data[0]
+  }
+
+  static async getParkLatLong(code) {
+    const resp = await this.makeRequest(`/parks?parkCode=${code}`)
+    const latitude = resp.data.data[0].latitude
+    const longitude = resp.data.data[0].longitude
+    return {latitude, longitude}
+  }
+
 }
 
 export default NParksServiceRequest;

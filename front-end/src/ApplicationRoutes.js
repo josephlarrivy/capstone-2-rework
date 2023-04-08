@@ -14,6 +14,7 @@ import PhotoGallery from "./components/PhotoGallery";
 import ParksSearchResults from "./components/ParksSearchResults";
 import ArticlesSearchResults from "./components/ArticlesSearchResults";
 import ToursSearchResults from "./components/ToursSearchResults";
+import TourDetails from "./components/TourDetails";
 
 
 const ApplicationRoutes = ({token, setToken}) => {
@@ -95,6 +96,13 @@ const ApplicationRoutes = ({token, setToken}) => {
         <Route
           exact path="/searchTours/:searchTerm"
           element={<ToursSearchResults
+            token={token}
+            setToken={setToken}
+          />}
+        />
+        <Route
+          exact path="/tourDetails/:id"
+          element={<TourDetails
             token={token}
             setToken={setToken}
           />}
