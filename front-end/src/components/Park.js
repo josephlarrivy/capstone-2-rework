@@ -23,7 +23,10 @@ const Park = ({token, setToken}) => {
   const [centerPosition, setCenterPosition] = useState(null)
 
   const [numImages, setNumImages] = useState(null)
-  const [currentImageIdx, setCurrentImageIdx] = useState(0)
+  const [imageOneIdx, setImageOneIdx] = useState(0)
+  const [imageTwoIdx, setImageTwoIdx] = useState(1)
+  const [imageThreeIdx, setImageThreeIdx] = useState(2)
+
 
 
   useEffect(() => {
@@ -39,11 +42,17 @@ const Park = ({token, setToken}) => {
 
 
   const increaseCurrentImageIdx = () => {
-    setCurrentImageIdx(currentImageIdx + 1)
+    // setCurrentImageIdx(currentImageIdx + 1)
+    setImageOneIdx(imageOneIdx+1)
+    setImageTwoIdx(imageTwoIdx+1)
+    setImageThreeIdx(imageThreeIdx+1)
   }
 
   const decreaseCurrentImageIdx = () => {
-    setCurrentImageIdx(currentImageIdx - 1)
+    // setCurrentImageIdx(currentImageIdx - 1)
+    setImageOneIdx(imageOneIdx-1)
+    setImageTwoIdx(imageTwoIdx-1)
+    setImageThreeIdx(imageThreeIdx-1)
   }
 
 
@@ -85,36 +94,47 @@ const Park = ({token, setToken}) => {
             <p><b>Designation:</b> {parkData.designation}</p>
             <p>{parkData.description}</p>
           </div>
-
-          
-
         </div>
 
-       
+
+
+
+
+
+        <div id="image-buttons-container">
+          {imageOneIdx > 0
+            ? <div className="back-arrow" onClick={decreaseCurrentImageIdx}><p>prev</p></div>
+            : <div className="back-arrow-off"><p>prev</p></div>
+          }
+          {imageThreeIdx < numImages - 1
+            ? <div className="forward-arrow" onClick={increaseCurrentImageIdx}><p>next</p></div>
+            : <div className="forward-arrow-off"><p>next</p></div>
+          }
+        </div>
 
         
         <div id="images-main-container">
-          <div id="image-buttons-container">
-            {currentImageIdx > 0
-              ? <div className="back-arrow" onClick={decreaseCurrentImageIdx}><p>prev</p></div>
-              : <div className="back-arrow-off"><p>prev</p></div>
-            }
-            {currentImageIdx < numImages - 1
-              ? <div className="forward-arrow" onClick={increaseCurrentImageIdx}><p>next</p></div>
-              : <div className="forward-arrow-off"><p>next</p></div>
-            }
+
+          <div className="park-image-one-container">
+            <img
+              src={parkData.images[imageOneIdx].url}
+            ></img>
           </div>
 
-          <img
-            className='park-image'
-            src={parkData.images[currentImageIdx].url}
-          ></img>
+          <div className="park-image-two-container">
+            <img
+              src={parkData.images[imageTwoIdx].url}
+            ></img>
+          </div>
+
+          <div className="park-image-three-container">
+            <img
+              src={parkData.images[imageThreeIdx].url}
+            ></img>
+          </div>
+          
         </div>
 
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
         
       </div>
     )

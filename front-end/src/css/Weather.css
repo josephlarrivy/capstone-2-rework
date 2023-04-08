@@ -1,7 +1,5 @@
 .weather-container {
     width: 100vw;
-    /* margin-left: 2vw; */
-
     display: flex;
     justify-content: space-around;
 }
@@ -18,11 +16,9 @@
 .weather-day {
     text-align: center;
     align-items: center;
-    /* border: 1px solid black; */
-    min-width: 25vw;
+    min-width: 30vw;
     height: 25px;
     color: white;
-
     display: flex;
     justify-content: space-around;
 }
@@ -32,4 +28,6 @@
     width: 40px;
     height: 40px;
     background-size: 40px;
+    /* background-color: aqua; */
+    /* border-radius: 50%; */
 }
