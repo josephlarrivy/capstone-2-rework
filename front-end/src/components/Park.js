@@ -11,6 +11,7 @@ import Weather from "./Weather";
 import NParksServiceRequest from "../apis/nationalParksApi";
 import Sun from "./Sun";
 import Loading from "./Loading";
+import ImagesDisplayer from "./ImagesDisplayer";
 
 
 
@@ -21,45 +22,22 @@ const Park = ({token, setToken}) => {
   const [parkData, setParkData] = useState(null)
   const [zoom, setZoom] = useState(5)
   const [centerPosition, setCenterPosition] = useState(null)
-
-  const [numImages, setNumImages] = useState(null)
-  const [imageOneIdx, setImageOneIdx] = useState(0)
-  const [imageTwoIdx, setImageTwoIdx] = useState(1)
-  const [imageThreeIdx, setImageThreeIdx] = useState(2)
-
-
+  const [imagesArray, setImagesArray] = useState(null)
 
   useEffect(() => {
     const getSingleParkData = async () => {
       let data = await NParksServiceRequest.getSingleParkData(parkCode.code)
-      console.log(data)
+      // console.log(data)
       setParkData(data)
       setCenterPosition([data.latitude, data.longitude])
-      setNumImages(data.images.length)
+      let images = await NParksServiceRequest.getSingleParkImages(parkCode.code)
+      setImagesArray(images)
     }
     getSingleParkData()    
   }, [])
 
 
-  const increaseCurrentImageIdx = () => {
-    // setCurrentImageIdx(currentImageIdx + 1)
-    setImageOneIdx(imageOneIdx+1)
-    setImageTwoIdx(imageTwoIdx+1)
-    setImageThreeIdx(imageThreeIdx+1)
-  }
-
-  const decreaseCurrentImageIdx = () => {
-    // setCurrentImageIdx(currentImageIdx - 1)
-    setImageOneIdx(imageOneIdx-1)
-    setImageTwoIdx(imageTwoIdx-1)
-    setImageThreeIdx(imageThreeIdx-1)
-  }
-
-
-
-
-
-
+  
   if (parkData === null) {
     return (
       <Loading />
@@ -96,46 +74,10 @@ const Park = ({token, setToken}) => {
           </div>
         </div>
 
+        {imagesArray && 
+          <ImagesDisplayer imagesArray={imagesArray}/>
+        }
 
-
-
-
-
-        <div id="image-buttons-container">
-          {imageOneIdx > 0
-            ? <div className="back-arrow" onClick={decreaseCurrentImageIdx}><p>prev</p></div>
-            : <div className="back-arrow-off"><p>prev</p></div>
-          }
-          {imageThreeIdx < numImages - 1
-            ? <div className="forward-arrow" onClick={increaseCurrentImageIdx}><p>next</p></div>
-            : <div className="forward-arrow-off"><p>next</p></div>
-          }
-        </div>
-
-        
-        <div id="images-main-container">
-
-          <div className="park-image-one-container">
-            <img
-              src={parkData.images[imageOneIdx].url}
-            ></img>
-          </div>
-
-          <div className="park-image-two-container">
-            <img
-              src={parkData.images[imageTwoIdx].url}
-            ></img>
-          </div>
-
-          <div className="park-image-three-container">
-            <img
-              src={parkData.images[imageThreeIdx].url}
-            ></img>
-          </div>
-          
-        </div>
-
-        
       </div>
     )
   }

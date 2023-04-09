@@ -122,6 +122,18 @@ class NParksServiceRequest {
     return {latitude, longitude}
   }
 
+  static async getSingleParkImages(code) {
+    const resp = await this.makeRequest(`/parks?parkCode=${code}`)
+    const imagesArr = []
+    for (let image of resp.data.data[0].images) {
+      imagesArr.push(
+        { 'url': image.url,
+        'credit': image.credit }
+      )
+    }
+    return imagesArr
+  }
+
 }
 
 export default NParksServiceRequest;
