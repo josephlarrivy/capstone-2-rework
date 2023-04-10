@@ -34,7 +34,8 @@ const Park = ({token, setToken}) => {
       let images = await NParksServiceRequest.getSingleParkImages(parkCode.code)
       setImagesArray(images)
     }
-    getSingleParkData()    
+    getSingleParkData()
+    console.log(imagesArray)
   }, [])
 
 

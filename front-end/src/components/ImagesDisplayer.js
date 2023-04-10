@@ -4,32 +4,13 @@ import "../css/ImagesDisplayer.css";
 const ImagesDisplayer = ({ imagesArray }) => {
 
   const [images, setImages] = useState(imagesArray);
+  const [imagesRowOne, setImagesRowOne] = useState(images.slice(0,4))
   const [isHovering, setIsHovering] = useState(false);
 
 
-  // const handleMouseEnter = (e) => {
-  //   e.currentTarget.className = "single-image-container-open";
-  //   const otherDivs = document.querySelectorAll(
-  //     "#images-displayer-main-container > div.single-image-container:not(:hover)"
-  //   );
-  //   otherDivs.forEach((div) => {
-  //     div.className = "single-image-container-with-one-open";
-  //   });
-  //   setContainerState('images-displayer-main-container-with-one-open')
-  // };
-
-  // const handleMouseLeave = (e) => {
-  //   e.currentTarget.className = "single-image-container";
-  //   const otherDivs = document.querySelectorAll(
-  //     "#images-displayer-main-container > div"
-  //   );
-  //   otherDivs.forEach((div) => {
-  //     div.className = "single-image-container";
-  //   });
-  //   setContainerState('images-displayer-main-container')
-  // };
 
   useEffect(() => {
+    console.log(imagesRowOne.length)
     const allImageDivs = document.querySelectorAll(
       "#images-displayer-main-container > div.single-image-container"
     );
@@ -46,14 +27,14 @@ const ImagesDisplayer = ({ imagesArray }) => {
     if (isHovering) {
       // console.log(`Mouse position: x=${e.clientX}, y=${e.clientY}`);
       e.currentTarget.className = "single-image-container-open";
-      console.log(isHovering)
+      // console.log(isHovering)
     }
   };
 
   const handleMouseEnter = (e) => {
     setIsHovering(true)
-    console.log(e.currentTarget)
     e.currentTarget.className = 'single-image-container-open'
+    e.currentTarget.style.zIndex = '2'
 
     const otherDivs = document.querySelectorAll(
       "#images-displayer-main-container > div.single-image-container"
@@ -68,6 +49,19 @@ const ImagesDisplayer = ({ imagesArray }) => {
     );
     allImageDivs.forEach((div) => {
       div.className = "single-image-container";
+    });
+
+
+    const allDivs = document.querySelectorAll(
+      "#images-displayer-main-container > div"
+    );
+
+    allDivs.forEach((div) => {
+      if (div !== e.currentTarget) {
+        div.style.zIndex = '1';
+      } else {
+        div.style.zIndex = '2';
+      }
     });
   }
   
