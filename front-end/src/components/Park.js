@@ -12,6 +12,7 @@ import NParksServiceRequest from "../apis/nationalParksApi";
 import Sun from "./Sun";
 import Loading from "./Loading";
 import ImagesDisplayer from "./ImagesDisplayer";
+import ImageCollage from "./ImageCollage";
 
 
 
@@ -28,7 +29,7 @@ const Park = ({token, setToken}) => {
   useEffect(() => {
     const getSingleParkData = async () => {
       let data = await NParksServiceRequest.getSingleParkData(parkCode.code)
-      // console.log(data)
+      console.log(data)
       setParkData(data)
       setCenterPosition([data.latitude, data.longitude])
       let images = await NParksServiceRequest.getSingleParkImages(parkCode.code)
@@ -77,7 +78,7 @@ const Park = ({token, setToken}) => {
         </div>
 
         {imagesArray && 
-          <ImagesDisplayer imagesArray={imagesArray}/>
+          <ImageCollage imagesArray={imagesArray}/>
         }
 
       </div>

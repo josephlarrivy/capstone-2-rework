@@ -64,3 +64,22 @@
     margin-bottom: 50px;
     cursor: pointer;
 }
+
+
+.related-parks-buttons button {
+    background-color: white;
+    margin-right: 5px;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.related-parks-buttons button:hover {
+    background-color: black;
+    color: white;
+    margin-right: 5px;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+}

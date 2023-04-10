@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import NParksServiceRequest from "../apis/nationalParksApi";
 import NavBar from "../NavBar";
 import '../css/ArticlesSearchResults.css'
@@ -9,6 +9,8 @@ const ArticlesSearchResults = ({ token, setToken }) => {
   const { searchTerm } = useParams()
   const [numResults, setNumResults] = useState(10)
   const [results, setResults] = useState(null)
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const doSearch = async () => {
@@ -23,8 +25,19 @@ const ArticlesSearchResults = ({ token, setToken }) => {
     setNumResults(numResults + 10)
   }
 
-  function addCommaSpace(string) {
-    return string.split(',').map(item => item.trim()).join(', ');
+  const separateArray = (arr) => {
+    return arr.join(", ");
+  }
+
+  const extractRelatedParkData = (arr) => {
+    const buttons = []
+    for (let item of arr) {
+      // console.log(item.name)
+      // console.log(item.parkCode)
+      buttons.push(<button onClick={() => navigate(`/park/${item.parkCode}`)}>{item.name}</button>)
+    }
+    // console.log(returnData)
+    return buttons
   }
 
   return (
@@ -50,14 +63,17 @@ const ArticlesSearchResults = ({ token, setToken }) => {
                 }
                 <div className="articles-item-container-info">
                   <a href={item.url} target="_blank"><h4>{item.title}</h4></a>
-                  {item.relatedParks>0
-                    ?
-                    <p>Related to: {item.relatedParks[0].fullName} in {addCommaSpace(item.relatedParks[0].states)}</p>
-                    :
-                    <></>
+                  {item.tags 
+                    ? <p><b>Interests:</b> {separateArray(item.tags)}</p>
+                    : <></>
                   }
-                  
                   <p>{item.listingDescription}</p>
+                  {item.relatedParks.length>0
+                    ? <div className="related-parks-buttons">
+                        <b>Related Parks: </b>{extractRelatedParkData(item.relatedParks)}
+                      </div>
+                    : <></>
+                  }
                 </div>
               </div>
             </>
