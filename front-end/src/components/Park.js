@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, Navigate, Route, Routes } from 'react-router-dom';
-import { useParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router';
 
 import '../css/Park.css'
 
@@ -24,6 +24,8 @@ const Park = ({token, setToken}) => {
   const [zoom, setZoom] = useState(5)
   const [centerPosition, setCenterPosition] = useState(null)
   const [imagesArray, setImagesArray] = useState(null)
+  const [tourLinks, setTourLinks] = useState(null)
+  const navigate = useNavigate()
   
 
   useEffect(() => {
@@ -36,7 +38,21 @@ const Park = ({token, setToken}) => {
       setImagesArray(images)
     }
     getSingleParkData()
-    console.log(imagesArray)
+    
+
+    const createTourLinks = async (code) => {
+      const arrayOfButtons = []
+
+      const tours = await NParksServiceRequest.getToursByParkCode(code)
+      console.log(tours)
+
+      for (let tour of tours) {
+        arrayOfButtons.push(<button onClick={() => navigate(`/tourDetails/${tour.id}`)}>{tour.title}</button>)
+      }
+
+      setTourLinks(arrayOfButtons)
+    }
+    createTourLinks(parkCode.code)
   }, [])
 
 
@@ -73,6 +89,9 @@ const Park = ({token, setToken}) => {
             <h1>{parkData.fullName}  <a href={parkData.url} target='blank'><img className="more-info-icon-park-page" src={require('../images/more-info-icon.png')}></img></a></h1>
             <p><b>Location:</b> {parkData.addresses[0].city}, {parkData.addresses[0].stateCode}</p>
             <p><b>Designation:</b> {parkData.designation}</p>
+            {tourLinks &&
+              <p><b>Tours: </b>{tourLinks}</p>
+            }
             <p>{parkData.description}</p>
           </div>
         </div>

@@ -29,14 +29,11 @@ const ArticlesSearchResults = ({ token, setToken }) => {
     return arr.join(", ");
   }
 
-  const extractRelatedParkData = (arr) => {
+  const createParkLink = (arr) => {
     const buttons = []
     for (let item of arr) {
-      // console.log(item.name)
-      // console.log(item.parkCode)
       buttons.push(<button onClick={() => navigate(`/park/${item.parkCode}`)}>{item.name}</button>)
     }
-    // console.log(returnData)
     return buttons
   }
 
@@ -70,7 +67,7 @@ const ArticlesSearchResults = ({ token, setToken }) => {
                   <p>{item.listingDescription}</p>
                   {item.relatedParks.length>0
                     ? <div className="related-parks-buttons">
-                        <b>Related Parks: </b>{extractRelatedParkData(item.relatedParks)}
+                        <b>Related Parks: </b>{createParkLink(item.relatedParks)}
                       </div>
                     : <></>
                   }

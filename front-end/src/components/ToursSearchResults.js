@@ -7,7 +7,7 @@ import '../css/ToursSearchResults.css'
 const ToursSearchResults = ({ token, setToken }) => {
 
   const { searchTerm } = useParams()
-  const [numResults, setNumResults] = useState(10)
+  const [numResults, setNumResults] = useState(9)
   const [results, setResults] = useState(null)
   const navigate = useNavigate();
 
@@ -26,8 +26,15 @@ const ToursSearchResults = ({ token, setToken }) => {
   }
 
   const viewTourDetails = (id) => {
-    console.log(`/tourDetails/${id}`)
+    // console.log(`/tourDetails/${id}`)
     navigate(`/tourDetails/${id}`)
+  }
+
+  const createParkLink = (park) => {
+    // console.log(park)
+    return (
+      <button onClick={() => navigate(`/park/${park.parkCode}`)}>{park.fullName}</button>
+    )
   }
 
   return (
@@ -48,15 +55,20 @@ const ToursSearchResults = ({ token, setToken }) => {
               </div>
               <div className="tours-search-results-info">
                 <h4>{item.title}</h4>
-                <button onClick={(e) => viewTourDetails(item.id)} >See More</button>
-                <p><b>Location:</b> {item.park.fullName}</p>
+                <p><b>State: </b>{item.park.states}</p>
+                <div className="related-parks-buttons">
+                  {createParkLink(item.park)}
+                </div>
+
                 <p>{item.description}</p>
+                <button onClick={(e) => viewTourDetails(item.id)}>See Full Details</button>
+
               </div>
             </div>
           )
         })}
-        <button className="tours-load-more-search-results" onClick={increaseNumberOfSearchResults}>Get More Results</button>
       </div>
+      <button id="tours-load-more-search-results" onClick={increaseNumberOfSearchResults}>Get More Results</button>
     </div>
   )
 }

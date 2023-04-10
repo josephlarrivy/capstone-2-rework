@@ -105,7 +105,7 @@ class NParksServiceRequest {
     return resp.data.data
   }
 
-  static async searchInTours(searchTerm, limit = '10') {
+  static async searchInTours(searchTerm, limit = '9') {
     const resp = await this.makeRequest(`/tours?stateCode=&q=${searchTerm}&limit=${limit}`)
     return resp.data.data
   }
@@ -113,6 +113,16 @@ class NParksServiceRequest {
   static async getTourDetails(id) {
     const resp = await this.makeRequest(`/tours?id=${id}`)
     return resp.data.data[0]
+  }
+
+  static async getToursByParkCode(code) {
+    const toursArray = [];
+    const resp = await this.makeRequest(`/tours?id=&parkCode=${code}`)
+    console.log(resp.data.data)
+    for (let tour of resp.data.data) {
+      toursArray.push({'id' : tour.id, 'title' : tour.title})
+    }
+    return toursArray
   }
 
   static async getParkLatLong(code) {

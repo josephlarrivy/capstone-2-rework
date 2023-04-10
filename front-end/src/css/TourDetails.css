@@ -4,12 +4,6 @@
     /* background-color: aqua; */
 }
 
-
-.tour-details {
-    width: 100%;
-    /* background-color: aqua; */
-}
-
 .weather {
     width: 100%;
     /* height: 40vh; */
@@ -58,12 +52,25 @@
     margin-left: 2%;
 }
 
+
+
 .tour-details-stops-item-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.left {
+    /* background-color: aqua; */
+    padding: 20px;
+    /* border-bottom: 2px solid black; */
+}
+
+.right {
+    padding: 20px;
 }
 
 .tour-details-stops-item-container-name {
@@ -71,11 +78,7 @@
     font-weight: bold;
 }
 
-.tour-details-stops-item-container-type,
-.tour-details-stops-item-container-significance,
-.tour-details-stops-item-container-significance-directions {
-    font-size: 16px;
-}
+
 
 .tour-details-stops-item-container-significance {
     font-style: italic;

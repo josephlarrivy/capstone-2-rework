@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import NParksServiceRequest from "../apis/nationalParksApi";
 import NavBar from "../NavBar";
 import Weather from "./Weather";
@@ -7,6 +7,8 @@ import MiniMap from "./MiniMap";
 import Sun from "./Sun";
 import '../css/TourDetails.css'
 import Loading from "./Loading";
+import AudioPlayer from "./AudioPlayer";
+import useStateNameConverter from "../hooks/useStateNameConverter";
 
 const TourDetails = ({token, setToken}) => {
 
@@ -14,6 +16,9 @@ const TourDetails = ({token, setToken}) => {
   const [data, setData] = useState(null)
   const [zoom, setZoom] = useState(8)
   const [centerPosition, setCenterPosition] = useState(null)
+  const [stateName, convertStateName] = useStateNameConverter();
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const getData = async () => {
@@ -41,12 +46,16 @@ const TourDetails = ({token, setToken}) => {
   }
 
   const commaSeparator = (string) => {
-    return string.split(',').map(function (item) {
+    let abbreviation = string.split(',').map(function (item) {
       return item.trim();
     }).join(', ');
+    return abbreviation
   }
 
 
+  const createParkLink = (item) => {
+    return (<button onClick={() => navigate(`/park/${item.parkCode}`)}>{item.fullName}</button>)
+  }
 
 
 
@@ -82,6 +91,12 @@ const TourDetails = ({token, setToken}) => {
 
         <div className="tour-details-header-main">
           <h1><b>Tour: </b>{data.title}</h1>
+          {data.park
+            ? <div className="related-parks-buttons">
+              <b>Located in: </b>{createParkLink(data.park)}
+            </div>
+            : <></>
+          }
           <p><b>States: </b>{commaSeparator(data.park.states)}</p>
           <p><b>Duration: </b>{data.durationMin}-{data.durationMax} {convertDurationUnit(data.durationUnit)}</p>
           <p>{data.description}</p>
@@ -93,11 +108,17 @@ const TourDetails = ({token, setToken}) => {
           <h4>Follow this step-by-step guide to make the most of you visit</h4>
           {data.stops && data.stops.map(item => {
             return (
-              <div className="tour-details-stops-item-container">
-                <p className="tour-details-stops-item-container-name"><b>Stop {item.ordinal}: </b>{item.assetName}</p>
-                <p className="tour-details-stops-item-container-type"><b>Type: </b>{item.assetType}</p>
-                <p className="tour-details-stops-item-container-significance"><b>Significance: </b>{item.significance}</p>
-                <p className="tour-details-stops-item-container-significance-directions"><b>Directions to next stop: </b>{item.directionsToNextStop}</p>
+              <div key={item.ordinal} className="tour-details-stops-item-container">
+                <div className="left">
+                  <p className="tour-details-stops-item-container-name"><b>Stop {item.ordinal}: </b>{item.assetName}</p>
+                  <p><b>Audio:</b></p>
+                  <AudioPlayer src={item.audioFileUrl} />
+                </div>
+                <div className="right">
+                  <p><b>Type: </b>{item.assetType}</p>
+                  <p><b>Significance: </b>{item.significance}</p>
+                  <p><b>Directions to next stop: </b>{item.directionsToNextStop}</p>
+                </div>
               </div>
             )
             })
@@ -105,26 +126,6 @@ const TourDetails = ({token, setToken}) => {
         </div>
       </div>
 
-
-
-
-      {/* <div className="images">
-        <div className="image-buttons-container">
-          {currentImageIdx > 0
-            ? <div className="back-arrow" onClick={decreaseCurrentImageIdx}><p>prev</p></div>
-            : <div className="back-arrow-off"><p>prev</p></div>
-          }
-          {currentImageIdx < numImages - 1
-            ? <div className="forward-arrow" onClick={increaseCurrentImageIdx}><p>next</p></div>
-            : <div className="forward-arrow-off"><p>next</p></div>
-          }
-        </div>
-
-        <img
-          className='park-image'
-          src={parkData.images[currentImageIdx].url}
-        ></img>
-      </div> */}
 
       <br></br>
       <br></br>
