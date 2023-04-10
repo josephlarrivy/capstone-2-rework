@@ -1,5 +1,5 @@
 #images-displayer-main-container {
-    /* background-color: aqua; */
+    background-color: aqua;
     width: 100%;
     height: 500px;
     margin-bottom: 20vh;
@@ -27,14 +27,10 @@
 
 
 
-
-
-
-
 .single-image-container {
     width: 300px;
     height: 800px;
-    background-color: black;
+    /* background-color: black; */
     transform: rotate(20deg);
     overflow: hidden;
     margin-top: -130px;
@@ -122,90 +118,144 @@
     margin-top: -800px;
 }
 
-
-
-
-
-
-
-
-/* ######################### */
-/* ######################### */
-/* ######################### */
-/* ######################### */
-/* ######################### */
-/* ######################### */
-/* ######################### */
-/* ######################### */
-/* ######################### */
-/* ######################### */
-/* ######################### */
-
-#images-displayer-main-container-with-one-open {
-    /* background-color: aqua; */
-    width: 100%;
-    height: 500px;
-    margin-bottom: 20vh;
-    margin-top: 10vh;
-    display: flex;
-    overflow-y: hidden;
+.single-image-container:nth-child(15) {
+    margin-left: 4530px;
+    margin-top: -800px;
 }
 
-#images-displayer-main-container-with-one-open::-webkit-scrollbar {
-    width: 20px;
+.single-image-container:nth-child(16) {
+    margin-left: 4860px;
+    margin-top: -800px;
 }
 
-#images-displayer-main-container-with-one-open::-webkit-scrollbar-track {
-    background: white;
+.single-image-container:nth-child(17) {
+    margin-left: 5190px;
+    margin-top: -800px;
 }
 
-#images-displayer-main-container-with-one-open::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 5px;
-}
+
+/* ######################### */
+/* ######################### */
+/* ######################### */
+/* ######################### */
+/* ######################### */
+/* ######################### */
+/* ######################### */
+/* ######################### */
+/* ######################### */
+/* ######################### */
+/* ######################### */
+
+
 
 .single-image-container-open {
-    width: 500px;
-    height: 800px;
-    background-color: black;
-    /* transform: rotate(20deg); */
-    overflow: hidden;
-    margin-top: -130px;
-
-    transition: 1s ease-in-out;
-}
-
-.single-image-container-open img {
-    width: 700px;
-    height: 1000px;
-    margin-top: -70px;
-    /* margin-left: -160px; */
-    object-fit: cover;
-    /* transform: rotate(-20deg); */
-    transition: 1s ease-in-out;
-}
-
-
-
-
-.single-image-container-with-one-open {
     width: 300px;
     height: 800px;
     background-color: black;
     /* transform: rotate(20deg); */
     overflow: hidden;
-    /* margin-top: -130px; */
+    margin-top: -330px;
 
     transition: 1s ease-in-out;
 }
 
-.single-image-container-with-one-open img {
-    width: 700px;
+.single-image-container-open img {
+    width: 900px;
     height: 1000px;
-    /* margin-top: -70px; */
-    /* margin-left: -160px; */
+    margin-top: -70px;
+    margin-left: -160px;
     object-fit: cover;
     /* transform: rotate(-20deg); */
+    display: none;
 
     transition: 1s ease-in-out;
+}
+
+
+.single-image-container-with-one-open:nth-child(1) {
+    margin-left: -90px;
+}
+
+.single-image-container-with-one-open:nth-child(1) img {
+   transform: rotate(90deg);
+}
+
+.single-image-container-with-one-open:nth-child(2) {
+    margin-left: 240px;
+    margin-top: -800px;
+}
+
+.single-image-container-with-one-open:nth-child(3) {
+    margin-left: 570px;
+    margin-top: -800px;
+}
+
+.single-image-container-with-one-open:nth-child(4) {
+    margin-left: 900px;
+    margin-top: -800px;
+}
+
+.single-image-container-with-one-open:nth-child(5) {
+    margin-left: 1230px;
+    margin-top: -800px;
+}
+
+.single-image-container-with-one-open:nth-child(6) {
+    margin-left: 1560px;
+    margin-top: -800px;
+}
+
+.single-image-container-with-one-open:nth-child(7) {
+    margin-left: 1890px;
+    margin-top: -800px;
+}
+
+.single-image-container-with-one-open:nth-child(8) {
+    margin-left: 2220px;
+    margin-top: -800px;
+}
+
+.single-image-container-with-one-open:nth-child(9) {
+    margin-left: 2550px;
+    margin-top: -800px;
+}
+
+.single-image-container-with-one-open:nth-child(10) {
+    margin-left: 2880px;
+    margin-top: -800px;
+}
+
+.single-image-container-with-one-open:nth-child(11) {
+    margin-left: 3210px;
+    margin-top: -800px;
+}
+
+.single-image-container-with-one-open:nth-child(12) {
+    margin-left: 3540px;
+    margin-top: -800px;
+}
+
+.single-image-container-with-one-open:nth-child(13) {
+    margin-left: 3870px;
+    margin-top: -800px;
+}
+
+.single-image-container-with-one-open:nth-child(14) {
+    margin-left: 4200px;
+    margin-top: -800px;
+}
+
+.single-image-container-with-one-open:nth-child(15) {
+    margin-left: 4530px;
+    margin-top: -800px;
+}
+
+.single-image-container-with-one-open:nth-child(16) {
+    margin-left: 4860px;
+    margin-top: -800px;
+}
+
+.single-image-container-with-one-open:nth-child(17) {
+    margin-left: 5190px;
+    margin-top: -800px;
 }

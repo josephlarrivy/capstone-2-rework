@@ -3,48 +3,92 @@ import "../css/ImagesDisplayer.css";
 
 const ImagesDisplayer = ({ imagesArray }) => {
 
-  const [containerState, setContainerState] = useState('images-displayer-main-container')
   const [images, setImages] = useState(imagesArray);
+  const [isHovering, setIsHovering] = useState(false);
 
-  const handleMouseEnter = (e) => {
-    e.currentTarget.className = "single-image-container-open";
-    const otherDivs = document.querySelectorAll(
-      "#images-displayer-main-container > div.single-image-container:not(:hover)"
-    );
-    otherDivs.forEach((div) => {
-      div.className = "single-image-container-with-one-open";
-    });
-    setContainerState('images-displayer-main-container-with-one-open')
-    console.log('mouseenter')
-  };
 
-  const handleMouseLeave = (e) => {
-    // e.currentTarget.className = "single-image-container";
-    const otherDivs = document.querySelectorAll(
-      "#images-displayer-main-container > div"
+  // const handleMouseEnter = (e) => {
+  //   e.currentTarget.className = "single-image-container-open";
+  //   const otherDivs = document.querySelectorAll(
+  //     "#images-displayer-main-container > div.single-image-container:not(:hover)"
+  //   );
+  //   otherDivs.forEach((div) => {
+  //     div.className = "single-image-container-with-one-open";
+  //   });
+  //   setContainerState('images-displayer-main-container-with-one-open')
+  // };
+
+  // const handleMouseLeave = (e) => {
+  //   e.currentTarget.className = "single-image-container";
+  //   const otherDivs = document.querySelectorAll(
+  //     "#images-displayer-main-container > div"
+  //   );
+  //   otherDivs.forEach((div) => {
+  //     div.className = "single-image-container";
+  //   });
+  //   setContainerState('images-displayer-main-container')
+  // };
+
+  useEffect(() => {
+    const allImageDivs = document.querySelectorAll(
+      "#images-displayer-main-container > div.single-image-container"
     );
-    otherDivs.forEach((div) => {
+    allImageDivs.forEach((div) => {
       div.className = "single-image-container";
     });
-    setContainerState('images-displayer-main-container')
-    console.log('mouseleave')
+  }, [])
+
+  useEffect(() => {
+    console.log(isHovering)
+  }, [isHovering])
+
+  const handleMouseMove = (e) => {
+    if (isHovering) {
+      // console.log(`Mouse position: x=${e.clientX}, y=${e.clientY}`);
+      e.currentTarget.className = "single-image-container-open";
+      console.log(isHovering)
+    }
   };
 
+  const handleMouseEnter = (e) => {
+    setIsHovering(true)
+    console.log(e.currentTarget)
+    e.currentTarget.className = 'single-image-container-open'
+
+    const otherDivs = document.querySelectorAll(
+      "#images-displayer-main-container > div.single-image-container"
+    );
+    otherDivs.className = 'single-image-container-with-one-open'
+  }
+
+  const handleMouseLeave = (e) => {
+    setIsHovering(false)
+    const allImageDivs = document.querySelectorAll(
+      "#images-displayer-main-container > div"
+    );
+    allImageDivs.forEach((div) => {
+      div.className = "single-image-container";
+    });
+  }
+  
+
   return (
-    <div id={containerState} onMouseLeave={handleMouseLeave}>
+    <div
+      id='images-displayer-main-container'
+      >
       {images &&
         images.map((image) => {
           return (
             <div
               key={image.url}
+              // id={image.url}
               className="single-image-container"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              // onMouseMove={handleMouseMove}
             >
               <img 
                 src={image.url}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
                 />
             </div>
           );

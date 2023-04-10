@@ -23,6 +23,7 @@ const Park = ({token, setToken}) => {
   const [zoom, setZoom] = useState(5)
   const [centerPosition, setCenterPosition] = useState(null)
   const [imagesArray, setImagesArray] = useState(null)
+  
 
   useEffect(() => {
     const getSingleParkData = async () => {
