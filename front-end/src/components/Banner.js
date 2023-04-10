@@ -26,7 +26,7 @@ const Banner = () => {
 
   return (
     <div id="banner-one-container">
-      <h1>Discover Your Next Adventure</h1>
+      <h1>Discover Events, Articles, and Things to do</h1>
       <div id="state-select">
         <StateSelect USstate={USstate} setUSstate={setUSstate}/>
       </div>

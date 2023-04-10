@@ -118,11 +118,14 @@ class NParksServiceRequest {
   static async getToursByParkCode(code) {
     const toursArray = [];
     const resp = await this.makeRequest(`/tours?id=&parkCode=${code}`)
-    console.log(resp.data.data)
     for (let tour of resp.data.data) {
       toursArray.push({'id' : tour.id, 'title' : tour.title})
     }
-    return toursArray
+    if (toursArray.length > 0) {
+      return toursArray
+    } else {
+      return null
+    }
   }
 
   static async getParkLatLong(code) {

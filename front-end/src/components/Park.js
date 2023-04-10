@@ -38,19 +38,22 @@ const Park = ({token, setToken}) => {
       setImagesArray(images)
     }
     getSingleParkData()
-    
 
     const createTourLinks = async (code) => {
       const arrayOfButtons = []
-
       const tours = await NParksServiceRequest.getToursByParkCode(code)
-      console.log(tours)
-
-      for (let tour of tours) {
-        arrayOfButtons.push(<button onClick={() => navigate(`/tourDetails/${tour.id}`)}>{tour.title}</button>)
+      if (tours === null) {
+        setTourLinks(null)
+      } else {
+        for (let tour of tours) {
+          arrayOfButtons.push(
+            <button 
+              onClick={() => navigate(`/tourDetails/${tour.id}`)}
+              key={tour.id}
+            >{tour.title}</button>)
+        }
+        setTourLinks(arrayOfButtons)
       }
-
-      setTourLinks(arrayOfButtons)
     }
     createTourLinks(parkCode.code)
   }, [])
@@ -88,9 +91,13 @@ const Park = ({token, setToken}) => {
           <div className="park-header-main">
             <h1>{parkData.fullName}  <a href={parkData.url} target='blank'><img className="more-info-icon-park-page" src={require('../images/more-info-icon.png')}></img></a></h1>
             <p><b>Location:</b> {parkData.addresses[0].city}, {parkData.addresses[0].stateCode}</p>
-            <p><b>Designation:</b> {parkData.designation}</p>
-            {tourLinks &&
-              <p><b>Tours: </b>{tourLinks}</p>
+            {parkData.designation
+              ? <p><b>Designation:</b> {parkData.designation}</p>
+              : <></>
+            }
+            {tourLinks
+              ? <p><b>Tours: </b>{tourLinks}</p>
+              : <></>
             }
             <p>{parkData.description}</p>
           </div>
