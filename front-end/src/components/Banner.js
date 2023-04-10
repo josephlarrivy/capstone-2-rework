@@ -31,7 +31,7 @@ const Banner = () => {
         <StateSelect USstate={USstate} setUSstate={setUSstate}/>
       </div>
       {USstate === 'placeholder'
-        ? <p></p>
+        ? <></>
         : <div id="banner-one-buttons">
           <div
             id="banner-one-div-one"

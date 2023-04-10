@@ -110,8 +110,12 @@ const TourDetails = ({token, setToken}) => {
             return (
               <div key={item.ordinal} className="tour-details-stops-item-container">
                 <div className="left">
-                  <p className="tour-details-stops-item-container-name"><b>Stop {item.ordinal}: </b>{item.assetName}</p>
-                  <p><b>Audio:</b></p>
+                  <p><u><b>Stop {item.ordinal}</b></u></p>
+                  <p className="tour-details-stops-item-container-name">{item.assetName}</p>
+                  {item.audioFileUrl
+                    ? <p>Click to play audio</p>
+                    : <p>No audio for this stop</p>
+                  }
                   <AudioPlayer src={item.audioFileUrl} />
                 </div>
                 <div className="right">

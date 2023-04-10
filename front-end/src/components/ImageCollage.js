@@ -10,9 +10,9 @@ const ImageCollage = ({ imagesArray }) => {
     for (let item of imagesArray) {
       urls.push(item.url)
     }
-    while (urls.length % 3 !== 0) {
-      urls.pop()
-    }
+    // while (urls.length % 3 !== 0) {
+    //   urls.pop()
+    // }
     setImageUrls(urls)
   }, [imagesArray])
 
