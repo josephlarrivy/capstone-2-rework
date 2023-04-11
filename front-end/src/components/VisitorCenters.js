@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import NavBar from "../NavBar";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import useStateNameConverter from "../hooks/useStateNameConverter";
 import NParksServiceRequest from "../apis/nationalParksApi";
 
@@ -12,6 +12,7 @@ const VisitorCenters = ({token, setToken}) => {
   const { USstate } = useParams()
   const [stateName, convertStateName] = useStateNameConverter();
   const [data, setData] = useState(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getData = async () => {
@@ -47,6 +48,7 @@ const VisitorCenters = ({token, setToken}) => {
               </div>
               <div className="visitor-centers-item-header">
                 <p className="visitor-center-name">{item.name}</p>
+                <p><button onClick={() => navigate(`/park/${item.parkCode}`)}>Go To Park Details</button></p>
                 {item.addresses.length > 0
                   ? <p>{item.addresses[0].line1} {item.addresses[0].city}, {item.addresses[0].stateCode} {item.addresses[0].postalCode}</p>
                   : <p></p>

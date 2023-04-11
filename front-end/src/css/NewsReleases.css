@@ -65,10 +65,21 @@
 
 
 
-#load-more-home-button {
+#load-more-home-button-news-releases {
     background-color: white;
     padding: 10px;
     border: 1px solid black;
+    border-radius: 5px;
+    font-size: large;
+
+    cursor: pointer;
+}
+
+#load-more-home-button-news-releases:hover {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border: 1px solid white;
     border-radius: 5px;
     font-size: large;
 

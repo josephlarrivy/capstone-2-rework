@@ -100,7 +100,7 @@ const Alerts = () => {
         })
         }
       </div>
-      <button id='load-more-home-button' onClick={getMoreAlerts}>See More Alerts</button>
+      <button id='load-more-home-button-alerts' onClick={getMoreAlerts}>See More Alerts</button>
     </div>
   )
 }

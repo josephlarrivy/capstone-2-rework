@@ -64,7 +64,7 @@ const NewsReleases = () => {
         )
       })
       }
-      <button id="load-more-home-button" onClick={getMoreReleases}>See More News Releases</button>
+      <button id="load-more-home-button-news-releases" onClick={getMoreReleases}>See More News Releases</button>
     </div>
   )
 }
