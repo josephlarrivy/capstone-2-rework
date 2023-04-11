@@ -1,0 +1,42 @@
+
+
+#park-search-results-main-container h1 {
+    text-align: center;
+}
+
+#park-search-results-items-container {
+    width: 90%;
+    margin: auto;
+}
+
+.park-search-results-item-container {
+    /* border: 1px solid black; */
+    height: 300px;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.park-search-result-image {
+    width: 300px;
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.park-search-results-info {
+    margin-left: 20px;
+}
+
+.park-load-more-search-results {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: large;
+
+    cursor: pointer;
+}
+
+.go-to-park-button {
+}

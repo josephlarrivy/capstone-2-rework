@@ -31,17 +31,19 @@
     width: 30px;
     height: 30px;
     margin-top: 10px;
-    background: yellow;
     border-radius: 50%;
     position: relative;
+    background: radial-gradient(circle at 50% 50%, #fffd9d 0%, #fcba03 50%, #f44336 100%);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 5px 15px 0 rgba(0, 0, 0, 0.5);
 }
 #sunset-animation {
     width: 30px;
     height: 30px;
     margin-top: 10px;
-    background: yellow;
     border-radius: 50%;
     position: relative;
+    background: radial-gradient(circle at 50% 50%, #fffd9d 0%, #fcba03 50%, #f44336 100%);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 5px 15px 0 rgba(0, 0, 0, 0.5);
 }
 
 #sunrise-animation:before {
@@ -52,7 +54,8 @@
     width: 200%;
     height: 200%;
     border-radius: 50%;
-    background: rgba(255, 255, 0, 0.3);
+    background: radial-gradient(circle at 50% 50%, #fffd9d 0%, #fcba03 50%, #f44336 100%);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 5px 15px 0 rgba(0, 0, 0, 0.5);
     animation: sunglow 5s linear infinite;
 }
 #sunset-animation:before {
@@ -63,21 +66,22 @@
     width: 200%;
     height: 200%;
     border-radius: 50%;
-    background: rgba(255, 255, 0, 0.3);
+    background: radial-gradient(circle at 50% 50%, #fffd9d 0%, #fcba03 50%, #f44336 100%);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 5px 15px 0 rgba(0, 0, 0, 0.5);
     animation: sunglow 5s linear infinite;
 }
 
 @keyframes sunglow {
     0% {
-        transform: scale(0.7);
+        transform: scale(0.8);
     }
 
     50% {
-        transform: scale(1.2);
+        transform: scale(0.9);
     }
 
     100% {
-        transform: scale(0.7);
+        transform: scale(0.8);
     }
 }
 

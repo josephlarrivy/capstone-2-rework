@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+
 
 import '../css/ThingsToDo.css'
 
 const ThingsToDo = ({ stateName, data }) => {
 
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log(data)
@@ -13,6 +16,13 @@ const ThingsToDo = ({ stateName, data }) => {
     return arr.join(", ");
   }
 
+  const createParkLink = (arr) => {
+    const buttons = []
+    for (let item of arr) {
+      buttons.push(<button onClick={() => navigate(`/park/${item.parkCode}`)}>{item.name}</button>)
+    }
+    return buttons
+  }
 
   return (
     <div id="things-to-do-container">
@@ -62,6 +72,12 @@ const ThingsToDo = ({ stateName, data }) => {
               {item.duration
                 ? <p><b>Duration: </b>{item.duration}</p>
                 : <p></p>
+              }
+              {item.relatedParks.length > 0
+                ? <div className="related-parks-buttons">
+                  <b>Related Parks: </b>{createParkLink(item.relatedParks)}
+                </div>
+                : <></>
               }
               {item.season.length >0
                 ? <p><b>Seasons: </b>{seasonsBroken}</p>

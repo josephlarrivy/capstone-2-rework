@@ -57,11 +57,11 @@ const ToursSearchResults = ({ token, setToken }) => {
                 <h4>{item.title}</h4>
                 <p><b>State: </b>{item.park.states}</p>
                 <div className="related-parks-buttons">
-                  {createParkLink(item.park)}
+                  <p><b>Park: </b>{createParkLink(item.park)}</p>
                 </div>
 
                 <p>{item.description}</p>
-                <button onClick={(e) => viewTourDetails(item.id)}>See Full Details</button>
+                <button onClick={(e) => viewTourDetails(item.id)}>See Full Tour Details</button>
 
               </div>
             </div>
