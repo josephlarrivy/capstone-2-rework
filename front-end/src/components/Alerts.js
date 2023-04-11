@@ -8,7 +8,8 @@ const Alerts = () => {
   const [alerts, setAlerts] = useState(null)
   const [numAlerts, setNumAlerts] = useState(6)
   const [alertDetails, setAlertDetails] = useState('Hover over an alert to see full description')
-  const [alertStyle, setAlertStyle] = useState(null)
+  const [alertStyle, setAlertStyle] = useState({ border: "2px solid white" })
+  const [parkName, setParkName] = useState(null)
 
   useEffect(() => {
     const getData = async () => {

@@ -7,7 +7,7 @@ const AlertsByPark = ({code}) => {
 
   const [alerts, setAlerts] = useState(null)
   const [alertDetails, setAlertDetails] = useState('Hover over an alert to see full description')
-  const [alertStyle, setAlertStyle] = useState(null)
+  const [alertStyle, setAlertStyle] = useState({ border: "2px solid white" })
 
   useEffect(() => {
     const getData = async () => {
@@ -76,7 +76,7 @@ const AlertsByPark = ({code}) => {
               <div className={convertedAlertType}>
                 <p style={{ textAlign: 'center' }}>{item.category}</p>
               </div>
-              <div className="alert-information">
+              <div className="alert-information" style={{ textAlign: 'center' }}>
                 <p>{forMattedDate}</p>
                 <p>{item.title}</p>
               </div>
