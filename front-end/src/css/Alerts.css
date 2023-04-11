@@ -89,3 +89,12 @@
 
     cursor: pointer;
 }
+
+
+.alert-details {
+    width: 96%;
+    margin-left: 2%;
+    margin-bottom: 10px;
+    height: 60px;
+    /* border: 1px solid black; */
+}

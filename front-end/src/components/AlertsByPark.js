@@ -3,23 +3,21 @@ import NParksServiceRequest from "../apis/nationalParksApi";
 
 import '../css/Alerts.css'
 
-const Alerts = () => {
+const AlertsByPark = ({code}) => {
 
   const [alerts, setAlerts] = useState(null)
-  const [numAlerts, setNumAlerts] = useState(6)
   const [alertDetails, setAlertDetails] = useState('Hover over an alert to see full description')
   const [alertStyle, setAlertStyle] = useState(null)
 
   useEffect(() => {
     const getData = async () => {
-      const response = await NParksServiceRequest.getAlerts(numAlerts)
+      const response = await NParksServiceRequest.getAlertsByParkCode(code)
       console.log(response)
       setAlerts(response)
     }
     getData()
-  }, [numAlerts])
+  }, [])
 
-  
   function formatDate(dateString) {
     const date = new Date(dateString);
     const options = {
@@ -46,11 +44,6 @@ const Alerts = () => {
     }
   }
 
-  const getMoreAlerts = () => {
-    setNumAlerts(numAlerts+6)
-    // console.log('get more alerts')
-  }
-
   const showAlertDetails = (e, input) => {
     setAlertStyle({ border: "2px solid white" })
     setAlertDetails(input)
@@ -59,28 +52,29 @@ const Alerts = () => {
     setAlertDetails('Hover over an alert to see full description')
     setAlertStyle({ border: "2px solid white" })
   }
-  
+
 
   return (
     <div id="alerts-container">
-      <h1>Park Alerts</h1>
+      <h1 style={{textAlign: 'center'}}>Park Alerts</h1>
       <div className="alert-details" style={alertStyle}>
-        <p>{alertDetails}</p>
+        <p style={{textAlign: 'center'}}>{alertDetails}</p>
       </div>
       <div id="alerts-items">
         {alerts && alerts.map(item => {
 
           let forMattedDate = formatDate(item.lastIndexedDate)
           let convertedAlertType = convertAlertType(item.category)
-          
+
           return (
-            <div 
+            <div
               key={item.id}
               className="alert-item"
-              onMouseEnter={(e) => { showAlertDetails(e, item.description)}}
-              onMouseLeave={hideAlertDetails}>
+              onMouseEnter={(e) => { showAlertDetails(e, item.description) }}
+              onMouseLeave={hideAlertDetails}
+            >
               <div className={convertedAlertType}>
-                <p>{item.category}</p>
+                <p style={{ textAlign: 'center' }}>{item.category}</p>
               </div>
               <div className="alert-information">
                 <p>{forMattedDate}</p>
@@ -89,8 +83,8 @@ const Alerts = () => {
               <div className="more-info-icon">
                 {item.url
                   ? <a href={item.url} target="_blank">
-                      <img className="more-info-icon" src={require('../images/more-info-icon.png')}></img>
-                    </a>
+                    <img className="more-info-icon" src={require('../images/more-info-icon.png')}></img>
+                  </a>
                   : <></>
                 }
               </div>
@@ -99,9 +93,8 @@ const Alerts = () => {
         })
         }
       </div>
-      <button id='load-more-home-button' onClick={getMoreAlerts}>See More Alerts</button>
     </div>
   )
 }
 
-export default Alerts;
+export default AlertsByPark;

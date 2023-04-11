@@ -13,6 +13,7 @@ import Sun from "./Sun";
 import Loading from "./Loading";
 import ImagesDisplayer from "./ImagesDisplayer";
 import ImageCollage from "./ImageCollage";
+import AlertsByPark from "./AlertsByPark";
 
 
 
@@ -25,12 +26,13 @@ const Park = ({token, setToken}) => {
   const [centerPosition, setCenterPosition] = useState(null)
   const [imagesArray, setImagesArray] = useState(null)
   const [tourLinks, setTourLinks] = useState(null)
+  const [alerts, setAlerts] = useState(null)
   const navigate = useNavigate()
   
 
   useEffect(() => {
     const getSingleParkData = async () => {
-      let data = await NParksServiceRequest.getSingleParkData(parkCode.code)
+      const data = await NParksServiceRequest.getSingleParkData(parkCode.code)
       console.log(data)
       setParkData(data)
       setCenterPosition([data.latitude, data.longitude])
@@ -56,6 +58,12 @@ const Park = ({token, setToken}) => {
       }
     }
     createTourLinks(parkCode.code)
+
+    const getParkAlerts = async (code) => {
+      const alertsData = await NParksServiceRequest.getAlertsByParkCode(code)
+      setAlerts(alertsData)
+    }
+    getParkAlerts(parkCode.code)
   }, [])
 
 
@@ -90,7 +98,8 @@ const Park = ({token, setToken}) => {
 
           <div className="park-header-main">
             <h1>{parkData.fullName}  <a href={parkData.url} target='blank'><img className="more-info-icon-park-page" src={require('../images/more-info-icon.png')}></img></a></h1>
-            <p><b>Location:</b> {parkData.addresses[0].city}, {parkData.addresses[0].stateCode}</p>
+            <p className="park-address">{parkData.addresses[0].line1} - {parkData.addresses[0].city}, {parkData.addresses[0].stateCode}</p>
+            
             {parkData.designation
               ? <p><b>Designation:</b> {parkData.designation}</p>
               : <></>
@@ -99,12 +108,30 @@ const Park = ({token, setToken}) => {
               ? <p><b>Tours: </b>{tourLinks}</p>
               : <></>
             }
-            <p>{parkData.description}</p>
+            {parkData.directionsInfo && parkData.directionsUrl
+              ? <p><b>Directions: </b>{parkData.directionsInfo}<a href={parkData.directionsUrl} target='blank'><img className="more-info-icon-park-page" src={require('../images/more-info-icon.png')}></img></a></p>
+              : <></>
+            }
+            {parkData.entranceFees[0].description && parkData.entranceFees[0].cost
+              ? <div className="entrance-fees">
+                  <p><b>Entrance Fees:</b> {parkData.entranceFees[0].description}</p>
+                  <p><b>Cost:</b> {parkData.entranceFees[0].cost}</p>
+                </div>
+              : <></>
+            }
+            {parkData.description
+              ? <p>{parkData.description}</p>
+              : <></>
+            }
           </div>
         </div>
 
         {imagesArray && 
           <ImageCollage imagesArray={imagesArray}/>
+        }
+        {alerts
+          ? <AlertsByPark code={parkCode.code} />
+          : <></>
         }
 
       </div>

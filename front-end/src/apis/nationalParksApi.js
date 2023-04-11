@@ -147,6 +147,16 @@ class NParksServiceRequest {
     return imagesArr
   }
 
+  static async getAlertsByParkCode(code) {
+    const resp = await this.makeRequest(`/alerts?parkCode=${code}`)
+    if (resp.data.data.length > 0) {
+      return resp.data.data
+    } else {
+      return null
+    }
+    
+  }
+
 }
 
 export default NParksServiceRequest;
