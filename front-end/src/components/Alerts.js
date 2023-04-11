@@ -14,7 +14,7 @@ const Alerts = () => {
   useEffect(() => {
     const getData = async () => {
       const response = await NParksServiceRequest.getAlerts(numAlerts)
-      console.log(response)
+      // console.log(response)
       setAlerts(response)
     }
     getData()

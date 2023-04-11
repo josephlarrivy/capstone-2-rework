@@ -12,7 +12,7 @@ const AlertsByPark = ({code}) => {
   useEffect(() => {
     const getData = async () => {
       const response = await NParksServiceRequest.getAlertsByParkCode(code)
-      console.log(response)
+      // console.log(response)
       setAlerts(response)
     }
     getData()

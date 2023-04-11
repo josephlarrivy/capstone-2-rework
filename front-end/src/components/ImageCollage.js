@@ -14,9 +14,10 @@ const ImageCollage = ({ imagesArray }) => {
     //   urls.pop()
     // }
     setImageUrls(urls)
+    console.log(urls.length)
   }, [imagesArray])
 
-  const gridStyleThreeAcross = {
+  const gridStyle = {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
     gridGap: "10px",
@@ -29,15 +30,27 @@ const ImageCollage = ({ imagesArray }) => {
     height: "100%",
   };
 
+  
+
   return (
     <div style={{width: '96%', margin: 'auto auto'}}>
-      <div style={gridStyleThreeAcross}>
+      <div style={gridStyle}>
         {imageUrls && imageUrls.slice(0, 3).map((url, index) => (
           <img key={index} src={url} style={imageStyle} />
         ))}
       </div>
-      <div style={gridStyleThreeAcross}>
+      <div style={gridStyle}>
         {imageUrls && imageUrls.slice(3, 5).map((url, index) => (
+          <img key={index} src={url} style={imageStyle} />
+        ))}
+      </div>
+      <div style={gridStyle}>
+        {imageUrls && imageUrls.slice(5, 8).map((url, index) => (
+          <img key={index} src={url} style={imageStyle} />
+        ))}
+      </div>
+      <div style={gridStyle}>
+        {imageUrls && imageUrls.slice(8, 10).map((url, index) => (
           <img key={index} src={url} style={imageStyle} />
         ))}
       </div>

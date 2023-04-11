@@ -26,11 +26,12 @@ const ParksByStateBanner = () => {
       }
     }
     getParks()
+    setSelectedPark(null)
   }, [USstate])
 
 
   const handleParkSelect = (event) => {
-    // console.log(event.target.value)
+    console.log(event.target.value)
     setSelectedPark(event.target.value)
   }
 
@@ -58,7 +59,7 @@ const ParksByStateBanner = () => {
                 <option
                   key={item.parkCode}
                   value={item.parkCode}
-                  onClick={handleParkSelect}
+                  // onClick={handleParkSelect}
                   >{item.name}
                 </option>
               )
