@@ -5,11 +5,14 @@ import BackendApiRequest from "../apis/backendApi";
 import useLocalStorage from "../hooks/useLocalStorage";
 import NavBar from "../NavBar";
 
+import { AxiosError } from "axios";
+
 import '../css/RegisterForm.css'
 
 const RegisterForm = ({token, setToken}) => {
 
   const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
+  const [error, setError] = useState(null)
 
   const INITIAL_STATE = {
     'username': '',
@@ -30,15 +33,21 @@ const RegisterForm = ({token, setToken}) => {
     }));
   };
 
+
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     const request = await BackendApiRequest.registerNewUser(formData)
     console.log(request)
-    const token = request.data.token
-    setToken(token)
-    localStoreToken(token)
-    setFormData(INITIAL_STATE)
-    navigate('/')
+    if (request instanceof AxiosError) {
+      setError(request.response.data.message)
+      return 'error'
+    } else {
+      const token = request.data.token
+      setToken(token)
+      localStoreToken(token)
+      setFormData(INITIAL_STATE)
+      navigate('/')
+    }
   }
 
 
@@ -51,6 +60,13 @@ const RegisterForm = ({token, setToken}) => {
       <div id="form-inner-container">
         <div id="form-container">
           <h4>Register</h4>
+          {error
+            ? <div className="error-container">
+                <p>Registration error:</p>
+                <p>{error}</p>
+              </div>
+            : <></>
+          }
           <form onSubmit={handleSubmit}>
 
             <div className="name-form-conatiner">

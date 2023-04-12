@@ -1,6 +1,7 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 
+
 const BASE_URL = "http://localhost:3001";
 
 class BackendApiRequest {
@@ -12,8 +13,9 @@ class BackendApiRequest {
         await axios({method, url: `${BASE_URL}${endpoint}`, data, headers})
       );
     } catch (err) {
-      // Handle Error Here
+      console.log('catching error in API')
       console.error(err);
+      return err
     }
   }
 
@@ -21,16 +23,15 @@ class BackendApiRequest {
   static async test(data) {
     const resp = await this.makeRequest('get', '/auth/test', null, data)
     console.log(resp)
+    return resp
   }
 
   static async registerNewUser(formData) {
     const data = formData;
-    try {
-      const response = await this.makeRequest('post', '/auth/register', null, data)
-      console.log(response)
-    } catch (e) {
-      console.log(e.message)
-    }
+    console.log('register')
+    return (
+      await this.makeRequest('post', '/auth/register', null, data)
+    )
   }
 
   static async login(formData) {

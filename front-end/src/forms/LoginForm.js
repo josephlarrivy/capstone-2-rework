@@ -5,11 +5,15 @@ import BackendApiRequest from "../apis/backendApi";
 import useLocalStorage from "../hooks/useLocalStorage";
 import NavBar from "../NavBar";
 
+import { AxiosError } from "axios";
+
 import '../css/LoginForm.css'
 
 const LoginForm = ({ token, setToken }) => {
 
   const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeTokenn] = useLocalStorage()
+  const [error, setError] = useState(null)
+
 
   const navigate = useNavigate();
 
@@ -19,8 +23,6 @@ const LoginForm = ({ token, setToken }) => {
     'password': '',
   }
   const [formData, setFormData] = useState(INITIAL_STATE)
-
-
 
   const handleChange = evt => {
     const { name, value } = evt.target;
@@ -34,12 +36,18 @@ const LoginForm = ({ token, setToken }) => {
     evt.preventDefault();
     const request = await BackendApiRequest.login(formData)
     console.log(request)
-    const token = request.data.token
-    setToken(token)
-    localStoreToken(token)
-    setFormData(INITIAL_STATE)
-    navigate('/')
+    if (request instanceof AxiosError) {
+      setError(request.response.data.error.message)
+      return 'error'
+    } else {
+      const token = request.data.token
+      setToken(token)
+      localStoreToken(token)
+      setFormData(INITIAL_STATE)
+      navigate('/')
+    }
   }
+
 
 
   return (
@@ -51,6 +59,13 @@ const LoginForm = ({ token, setToken }) => {
       <div id="form-inner-container">
         <div id="form-container">
           <h4>Log In</h4>
+          {error
+            ? <div className="error-container">
+              <p>Login error:</p>
+              <p>{error}</p>
+            </div>
+            : <></>
+          }
           <form onSubmit={handleSubmit}>
 
             <label htmlFor="username" className="col-md-6">username: </label>

@@ -92,3 +92,11 @@ input {
     border: 1px solid white;
     color: white;
 }
+
+
+.error-container {
+    border: 2px solid red;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: -20px;
+}

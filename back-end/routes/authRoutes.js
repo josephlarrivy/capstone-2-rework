@@ -16,16 +16,11 @@ const express = require("express");
 const router = new express.Router();
 
 
+
 router.get('/test', RequirePrivilegeLevel.Level('basic'), (req, res, next) => {
-  return res.send({'test1':'test1'})
+  console.log('xxx')
+  return res.send('test2')
 })
-
-
-
-
-// router.get('/test', (req, res, next) => {
-//   return res.send({ 'test1': 'test1' })
-// })
 
 
 
@@ -41,9 +36,13 @@ router.post("/register", async function (req, res, next) {
     const token = createToken(newUser);
     return res.status(201).json({ token });
   } catch (err) {
+    if (err instanceof BadRequestError) {
+      return res.status(400).json({ message: err.message });
+    }
     return next(err);
   }
 });
+
 
 router.post("/login", async function (req, res, next) {
   try {
