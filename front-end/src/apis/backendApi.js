@@ -25,13 +25,17 @@ class BackendApiRequest {
 
   static async registerNewUser(formData) {
     const data = formData;
-    return (
-      await this.makeRequest('post', '/auth/register', null, data)
-    )
+    try {
+      const response = await this.makeRequest('post', '/auth/register', null, data)
+      console.log(response)
+    } catch (e) {
+      console.log(e.message)
+    }
   }
 
   static async login(formData) {
     const data = formData;
+    console.log('login')
     return (
       await this.makeRequest('post', '/auth/login', null, data)
     )
@@ -43,8 +47,6 @@ class BackendApiRequest {
     } catch {
       return 'invalid'
     }
-
-
   }
 
 }

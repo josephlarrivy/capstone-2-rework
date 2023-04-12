@@ -1,0 +1,94 @@
+#register-form-main-container {
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#form-inner-container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(https://www.nps.gov/common/uploads/structured_data/3C7A89F4-1DD8-B71B-0B52204A2EBF61A4.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#form-container {
+    position: absolute;
+    width: 40vw;
+    margin-left: 30vw;
+    margin-top: 100px;
+    padding: 20px;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    /* box-shadow: 5px 5px gray; */
+    background-color: white;
+}
+
+#form-container h4 {
+    text-align: center;
+}
+
+form {
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    /* background-color: pink; */
+    width: 20vw;
+    margin: auto auto;
+    display: block;
+    text-align: center;
+}
+
+input {
+    width: 20vw;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: auto auto;
+    display: block;
+    text-align: center;
+}
+
+.name-form-conatiner {
+    display: flex;
+}
+
+.firstName {
+    width: 15vw;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: auto auto;
+    display: block;
+    text-align: center;
+}
+
+.lastName {
+    width: 15vw;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: auto auto;
+    display: block;
+    text-align: center;
+}
+
+#submit-button {
+    width: 10vw;
+    margin: auto auto;
+    background-color: white;
+    border: 1px solid black;
+}
+
+#submit-button:hover {
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+}

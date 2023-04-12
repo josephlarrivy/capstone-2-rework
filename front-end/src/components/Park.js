@@ -33,7 +33,7 @@ const Park = ({token, setToken}) => {
   useEffect(() => {
     const getSingleParkData = async () => {
       const data = await NParksServiceRequest.getSingleParkData(parkCode.code)
-      // console.log(data)
+      console.log(data)
       setParkData(data)
       setCenterPosition([data.latitude, data.longitude])
       let images = await NParksServiceRequest.getSingleParkImages(parkCode.code)

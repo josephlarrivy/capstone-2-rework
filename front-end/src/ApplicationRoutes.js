@@ -45,11 +45,13 @@ const ApplicationRoutes = ({token, setToken}) => {
         <Route exact path="/register"
           element={
           <RegisterForm
-          setToken={setToken}/>}
+            token={token}
+            setToken={setToken}/>}
         />
         <Route exact path="/login"
-          element={<LoginForm 
-          setToken={setToken} />}
+          element={<LoginForm
+            token={token}
+            setToken={setToken} />}
         />
         <Route 
           exact path="/park/:code"
