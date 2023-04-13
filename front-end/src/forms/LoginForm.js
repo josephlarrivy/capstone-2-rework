@@ -37,7 +37,7 @@ const LoginForm = ({ token, setToken }) => {
     const request = await BackendApiRequest.login(formData)
     console.log(request)
     if (request instanceof AxiosError) {
-      setError(request.response.data.error.message)
+      setError('Invalid username or password')
       return 'error'
     } else {
       const token = request.data.token
@@ -68,29 +68,33 @@ const LoginForm = ({ token, setToken }) => {
           }
           <form onSubmit={handleSubmit}>
 
-            <label htmlFor="username" className="col-md-6">username: </label>
+            
             <input
               required
               id={formData.username}
               type="text"
               name="username"
-              placeholder="username"
+              // placeholder="username"
               value={formData.username}
               onChange={handleChange}
               className="col-md-6"
-            /><br></br><br></br>
+            />
+            <label htmlFor="username" className="col-md-6">username</label>
+            <br></br><br></br>
 
-            <label htmlFor="password" className="col-md-6">password: </label>
+            
             <input
               required
               id={formData.password}
               type="text"
               name="password"
-              placeholder="password"
+              // placeholder="password"
               value={formData.password}
               onChange={handleChange}
               className="col-md-6"
-            /><br></br><br></br>
+            />
+            <label htmlFor="password" className="col-md-6">password</label>
+            <br></br><br></br>
 
             <button id="submit-button">Submit</button>
           </form>

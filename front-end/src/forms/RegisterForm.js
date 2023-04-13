@@ -76,13 +76,13 @@ const RegisterForm = ({token, setToken}) => {
                   id={formData.firstName}
                   type="text"
                   name="firstName"
-                  placeholder="first name"
+                  // placeholder="first name"
                   value={formData.firstName}
                   onChange={handleChange}
                   className='firstName'
                   onFocus={(e) => e.target.placeholder = ''}
                 />
-                <label htmlFor="firstName" className="name-label">First Name: </label>
+                <label htmlFor="firstName" className="name-label">First Name</label>
               </div>
               <div className="name-subcontainer">
                 <input
@@ -90,13 +90,13 @@ const RegisterForm = ({token, setToken}) => {
                   id={formData.lastName}
                   type="text"
                   name="lastName"
-                  placeholder="last name"
+                  // placeholder="last name"
                   value={formData.lastName}
                   onChange={handleChange}
                   className='lastName'
                   onFocus={(e) => e.target.placeholder = ''}
                 />
-                <label htmlFor="lastName" className="name-label">Last Name: </label>
+                <label htmlFor="lastName" className="name-label">Last Name</label>
               </div>
               
             </div>
@@ -108,7 +108,7 @@ const RegisterForm = ({token, setToken}) => {
               id={formData.username}
               type="text"
               name="username"
-              placeholder="username"
+              // placeholder="username"
               value={formData.username}
               onChange={handleChange}
               className='username'
@@ -121,7 +121,7 @@ const RegisterForm = ({token, setToken}) => {
               id={formData.password}
               type="text"
               name="password"
-              placeholder="password"
+              // placeholder="password"
               value={formData.password}
               onChange={handleChange}
               className='password'
@@ -132,9 +132,9 @@ const RegisterForm = ({token, setToken}) => {
             <input
               required
               id={formData.email}
-              type="text"
+              type="email"
               name="email"
-              placeholder="email"
+              // placeholder="email"
               value={formData.email}
               onChange={handleChange}
               className='email'
