@@ -10,3 +10,16 @@
     /* background-color: aqua; */
     text-align: center;
 }
+
+#date-pickers {
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-around;
+    margin-top: -20px;
+}
+
+#date-pickers h2 {
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    padding-top: 30px;
+}

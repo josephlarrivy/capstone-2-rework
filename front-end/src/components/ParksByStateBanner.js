@@ -18,7 +18,7 @@ const ParksByStateBanner = () => {
     convertStateName(USstate)
     const getParks = async () => {
       if (USstate === null) {
-        console.log('null')
+        // console.log('null')
       } else {
         const response = await NParksServiceRequest.getParksByState(USstate)
         console.log(response)

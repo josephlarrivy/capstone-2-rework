@@ -15,7 +15,7 @@ import ParksSearchResults from "./components/ParksSearchResults";
 import ArticlesSearchResults from "./components/ArticlesSearchResults";
 import ToursSearchResults from "./components/ToursSearchResults";
 import TourDetails from "./components/TourDetails";
-import PlanATripMain from "./components/PlanATripMain";
+import PlanEventsTrip from "./components/PlanEventsTrip";
 
 
 const ApplicationRoutes = ({token, setToken}) => {
@@ -107,8 +107,8 @@ const ApplicationRoutes = ({token, setToken}) => {
           />}
         />
         <Route
-          exact path="/planTrip/:type"
-          element={<PlanATripMain
+          exact path="/planTrip/events"
+          element={<PlanEventsTrip
             token={token}
             setToken={setToken}
           />}
