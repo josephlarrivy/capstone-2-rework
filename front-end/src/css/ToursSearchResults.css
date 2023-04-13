@@ -44,8 +44,22 @@
     border: 1px solid black;
     border-radius: 5px;
     font-size: large;
-    margin-left: 45vw;
 
+    margin-left: 40vw;
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+
+#tours-load-more-search-results:hover {
+    background-color: black;
+    padding: 10px;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: large;
+
+    margin-left: 40vw;
+    margin-bottom: 50px;
     cursor: pointer;
 }
 

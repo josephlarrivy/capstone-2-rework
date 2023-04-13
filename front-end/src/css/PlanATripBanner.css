@@ -1,0 +1,16 @@
+#plan-a-trip-banner-container {
+    /* background-color: black; */
+    background-image: url('../images/3C7AA462-1DD8-B71B-0BB13D97381C04B0.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 80% 1%;
+    width: 94%;
+    margin-left: 3%;
+    height: 350px;
+}
+
+#plan-a-trip-banner-container h1 {
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    padding-top: 30px;
+}

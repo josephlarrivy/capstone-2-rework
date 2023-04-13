@@ -65,6 +65,19 @@
     cursor: pointer;
 }
 
+.articles-load-more-search-results-button:hover {
+    background-color: black;
+    padding: 10px;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: large;
+
+    margin-left: 40vw;
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+
 
 .related-parks-buttons button {
     background-color: white;
