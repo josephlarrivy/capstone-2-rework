@@ -15,6 +15,7 @@ import ParksSearchResults from "./components/ParksSearchResults";
 import ArticlesSearchResults from "./components/ArticlesSearchResults";
 import ToursSearchResults from "./components/ToursSearchResults";
 import TourDetails from "./components/TourDetails";
+import PlanATripMain from "./components/PlanATripMain";
 
 
 const ApplicationRoutes = ({token, setToken}) => {
@@ -23,10 +24,6 @@ const ApplicationRoutes = ({token, setToken}) => {
 
   return (
     <>
-      {/* <NavBar
-        token={token}
-        setToken={setToken}
-      /> */}
       <Routes>
         <Route exact path="/"
           element={
@@ -105,6 +102,13 @@ const ApplicationRoutes = ({token, setToken}) => {
         <Route
           exact path="/tourDetails/:id"
           element={<TourDetails
+            token={token}
+            setToken={setToken}
+          />}
+        />
+        <Route
+          exact path="/planTrip/:type"
+          element={<PlanATripMain
             token={token}
             setToken={setToken}
           />}

@@ -30,7 +30,7 @@
     margin-top: 10px;
 
     animation: show-button;
-    animation-duration: 300ms;
+    animation-duration: 1s;
 }
 
 #search-button:hover {
@@ -54,8 +54,8 @@
 }
 
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
-    -webkit-text-fill-color: black !important;
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: black !important;
 }
 
 @keyframes show-button {
@@ -83,10 +83,13 @@ form fieldset {
 
 .radio-label {
     font-weight: bold;
+    width: 15vw;
+    text-shadow: none;
+    color: black;
     display: inline-block;
     padding: 10px 20px;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-right: 10px;
     margin-left: 10px;
     margin-top: 10px;

@@ -31,11 +31,15 @@ const SearchBanner = () => {
     console.log(`${searchType}/${convertedSearchTerm}`)
   }
 
+  const handleFocus = (e) => {
+    e.target.placeholder = ''
+  }
+
   return (
     <div id='search-banner-container'>
       <h1>Search United States National Parks</h1>
       {/* <label for="searchBox">Search National Parks</label> */}
-      <input type="text" id="searchBox" name="username" onChange={handleChange} placeholder='search'></input>
+      <input type="text" id="searchBox" name="username" onChange={handleChange} onFocus={(e) => handleFocus(e)} placeholder='search'></input>
 
       {searchTerm === null
         ? <p></p>

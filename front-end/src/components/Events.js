@@ -40,7 +40,7 @@ const Events = ({stateName, data}) => {
                 </div>
                 : <div
                   className="events-item-image-container">
-                    {/* <img src={require('../images/black.png')}></img> */}
+                    <img src={require('../images/black.png')}></img>
                     <p>no image</p>
                   </div>
               }
