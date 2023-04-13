@@ -154,7 +154,12 @@ class NParksServiceRequest {
     } else {
       return null
     }
-    
+  }
+
+  static async getEventsByDates(startDate, endDate, pageSize, pageNumber) {
+    const resp = await this.makeRequest(`/events?dateStart=${startDate}&dateEnd=${endDate}&pageSize=${pageSize}&pageNumber=${pageNumber}`)
+    // console.log(resp)
+    return resp.data.data
   }
 
 }

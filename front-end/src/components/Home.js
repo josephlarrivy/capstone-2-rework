@@ -21,9 +21,9 @@ const Home = ({ token, setToken }) => {
         setToken={setToken}
       />
       <div className="home-main">
-        <PlanATripBanner />
+        {/* <PlanATripBanner />
         <br></br>
-        <br></br>
+        <br></br> */}
         <SearchBanner />
         <br></br>
         <br></br>

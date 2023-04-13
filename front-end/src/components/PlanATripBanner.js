@@ -14,13 +14,6 @@ const PlanATripBanner = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    // let savedDateData = getTripData()
-    // const savedStartDate = savedDateData.tripStartDate
-    // const savedEndDate = savedDateData.tripEndDate
-    // if (saveStartDate && savedEndDate) {
-    //   setStartSelectedDate(savedStartDate)
-    //   setEndSelectedDate(savedEndDate)
-    // }
     clearTripDates()
   }, [])
 
