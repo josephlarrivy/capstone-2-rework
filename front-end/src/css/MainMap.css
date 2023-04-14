@@ -40,7 +40,10 @@
     overflow: hidden;
 }
 
-.popup-description {}
+.popup-description-div p {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
 
 .leaflet-popup-content-wrapper {
     display: flex;

@@ -16,6 +16,7 @@ import ArticlesSearchResults from "./components/ArticlesSearchResults";
 import ToursSearchResults from "./components/ToursSearchResults";
 import TourDetails from "./components/TourDetails";
 import PlanEventsTrip from "./components/PlanEventsTrip";
+import Book from "./components/Book";
 
 
 const ApplicationRoutes = ({token, setToken}) => {
@@ -113,6 +114,13 @@ const ApplicationRoutes = ({token, setToken}) => {
             setToken={setToken}
           />}
         /> */}
+        <Route
+          exact path="/book"
+          element={<Book
+            token={token}
+            setToken={setToken}
+          />}
+        />
       </Routes>
     </>
   )

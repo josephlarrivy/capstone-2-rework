@@ -14,7 +14,7 @@ const ImageCollage = ({ imagesArray }) => {
     //   urls.pop()
     // }
     setImageUrls(urls)
-    console.log(urls.length)
+    // console.log(urls.length)
   }, [imagesArray])
 
   const gridStyle = {

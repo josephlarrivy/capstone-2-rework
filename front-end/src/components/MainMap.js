@@ -49,12 +49,12 @@ const MainMap = ({showingParks}) => {
 
 
                   <div className='popup-description-div'>
-                    <p className='popup-description'>{park.description}</p>
                     <p><Link
                       className='link-info'
                       to={`/park/${park.parkCode}`
                       }>View Park
                     </Link></p>
+                    <p className='popup-description'>{park.description}</p>
                   </div>
                 </Popup>
               </Marker>
