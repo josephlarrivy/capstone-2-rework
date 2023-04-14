@@ -8,12 +8,14 @@ import NavBar from "../NavBar";
 import MiniMap from "./MiniMap";
 import Weather from "./Weather";
 
-import NParksServiceRequest from "../apis/nationalParksApi";
 import Sun from "./Sun";
 import Loading from "./Loading";
 import ImagesDisplayer from "./ImagesDisplayer";
 import ImageCollage from "./ImageCollage";
 import AlertsByPark from "./AlertsByPark";
+
+import NParksServiceRequest from "../apis/nationalParksApi";
+import RecreationAPI from "../apis/RecreationApi";
 
 
 
@@ -22,11 +24,14 @@ const Park = ({token, setToken}) => {
   const parkCode = useParams();
 
   const [parkData, setParkData] = useState(null)
-  const [zoom, setZoom] = useState(5)
+  const [zoom, setZoom] = useState(7)
   const [centerPosition, setCenterPosition] = useState(null)
   const [imagesArray, setImagesArray] = useState(null)
   const [tourLinks, setTourLinks] = useState(null)
   const [alerts, setAlerts] = useState(null)
+  const [campgrounds, setCampgrounds] = useState(null)
+  const [campgroundsToggleState, setCampgroundsToggleState] = useState('Show Campgrounds')
+  const [numCampgrounds, setNumCampgrounds] = useState(0)
   const navigate = useNavigate()
   
 
@@ -61,11 +66,31 @@ const Park = ({token, setToken}) => {
 
     const getParkAlerts = async (code) => {
       const alertsData = await NParksServiceRequest.getAlertsByParkCode(code)
+      // console.log(alertsData)
       setAlerts(alertsData)
     }
     getParkAlerts(parkCode.code)
+
+    const getCampgrounds = async (code) => {
+      const campgroundsData = await NParksServiceRequest.getCampgroundsByPark(code)
+      console.log(campgroundsData)
+      setCampgrounds(campgroundsData)
+      setNumCampgrounds(campgroundsData.length)
+      if (campgroundsData.length === 0) {
+        setCampgroundsToggleState('No Campgrounds')
+      }
+    }
+    getCampgrounds(parkCode.code)
+
   }, [])
 
+  const toggleCampgrounds = () => {
+    if (campgroundsToggleState === 'Hide Campgrounds') {
+      setCampgroundsToggleState('Show Campgrounds')
+    } else if (campgroundsToggleState === 'Show Campgrounds') {
+      setCampgroundsToggleState('Hide Campgrounds')
+    }
+  }
 
   
   if (parkData === null) {
@@ -89,10 +114,13 @@ const Park = ({token, setToken}) => {
             <MiniMap
               zoom={zoom}
               centerPosition={centerPosition}
+              campgrounds={campgrounds}
+              campgroundsToggleState={campgroundsToggleState}
             />
           </div>
 
           <div className="park-map-footer">
+            <button id="toggle-campgrounds-button" onClick={() => toggleCampgrounds()}>{campgroundsToggleState} ({numCampgrounds})</button>
             <Sun centerPosition={centerPosition} />
           </div>
 

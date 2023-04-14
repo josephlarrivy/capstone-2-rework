@@ -12,7 +12,7 @@ class NParksServiceRequest {
       const method = 'get'
       const url = `${PARKS_BASE_URL}${endpoint}`
       const resp = await axios({ method, url, headers })
-      // console.log(url)
+      console.log(url)
       return (resp)
     } catch (err) {
       console.error(err);
@@ -158,7 +158,11 @@ class NParksServiceRequest {
 
   static async getEventsByDates(startDate, endDate, pageSize, pageNumber) {
     const resp = await this.makeRequest(`/events?dateStart=${startDate}&dateEnd=${endDate}&pageSize=${pageSize}&pageNumber=${pageNumber}`)
-    // console.log(resp)
+    return resp.data.data
+  }
+
+  static async getCampgroundsByPark(code) {
+    const resp = await this.makeRequest(`/campgrounds?parkCode=${code}`)
     return resp.data.data
   }
 
