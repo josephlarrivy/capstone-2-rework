@@ -79,7 +79,7 @@ const LoginForm = ({ token, setToken }) => {
               onChange={handleChange}
               className="col-md-6"
             />
-            <label htmlFor="username" className="col-md-6">username</label>
+            <label htmlFor="username" className="label">username</label>
             <br></br><br></br>
 
             
@@ -93,7 +93,7 @@ const LoginForm = ({ token, setToken }) => {
               onChange={handleChange}
               className="col-md-6"
             />
-            <label htmlFor="password" className="col-md-6">password</label>
+            <label htmlFor="password" className="label">password</label>
             <br></br><br></br>
 
             <button id="submit-button">Submit</button>

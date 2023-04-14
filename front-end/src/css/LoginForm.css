@@ -80,6 +80,11 @@ input {
     text-align: center;
 }
 
+.label {
+    color: black;
+    text-shadow: none;
+}
+
 #submit-button {
     width: 10vw;
     margin: auto auto;

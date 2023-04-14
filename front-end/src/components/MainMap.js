@@ -37,10 +37,7 @@ const MainMap = ({showingParks}) => {
                 ]}
               >
                 <Popup>
-                  <h4>{park.fullName} - <Link
-                    to={`/park/${park.parkCode}`
-                    }>More Info
-                  </Link></h4>
+                  <h4>{park.fullName}</h4>
                   
 
                   <div className='popup-image-div'>
@@ -53,6 +50,11 @@ const MainMap = ({showingParks}) => {
 
                   <div className='popup-description-div'>
                     <p className='popup-description'>{park.description}</p>
+                    <p><Link
+                      className='link-info'
+                      to={`/park/${park.parkCode}`
+                      }>View Park
+                    </Link></p>
                   </div>
                 </Popup>
               </Marker>

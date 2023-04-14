@@ -82,7 +82,7 @@ const RegisterForm = ({token, setToken}) => {
                   className='firstName'
                   onFocus={(e) => e.target.placeholder = ''}
                 />
-                <label htmlFor="firstName" className="name-label">First Name</label>
+                <label htmlFor="firstName" className="register-label">First Name</label>
               </div>
               <div className="name-subcontainer">
                 <input
@@ -96,13 +96,13 @@ const RegisterForm = ({token, setToken}) => {
                   className='lastName'
                   onFocus={(e) => e.target.placeholder = ''}
                 />
-                <label htmlFor="lastName" className="name-label">Last Name</label>
+                <label htmlFor="lastName" className="register-label">Last Name</label>
               </div>
               
             </div>
             <br></br><br></br>
 
-            <label htmlFor="username" className="col-md-6">Username: </label>
+            <label htmlFor="username" className="register-label">Username: </label>
             <input
               required
               id={formData.username}
@@ -115,7 +115,7 @@ const RegisterForm = ({token, setToken}) => {
               onFocus={(e) => e.target.placeholder = ''}
             /><br></br><br></br>
 
-            <label htmlFor="password" className="col-md-6">Password: </label>
+            <label htmlFor="password" className="register-label">Password: </label>
             <input
               required
               id={formData.password}
@@ -128,7 +128,7 @@ const RegisterForm = ({token, setToken}) => {
               onFocus={(e) => e.target.placeholder = ''}
             /><br></br><br></br>
 
-            <label htmlFor="email" className="col-md-6">Email: </label>
+            <label htmlFor="email" className="register-label">Email: </label>
             <input
               required
               id={formData.email}
