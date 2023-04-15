@@ -1,26 +1,17 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import { useNavigate } from 'react-router-dom';
-
 import BackendApiRequest from "../apis/backendApi";
-import useLocalStorage from "../hooks/useLocalStorage";
 import NavBar from "../NavBar";
-
 import { AxiosError } from "axios";
 
-import '../css/LoginForm.css'
+const TripNameForm = ({ token, setToken }) => {
 
-const LoginForm = ({ token, setToken }) => {
-
-  const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeTokenn] = useLocalStorage()
   const [error, setError] = useState(null)
-
-
   const navigate = useNavigate();
 
 
   const INITIAL_STATE = {
-    'username': '',
-    'password': '',
+    'tripName': '',
   }
   const [formData, setFormData] = useState(INITIAL_STATE)
 
@@ -34,24 +25,25 @@ const LoginForm = ({ token, setToken }) => {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    const request = await BackendApiRequest.login(formData)
+    const request = await BackendApiRequest.addTripName(formData)
     console.log(request)
     if (request instanceof AxiosError) {
-      setError('Invalid username or password')
+      setError('AxiosError')
       return 'error'
     } else {
-      const token = request.data.token
-      setToken(token)
-      localStoreToken(token)
-      setFormData(INITIAL_STATE)
-      navigate('/')
+      // const token = request.data.token
+      // setToken(token)
+      // localStoreToken(token)
+      // setFormData(INITIAL_STATE)
+      // navigate('/')
+      console.log('good request')
     }
   }
 
 
 
   return (
-    <div id="login-form-main-container">
+    <div id="trip-form-main-container">
       <NavBar
         token={token}
         setToken={setToken}
@@ -61,39 +53,24 @@ const LoginForm = ({ token, setToken }) => {
           <h4>Log In</h4>
           {error
             ? <div className="error-container">
-              <p>Login error:</p>
+              <p>Error:</p>
               <p>{error}</p>
             </div>
             : <></>
           }
           <form onSubmit={handleSubmit}>
 
-            
             <input
               required
-              id={formData.username}
+              id={formData.tripName}
               type="text"
-              name="username"
-              // placeholder="username"
-              value={formData.username}
-              onChange={handleChange}
-              className="col-md-6"
-            />
-            <label htmlFor="username" className="label">username</label>
-            <br></br><br></br>
-
-            
-            <input
-              required
-              id={formData.password}
-              type="text"
-              name="password"
+              name="tripName"
               // placeholder="password"
-              value={formData.password}
+              value={formData.tripName}
               onChange={handleChange}
               className="col-md-6"
             />
-            <label htmlFor="password" className="label">password</label>
+            <label htmlFor="tripName" className="label">tripName</label>
             <br></br><br></br>
 
             <button id="submit-button">Submit</button>
@@ -104,4 +81,4 @@ const LoginForm = ({ token, setToken }) => {
   )
 }
 
-export default LoginForm;
+export default TripNameForm;

@@ -6,6 +6,7 @@ const morgan = require("morgan");
 
 const { NotFoundError } = require("./ExpressError");
 const authRoutes = require("./routes/authRoutes");
+const tripRoutes = require("./routes/tripRoutes")
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("tiny"));
 app.use("/auth", authRoutes);
+app.use("/trip", tripRoutes)
 
 
 
