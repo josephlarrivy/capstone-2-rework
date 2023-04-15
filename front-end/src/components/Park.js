@@ -110,7 +110,7 @@ const Park = ({token, setToken}) => {
             <Weather centerPosition={centerPosition} />
           </div>
 
-          <div className="park-header-map-conatiner">
+          <div className="park-header-map-conatiner-small">
             <MiniMap
               zoom={zoom}
               centerPosition={centerPosition}
