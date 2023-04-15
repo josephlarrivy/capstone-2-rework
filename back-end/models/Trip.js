@@ -7,20 +7,21 @@ const { ExpressError, NotFoundError, UnauthorizedError, BadRequestError, Forbidd
 
 class Trip {
 
-  static async addTripName ({name}) {
+  static async addTripName ({tripname, username}) {
     const result = await db.query (
-      `INSERT INTO tripNames
-        (name) VALUES ($1) RETURNING name`, [name],
+      `INSERT INTO tripnames
+        (tripname, username) VALUES ($1, $2) RETURNING tripname, username`, [tripname, username],
     );
-    const nameReturn = result.rows[0]
-    return nameReturn
+    const giveDataBack = result.rows[0]
+    return giveDataBack
   }
+
 
   static async addTripItem (
     { type, route, name, description, park, latitude, longitude }
   ) {
     const result = await db.query (
-      `INSERT INTO tripItems
+      `INSERT INTO tripitems
         (type, route, name, description, park, latitude, longitude)
         VALUES ($1, $2, $3, $4, $5, $6, $7)
         RETURNING route, name, description, park, latitude, longitude`,

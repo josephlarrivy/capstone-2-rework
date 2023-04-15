@@ -1,17 +1,28 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import BackendApiRequest from "../apis/backendApi";
 import NavBar from "../NavBar";
 import { AxiosError } from "axios";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const TripNameForm = ({ token, setToken }) => {
 
   const [error, setError] = useState(null)
+  const [username, setUsername] = useState(null)
   const navigate = useNavigate();
+  const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
 
+  useEffect(() => {
+    const getUsername = async () => {
+      const token = await localDecodeToken()
+      console.log(token.username)
+      setUsername(token.username)
+    }
+    getUsername()
+  }, [])
 
   const INITIAL_STATE = {
-    'tripName': '',
+    'tripname': '',
   }
   const [formData, setFormData] = useState(INITIAL_STATE)
 
@@ -19,7 +30,8 @@ const TripNameForm = ({ token, setToken }) => {
     const { name, value } = evt.target;
     setFormData(data => ({
       ...data,
-      [name]: value
+      [name]: value,
+      'username': username
     }));
   };
 
@@ -62,15 +74,14 @@ const TripNameForm = ({ token, setToken }) => {
 
             <input
               required
-              id={formData.tripName}
+              id={formData.tripname}
               type="text"
-              name="tripName"
+              name="tripname"
               // placeholder="password"
-              value={formData.tripName}
+              value={formData.tripname}
               onChange={handleChange}
-              className="col-md-6"
             />
-            <label htmlFor="tripName" className="label">tripName</label>
+            <label htmlFor="tripname" className="label">tripname</label>
             <br></br><br></br>
 
             <button id="submit-button">Submit</button>

@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+        "tripname": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 60
+        },
+        "username": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 60
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "tripName",
+        "username"
+    ]
+}

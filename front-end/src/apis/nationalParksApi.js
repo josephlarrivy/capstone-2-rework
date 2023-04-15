@@ -12,7 +12,7 @@ class NParksServiceRequest {
       const method = 'get'
       const url = `${PARKS_BASE_URL}${endpoint}`
       const resp = await axios({ method, url, headers })
-      console.log(url)
+      // console.log(url)
       return (resp)
     } catch (err) {
       console.error(err);
