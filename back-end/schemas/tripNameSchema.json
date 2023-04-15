@@ -4,17 +4,17 @@
         "tripname": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 60
+            "maxLength": 600
         },
         "username": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 60
+            "maxLength": 600
         }
     },
     "additionalProperties": false,
     "required": [
-        "tripName",
+        "tripname",
         "username"
     ]
 }

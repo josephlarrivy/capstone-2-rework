@@ -13,14 +13,17 @@ const express = require("express");
 const router = new express.Router();
 
 
+
 router.post('/addTripName', async function (req, res, next) {
+  console.log('tripRoutes')
   console.log(req.body)
+  console.log('tripRoutes')
   try {
     const validator = jsonschema.validate(req.body, tripNameSchema)
     if (!validator.valid) {
       const errs = validator.errors.map(e => e.stack);
       throw new BadRequestError(errs);
-      // console.log('this is the error')
+      console.log('this is the error')
     }
     const tripName = await Trip.addTripName({...req.body})
     console.log(tripName)

@@ -15,7 +15,7 @@ const TripNameForm = ({ token, setToken }) => {
   useEffect(() => {
     const getUsername = async () => {
       const token = await localDecodeToken()
-      console.log(token.username)
+      // console.log(token.username)
       setUsername(token.username)
     }
     getUsername()
@@ -38,7 +38,9 @@ const TripNameForm = ({ token, setToken }) => {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     const request = await BackendApiRequest.addTripName(formData)
+    console.log('TripNameForm')
     console.log(request)
+    console.log('TripNameForm')
     if (request instanceof AxiosError) {
       setError('AxiosError')
       return 'error'

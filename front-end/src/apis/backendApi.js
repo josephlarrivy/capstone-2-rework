@@ -52,7 +52,7 @@ class BackendApiRequest {
 
   static async addTripName(formData) {
     const data = formData;
-    console.log('addTripName:', data)
+    console.log('backendApi:', data)
     return (
       await this.makeRequest('post', '/trip/addTripName', null, data)
     )

@@ -7,12 +7,23 @@ const { ExpressError, NotFoundError, UnauthorizedError, BadRequestError, Forbidd
 
 class Trip {
 
+  static async generateRandomString(length) {
+    const alphanumeric = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+      result += alphanumeric.charAt(Math.floor(Math.random() * alphanumeric.length));
+    }
+    return result;
+  }
+
   static async addTripName ({tripname, username}) {
+    const key = this.generateRandomString(10)
     const result = await db.query (
       `INSERT INTO tripnames
-        (tripname, username) VALUES ($1, $2) RETURNING tripname, username`, [tripname, username],
+        (id, tripname, username) VALUES ($1, $2, $3) RETURNING tripname, username`, [key, tripname, username],
     );
     const giveDataBack = result.rows[0]
+    console.log('Trip Model')
     return giveDataBack
   }
 
