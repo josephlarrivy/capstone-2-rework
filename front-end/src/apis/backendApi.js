@@ -6,11 +6,11 @@ const BASE_URL = "http://localhost:3001";
 
 class BackendApiRequest {
 
-  static async makeRequest(method, endpoint, token=null, data={}) {
+  static async makeRequest(method, endpoint, token = null, data = {}, body = {}, params = {}) {
     try {
-      const headers = { authorization : `Bearer ${token}` }
+      const headers = { authorization: `Bearer ${token}` }
       return (
-        await axios({method, url: `${BASE_URL}${endpoint}`, data, headers})
+        await axios({ method, url: `${BASE_URL}${endpoint}`, data, body, headers, params })
       );
     } catch (err) {
       console.log('catching error in API')
@@ -18,6 +18,7 @@ class BackendApiRequest {
       return err
     }
   }
+
 
 
   static async test(data) {
@@ -51,6 +52,7 @@ class BackendApiRequest {
   }
 
   static async addTripName(formData) {
+    // console.log('formData:', formData)
     const data = formData;
     console.log('backendApi:', data)
     return (
@@ -58,14 +60,29 @@ class BackendApiRequest {
     )
   }
 
-
   static async getUserTrips(username) {
-    const data = username;
-    console.log('data:', username)
-    return (
-      await this.makeRequest('get', '/trip/getTrips', null, data)
-    )
+    console.log('getUserTrips (username)', username)
+    console.log('checkpoint 1')
+    if (username) {
+      console.log('checkpoint 2')
+      const params = { 'username': username };
+      try {
+        console.log('checkpoint 3')
+        let returnData = await this.makeRequest('get', '/trip/getTrips', null, null, null, params)
+        console.log('getUserTrips returnData:', returnData)
+        console.log('checkpoint 4')
+        return returnData
+      } catch (err) {
+        console.log('checkpoint 5')
+        console.error(err);
+        return err;
+      }
+    } else {
+      console.log('checkpoint 6')
+      return 'waiting'
+    }
   }
+
 
 }
 

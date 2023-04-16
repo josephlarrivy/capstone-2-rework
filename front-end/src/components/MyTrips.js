@@ -8,6 +8,7 @@ const MyTrips = ({token, setToken}) => {
 
   const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
   const [username, setUsername] = useState(null)
+  const [trips, setTrips] = useState(null)
 
   useEffect(() => {
     const getUsername = async () => {
@@ -17,14 +18,22 @@ const MyTrips = ({token, setToken}) => {
     getUsername()
   }, [])
 
+  
   useEffect(() => {
     const getTrips = async () => {
-      const trips = await BackendApiRequest.getUserTrips(username)
-      console.log(trips)
+      const data = await BackendApiRequest.getUserTrips(username)
+      console.log(data)
+      setTrips(data)
     }
     getTrips()
   }, [username])
 
+  useEffect(() => {
+    console.log(trips)
+  }, [trips])
+
+
+  
   return (
     <div id="my-trips-main-container">
       <NavBar 
@@ -32,6 +41,10 @@ const MyTrips = ({token, setToken}) => {
         setToken={setToken}
       />
       <h1>My Trips</h1>
+      {trips
+        ? <p>yes</p>
+        : <p>no</p>
+      }
       {/* <TripNameForm /> */}
     </div>
   )

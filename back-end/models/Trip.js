@@ -24,9 +24,34 @@ class Trip {
         (id, tripname, username) VALUES ($1, $2, $3) RETURNING tripname, username`, [key, tripname, username],
     );
     const giveDataBack = result.rows[0]
-    console.log('Trip Model')
+    // console.log('Trip Model')
     return giveDataBack
   }
+
+  static async getUserTrips(username) {
+    try {
+      // console.log('Model (username):', username);
+      const result = await db.query(
+        `SELECT tripname FROM tripnames WHERE username = $1`,
+        [username]
+      );
+      // console.log('Trip model:', result.rows);
+      return result.rows;
+    } catch (err) {
+      console.error(err);
+      throw new Error('Failed to get user trips');
+    }
+  }
+
+
+
+
+
+
+
+
+
+
 
 
   static async addTripItem (
@@ -42,15 +67,6 @@ class Trip {
     const item = result.rows[0]
     return item
   }
-
-  static async getUserTrips({username}) {
-    const result = await db.query(
-      `SELECT * FROM tripnames WHERE username = $1`,
-      [username]
-    );
-    return result.rows;
-  }
-
 
 }
 
