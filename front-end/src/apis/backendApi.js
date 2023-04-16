@@ -61,27 +61,15 @@ class BackendApiRequest {
   }
 
   static async getUserTrips(username) {
-    console.log('getUserTrips (username)', username)
-    console.log('checkpoint 1')
-    if (username) {
-      console.log('checkpoint 2')
-      const params = { 'username': username };
-      try {
-        console.log('checkpoint 3')
-        let returnData = await this.makeRequest('get', '/trip/getTrips', null, null, null, params)
-        console.log('getUserTrips returnData:', returnData)
-        console.log('checkpoint 4')
-        return returnData
-      } catch (err) {
-        console.log('checkpoint 5')
-        console.error(err);
-        return err;
-      }
-    } else {
-      console.log('checkpoint 6')
-      return 'waiting'
+    const params = { 'username': username };
+    try {
+      const response = await this.makeRequest('get', '/trip/getTrips', null, null, null, params);
+      return response.data.data;
+    } catch (err) {
+      return err;
     }
   }
+
 
 
 }

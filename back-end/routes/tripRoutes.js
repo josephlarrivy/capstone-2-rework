@@ -38,7 +38,7 @@ router.get('/getTrips', async function (req, res, next) {
   try {
     const trips = await Trip.getUserTrips(username);
     console.log('tripRoutes:', trips);
-    return trips
+    return res.status(200).json({ 'data' : trips })
   } catch (err) {
     if (err instanceof BadRequestError) {
       return res.status(400).json({ message: err.message });

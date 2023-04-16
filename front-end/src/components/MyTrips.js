@@ -28,12 +28,7 @@ const MyTrips = ({token, setToken}) => {
     getTrips()
   }, [username])
 
-  useEffect(() => {
-    console.log(trips)
-  }, [trips])
 
-
-  
   return (
     <div id="my-trips-main-container">
       <NavBar 
