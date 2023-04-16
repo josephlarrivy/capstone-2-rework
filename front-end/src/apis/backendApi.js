@@ -58,6 +58,15 @@ class BackendApiRequest {
     )
   }
 
+
+  static async getUserTrips(username) {
+    const data = username;
+    console.log('data:', username)
+    return (
+      await this.makeRequest('get', '/trip/getTrips', null, data)
+    )
+  }
+
 }
 
 export default BackendApiRequest;

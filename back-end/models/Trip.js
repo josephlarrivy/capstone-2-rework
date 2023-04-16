@@ -17,7 +17,8 @@ class Trip {
   }
 
   static async addTripName ({tripname, username}) {
-    const key = this.generateRandomString(10)
+    const key = await this.generateRandomString(10)
+    // console.log(key)
     const result = await db.query (
       `INSERT INTO tripnames
         (id, tripname, username) VALUES ($1, $2, $3) RETURNING tripname, username`, [key, tripname, username],
@@ -38,9 +39,16 @@ class Trip {
         RETURNING route, name, description, park, latitude, longitude`,
       [type, route, name, description, park, latitude, longitude],
     );
-
     const item = result.rows[0]
     return item
+  }
+
+  static async getUserTrips({username}) {
+    const result = await db.query(
+      `SELECT * FROM tripnames WHERE username = $1`,
+      [username]
+    );
+    return result.rows;
   }
 
 

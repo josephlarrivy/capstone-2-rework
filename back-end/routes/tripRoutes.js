@@ -12,11 +12,8 @@ const tripNameSchema = require('../schemas/tripNameSchema.json')
 const express = require("express");
 const router = new express.Router();
 
-
 router.post('/addTripName', async function (req, res, next) {
-  console.log('tripRoutes')
-  console.log(req.body)
-  console.log('tripRoutes')
+  // console.log(req)
   try {
     const validator = jsonschema.validate(req.body, tripNameSchema)
     if (!validator.valid) {
@@ -33,8 +30,19 @@ router.post('/addTripName', async function (req, res, next) {
     }
     return next(err);
   }
-  
-  
 });
+
+router.get('/getTrips', async function (req, res, next) {
+  // console.log(req)
+  try {
+    const trips = await Trip.getUserTrips({...req.body})
+    console.log('tripRoutes:', trips)
+  } catch (err) {
+    if (err instanceof BadRequestError) {
+      return res.status(400).json({ message: err.message });
+    }
+    return next(err);
+  }
+})
 
 module.exports = router;

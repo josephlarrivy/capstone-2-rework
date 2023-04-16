@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import NavBar from "../NavBar";
 import useLocalStorage from "../hooks/useLocalStorage";
+import TripNameForm from "../forms/TripNameForm";
+import BackendApiRequest from "../apis/backendApi";
 
 const MyTrips = ({token, setToken}) => {
 
@@ -15,6 +17,14 @@ const MyTrips = ({token, setToken}) => {
     getUsername()
   }, [])
 
+  useEffect(() => {
+    const getTrips = async () => {
+      const trips = await BackendApiRequest.getUserTrips(username)
+      console.log(trips)
+    }
+    getTrips()
+  }, [username])
+
   return (
     <div id="my-trips-main-container">
       <NavBar 
@@ -22,6 +32,7 @@ const MyTrips = ({token, setToken}) => {
         setToken={setToken}
       />
       <h1>My Trips</h1>
+      {/* <TripNameForm /> */}
     </div>
   )
 }
