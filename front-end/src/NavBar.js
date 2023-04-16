@@ -74,6 +74,9 @@ const NavBar = ({token, setToken}) => {
             <NavItem>
               <NavLink onClick={logOut} id="nav-logout">Log Out</NavLink>
             </NavItem>
+            <NavItem >
+              <NavLink to="/myTrips">My Trips</NavLink>
+            </NavItem>
 
             {/* <NavItem>
             <NavLink to="/map">Map</NavLink>

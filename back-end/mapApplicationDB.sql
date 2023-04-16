@@ -7,7 +7,7 @@ CREATE DATABASE mapApplicationDB;
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS tripnames;
-DROP TABLE IF EXISTS tripitems
+DROP TABLE IF EXISTS tripitems;
 
 CREATE TABLE users (
   username varchar(255) PRIMARY KEY NOT NULL,
@@ -25,15 +25,15 @@ CREATE TABLE tripnames (
   FOREIGN KEY (username) REFERENCES users (username) ON DELETE CASCADE
 );
 
-CREATE TABLE tripitems (
-  -- id SERIAL PRIMARY KEY,
-  tripname varchar(60) NOT NULL,
-  type varchar(60) NOT NULL,
-  route varchar(60) NOT NULL,
-  name varchar(1000) NOT NULL,
-  description varchar(10000) NOT NULL,
-  park varchar(1000) NOT NULL,
-  latitude numeric NOT NULL,
-  longitude numeric NOT NULL,
-  FOREIGN KEY (id) REFERENCES tripnames (id) ON DELETE CASCADE
-);
+-- CREATE TABLE tripitems (
+--   -- id SERIAL PRIMARY KEY,
+--   tripname varchar(60) NOT NULL,
+--   type varchar(60) NOT NULL,
+--   route varchar(60) NOT NULL,
+--   name varchar(1000) NOT NULL,
+--   description varchar(10000) NOT NULL,
+--   park varchar(1000) NOT NULL,
+--   latitude numeric NOT NULL,
+--   longitude numeric NOT NULL,
+--   FOREIGN KEY (id) REFERENCES tripnames (id) ON DELETE CASCADE
+-- );

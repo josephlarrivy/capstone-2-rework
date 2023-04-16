@@ -13,7 +13,6 @@ const express = require("express");
 const router = new express.Router();
 
 
-
 router.post('/addTripName', async function (req, res, next) {
   console.log('tripRoutes')
   console.log(req.body)
