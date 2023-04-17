@@ -17,7 +17,7 @@ class Trip {
   }
 
   static async addTripName ({tripname, username}) {
-    const key = await this.generateRandomString(10)
+    const key = await this.generateRandomString(20)
     // console.log(key)
     const result = await db.query (
       `INSERT INTO tripnames

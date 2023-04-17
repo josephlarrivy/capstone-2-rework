@@ -19,6 +19,7 @@ import PlanEventsTrip from "./components/PlanEventsTrip";
 import Book from "./components/Book";
 import TripNameForm from './forms/TripNameForm'
 import MyTrips from "./components/MyTrips";
+import TripDetails from "./components/TripDetails";
 
 
 const ApplicationRoutes = ({token, setToken}) => {
@@ -133,6 +134,13 @@ const ApplicationRoutes = ({token, setToken}) => {
         <Route
           exact path="/myTrips"
           element={<MyTrips
+            token={token}
+            setToken={setToken}
+          />}
+        />
+        <Route
+          exact path="/tripDetails/:tripname"
+          element={<TripDetails
             token={token}
             setToken={setToken}
           />}

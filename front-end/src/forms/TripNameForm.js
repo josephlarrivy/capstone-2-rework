@@ -57,8 +57,8 @@ const TripNameForm = ({ token, setToken }) => {
 
 
   return (
-    <div id="trip-form-main-container">
-      {/* <div id="form-inner-container"> */}
+    // <div id="trip-form-main-container">
+    //   <div id="form-inner-container">
         <div id="form-container">
           <h4>Name your trip below</h4>
           {error
@@ -85,8 +85,8 @@ const TripNameForm = ({ token, setToken }) => {
             <button id="submit-button">Submit</button>
           </form>
         </div>
-      {/* </div> */}
-    </div>
+    //   </div>
+    // </div>
   )
 }
 

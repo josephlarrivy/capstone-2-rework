@@ -79,6 +79,9 @@ class BackendApiRequest {
     }
   }
 
+  // static async getTripItems(tripname) {
+  //   const 
+  // }
 
 }
 

@@ -10,7 +10,7 @@ const MyTrips = ({token, setToken}) => {
   const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
   const [username, setUsername] = useState(null)
   const [trips, setTrips] = useState(null)
-  const nagivate = useNavigate()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getUsername = async () => {
@@ -30,9 +30,8 @@ const MyTrips = ({token, setToken}) => {
     getTrips()
   }, [username])
 
-  const deleteTrip = async (name) => {
-    console.log(name)
-    const resp = await BackendApiRequest.deleteTrip(name)
+  const deleteTrip = async (tripname) => {
+    const resp = await BackendApiRequest.deleteTrip(tripname)
     if (resp.status === 202) {
       const getTrips = async () => {
         const data = await BackendApiRequest.getUserTrips(username)
@@ -41,6 +40,10 @@ const MyTrips = ({token, setToken}) => {
       }
       getTrips()
     }
+  }
+
+  const viewTripDetails = (tripname) => {
+    navigate(`/tripDetails/${tripname}`)
   }
 
 
@@ -55,7 +58,8 @@ const MyTrips = ({token, setToken}) => {
         return (
           <div className="trip-container">
             <p key={trip.tripname}>{trip.tripname}
-              <button onClick={e => {deleteTrip(trip.tripname)}}>delete trip</button>
+              <button onClick={() => {deleteTrip(trip.tripname)}}>delete trip</button>
+              <button onClick={() => {viewTripDetails(trip.tripname)}}>view trip</button>
             </p>
           </div>
         )
