@@ -20,7 +20,6 @@ const Weather = ({centerPosition}) => {
       setWeather([first, last])
     }
     getWeatherData()
-
   }, [])
 
   function convertTimestampToDayAndTime(timestamp) {

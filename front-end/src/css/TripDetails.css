@@ -19,8 +19,9 @@
     width: 56%;
     height: 80vh;
     overflow-y: scroll;
-    background-color:aqua;    
+    background-color: aqua;
 }
+
 
 #right-side {
     width: 41%;
