@@ -32,7 +32,7 @@ class Trip {
     try {
       // console.log('Model (username):', username);
       const result = await db.query(
-        `SELECT tripname FROM tripnames WHERE username = $1`,
+        `SELECT id, tripname FROM tripnames WHERE username = $1`,
         [username]
       );
       // console.log('Trip model:', result.rows);
@@ -57,27 +57,44 @@ class Trip {
   }
 
 
-
-
-
-
-
-
-
-  static async addTripItem (
-    { type, route, name, description, park, latitude, longitude }
-  ) {
-    const result = await db.query (
+  static async addTripItemToTrip({
+    type,
+    route,
+    name,
+    description,
+    parkcode,
+    latitude,
+    longitude,
+    id,
+  }) {
+    const key = await this.generateRandomString(20);
+    console.log("Trip (addTripItemToTrip):", type, route);
+    const result = await db.query(
       `INSERT INTO tripitems
-        (type, route, name, description, parkcode, latitude, longitude)
-        VALUES ($1, $2, $3, $4, $5, $6, $7)
-        RETURNING route, name, description, park, latitude, longitude`,
-      [type, route, name, description, park, latitude, longitude],
+        (itemid, type, route, name, description, parkcode, latitude, longitude, id)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+        RETURNING id, type, route, name, description, parkcode, latitude, longitude`,
+      [key, type, route, name, description, parkcode, latitude, longitude, id]
     );
-    const item = result.rows[0]
-    return item
+    const item = result.rows[0];
+    return item;
   }
 
+  static async getTripItems(id) {
+    try {
+      const result = await db.query(
+        `SELECT 
+        itemid, type, route, name, description, parkcode, latitude, longitude
+        FROM tripitems WHERE id = $1`,
+        [id]
+      );
+      // console.log('Trip model:', result.rows);
+      return result.rows;
+    } catch (err) {
+      console.error(err);
+      throw new Error('Failed to get user trips');
+    }
+  }
 }
 
 

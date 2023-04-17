@@ -6,11 +6,12 @@ import NavBar from "../NavBar";
 
 const TripDetails = ({token, setToken}) => {
 
-  const { tripname } = useParams()
+  const { id, tripname } = useParams()
 
   useEffect(() => {
     const getItems = async () => {
-      // const items = await BackendApiRequest
+      const items = await BackendApiRequest.getItemsByTripId(id)
+      console.log(items)
     }
     getItems()
   }, [])

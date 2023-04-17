@@ -79,9 +79,22 @@ class BackendApiRequest {
     }
   }
 
-  // static async getTripItems(tripname) {
-  //   const 
-  // }
+  static async addTripItem(type, route, name, description, parkcode, latitude, longitude, id) {
+    const data = { type, route, name, description, parkcode, latitude, longitude, id }
+    return (
+      await this.makeRequest('post', '/trip/addTripItem', null, data)
+    )
+  }
+
+  static async getItemsByTripId(id) {
+    const params = { 'id': id };
+    try {
+      const response = await this.makeRequest('get', '/trip/getTripItems', null, null, null, params);
+      return response.data.data;
+    } catch (err) {
+      return err;
+    }
+  }
 
 }
 

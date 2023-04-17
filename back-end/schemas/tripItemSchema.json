@@ -1,11 +1,6 @@
 {
     "type": "object",
     "properties": {
-        "tripname": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 60
-        },
         "type": {
             "type": "string",
             "minLength": 1,
@@ -26,32 +21,36 @@
             "minLength": 1,
             "maxLength": 10000
         },
-        "park": {
+        "parkcode": {
             "type": "string",
             "minLength": 1,
             "maxLength": 1000
         },
         "latitude": {
-            "type": "number",
+            "type": "string",
             "minLength": 1,
             "maxLength": 1000
         },
         "longitude": {
-            "type": "number",
+            "type": "string",
             "minLength": 1,
             "maxLength": 1000
+        },
+        "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 600
         }
     },
     "additionalProperties": false,
     "required": [
-        "tripname",
         "type", 
         "route", 
         "name", 
         "description", 
-        "park", 
+        "parkcode", 
         "latitude", 
-        "longitude"
-
+        "longitude",
+        "id"
     ]
 }

@@ -8,6 +8,8 @@ const { ExpressError,
   ForbiddenError } = require('../ExpressError')
 
 const tripNameSchema = require('../schemas/tripNameSchema.json')
+const tripItemSchema = require('../schemas/tripItemSchema.json')
+
 
 const express = require("express");
 const router = new express.Router();
@@ -45,11 +47,46 @@ router.get('/getTrips', async function (req, res, next) {
   }
 });
 
+
 router.post('/deleteTrip', async function (req, res, next) {
   let tripname = req.query.tripname
   try {
     const trip = await Trip.deleteTrip(tripname);
     return res.status(202).json({ 'data': trip })
+  } catch (err) {
+    if (err instanceof BadRequestError) {
+      return res.status(400).json({ message: err.message });
+    }
+    return next(err);
+  }
+});
+
+router.post('/addTripItem', async function (req, res, next) {
+  // console.log('tripRoutes (req.body):', {...req.body})
+  try {
+    const validator = jsonschema.validate(req.body, tripItemSchema)
+    if (!validator.valid) {
+      const errs = validator.errors.map(e => e.stack);
+      throw new BadRequestError(errs);
+    }
+    const tripItem = await Trip.addTripItemToTrip({ ...req.body })
+    console.log(tripItem)
+    return res.status(201).json({ 'status': 'added' })
+  } catch (err) {
+    if (err instanceof BadRequestError) {
+      return res.status(400).json({ message: err.message });
+    }
+    return next(err);
+  }
+});
+
+
+router.get('/getTripItems', async function (req, res, next) {
+  let id = req.query.id
+  try {
+    const items = await Trip.getTripItems(id);
+    console.log('tripRoutes:', items);
+    return res.status(200).json({ 'data': items })
   } catch (err) {
     if (err instanceof BadRequestError) {
       return res.status(400).json({ message: err.message });

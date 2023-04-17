@@ -66,7 +66,7 @@ const MyTrips = ({token, setToken}) => {
               <div className="trip-container">
                 <p key={trip.tripname}>{trip.tripname}
                   <button onClick={() => { deleteTrip(trip.tripname) }}>delete trip</button>
-                  <button onClick={() => { viewTripDetails(trip.tripname) }}>view trip</button>
+                  <button onClick={() => { viewTripDetails(`${trip.id}/${trip.tripname}`) }}>view trip</button>
                 </p>
               </div>
             )

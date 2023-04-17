@@ -139,7 +139,7 @@ const ApplicationRoutes = ({token, setToken}) => {
           />}
         />
         <Route
-          exact path="/tripDetails/:tripname"
+          exact path="/tripDetails/:id/:tripname"
           element={<TripDetails
             token={token}
             setToken={setToken}
