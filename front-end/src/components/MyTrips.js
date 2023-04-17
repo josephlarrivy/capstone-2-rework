@@ -3,12 +3,14 @@ import NavBar from "../NavBar";
 import useLocalStorage from "../hooks/useLocalStorage";
 import TripNameForm from "../forms/TripNameForm";
 import BackendApiRequest from "../apis/backendApi";
+import { Link, useNavigate } from "react-router-dom";
 
 const MyTrips = ({token, setToken}) => {
 
   const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
   const [username, setUsername] = useState(null)
   const [trips, setTrips] = useState(null)
+  const nagivate = useNavigate()
 
   useEffect(() => {
     const getUsername = async () => {
@@ -28,6 +30,19 @@ const MyTrips = ({token, setToken}) => {
     getTrips()
   }, [username])
 
+  const deleteTrip = async (name) => {
+    console.log(name)
+    const resp = await BackendApiRequest.deleteTrip(name)
+    if (resp.status === 202) {
+      const getTrips = async () => {
+        const data = await BackendApiRequest.getUserTrips(username)
+        console.log(data)
+        setTrips(data)
+      }
+      getTrips()
+    }
+  }
+
 
   return (
     <div id="my-trips-main-container">
@@ -36,11 +51,18 @@ const MyTrips = ({token, setToken}) => {
         setToken={setToken}
       />
       <h1>My Trips</h1>
-      {trips
-        ? <p>yes</p>
-        : <p>no</p>
+      {trips && trips.map(trip => {
+        return (
+          <div className="trip-container">
+            <p key={trip.tripname}>{trip.tripname}
+              <button onClick={e => {deleteTrip(trip.tripname)}}>delete trip</button>
+            </p>
+          </div>
+        )
+      })
+        
       }
-      {/* <TripNameForm /> */}
+      <TripNameForm />
     </div>
   )
 }

@@ -52,7 +52,6 @@ class BackendApiRequest {
   }
 
   static async addTripName(formData) {
-    // console.log('formData:', formData)
     const data = formData;
     console.log('backendApi:', data)
     return (
@@ -70,6 +69,15 @@ class BackendApiRequest {
     }
   }
 
+  static async deleteTrip(tripname) {
+    const params = { 'tripname': tripname };
+    try {
+      const response = await this.makeRequest('post', '/trip/deleteTrip', null, null, null, params);
+      return response
+    } catch (err) {
+      return err;
+    }
+  }
 
 
 }

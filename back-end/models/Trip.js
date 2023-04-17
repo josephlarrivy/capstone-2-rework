@@ -43,8 +43,18 @@ class Trip {
     }
   }
 
-
-
+  static async deleteTrip(name) {
+    try {
+      const result = await db.query(
+        `DELETE FROM tripnames WHERE tripname = $1`,
+        [name]
+      );
+      return result.rows;
+    } catch (err) {
+      console.error(err);
+      throw new Error('Failed to get user trips');
+    }
+  }
 
 
 

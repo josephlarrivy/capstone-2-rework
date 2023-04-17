@@ -32,13 +32,27 @@ router.post('/addTripName', async function (req, res, next) {
 });
 
 
-
 router.get('/getTrips', async function (req, res, next) {
   let username = req.query.username
   try {
     const trips = await Trip.getUserTrips(username);
     console.log('tripRoutes:', trips);
     return res.status(200).json({ 'data' : trips })
+  } catch (err) {
+    if (err instanceof BadRequestError) {
+      return res.status(400).json({ message: err.message });
+    }
+    return next(err);
+  }
+});
+
+router.post('/deleteTrip', async function (req, res, next) {
+  let tripname = req.query.tripname
+  console.log(tripname)
+  try {
+    const trip = await Trip.deleteTrip(tripname);
+    console.log('tripRoutes:', trip);
+    return res.status(202).json({ 'data': trip })
   } catch (err) {
     if (err instanceof BadRequestError) {
       return res.status(400).json({ message: err.message });
