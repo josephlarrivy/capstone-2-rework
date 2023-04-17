@@ -9,6 +9,7 @@ import '../css/TourDetails.css'
 import Loading from "./Loading";
 import AudioPlayer from "./AudioPlayer";
 import useStateNameConverter from "../hooks/useStateNameConverter";
+import AddToTripDropdown from "./AddToTripDropdown";
 
 const TourDetails = ({token, setToken}) => {
 
@@ -57,7 +58,9 @@ const TourDetails = ({token, setToken}) => {
     return (<button onClick={() => navigate(`/park/${item.parkCode}`)}>{item.fullName}</button>)
   }
 
-
+  useEffect(() => {
+    console.log(centerPosition)
+  }, [centerPosition])
 
 
   if (data === null) {
@@ -83,6 +86,17 @@ const TourDetails = ({token, setToken}) => {
                 centerPosition={centerPosition}
               />
             </div>
+          <div id="park-options-buttons">
+            <AddToTripDropdown
+              type='tour'
+              route={`/tourDetails/${data.id}`}
+              name={data.park.fullName}
+              description={data.description}
+              parkcode={data.park.parkCode}
+              latitude={centerPosition[0].toString()}
+              longitude={centerPosition[1].toString()}
+            />
+          </div>
             <div className="tour-details-map-footer">
               <Sun centerPosition={centerPosition} />
             </div>
