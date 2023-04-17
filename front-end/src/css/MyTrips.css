@@ -1,0 +1,19 @@
+#my-trips-main-container {
+
+}
+
+#my-trips-page-container {
+    background-color: aqua;
+}
+
+#my-trips-page-container h1 {
+    text-align: center;
+}
+
+#my-trips-page-container {
+    background-color: blueviolet;
+}
+
+#trip-list-container {
+    background-color: brown;
+}

@@ -5,6 +5,8 @@ import TripNameForm from "../forms/TripNameForm";
 import BackendApiRequest from "../apis/backendApi";
 import { Link, useNavigate } from "react-router-dom";
 
+import '../css/MyTrips.css'
+
 const MyTrips = ({token, setToken}) => {
 
   const [localStoreToken, localRemoveToken, localRetrieveToken, localDecodeToken] = useLocalStorage()
@@ -53,20 +55,28 @@ const MyTrips = ({token, setToken}) => {
         token={token}
         setToken={setToken}
       />
-      <h1>My Trips</h1>
-      {trips && trips.map(trip => {
-        return (
-          <div className="trip-container">
-            <p key={trip.tripname}>{trip.tripname}
-              <button onClick={() => {deleteTrip(trip.tripname)}}>delete trip</button>
-              <button onClick={() => {viewTripDetails(trip.tripname)}}>view trip</button>
-            </p>
-          </div>
-        )
-      })
+      <div id="my-trips-page-container">
+        <h1>My Trips</h1>
+        <div id="trip-name-form">
+          <TripNameForm />
+        </div>
+        <div id="trip-list-container">
+          {trips && trips.map(trip => {
+            return (
+              <div className="trip-container">
+                <p key={trip.tripname}>{trip.tripname}
+                  <button onClick={() => { deleteTrip(trip.tripname) }}>delete trip</button>
+                  <button onClick={() => { viewTripDetails(trip.tripname) }}>view trip</button>
+                </p>
+              </div>
+            )
+          })
+
+          }
+        </div>
         
-      }
-      <TripNameForm />
+      </div>
+      
     </div>
   )
 }

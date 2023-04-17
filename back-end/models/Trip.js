@@ -69,7 +69,7 @@ class Trip {
   ) {
     const result = await db.query (
       `INSERT INTO tripitems
-        (type, route, name, description, park, latitude, longitude)
+        (type, route, name, description, parkcode, latitude, longitude)
         VALUES ($1, $2, $3, $4, $5, $6, $7)
         RETURNING route, name, description, park, latitude, longitude`,
       [type, route, name, description, park, latitude, longitude],

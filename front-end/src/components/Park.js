@@ -16,6 +16,7 @@ import AlertsByPark from "./AlertsByPark";
 
 import NParksServiceRequest from "../apis/nationalParksApi";
 import RecreationAPI from "../apis/RecreationApi";
+import AddToTripDropdown from "./AddToTripDropdown";
 
 
 
@@ -120,7 +121,18 @@ const Park = ({token, setToken}) => {
           </div>
 
           <div className="park-map-footer">
-            <button id="toggle-campgrounds-button" onClick={() => toggleCampgrounds()}>{campgroundsToggleState} ({numCampgrounds})</button>
+            <div id="park-options-buttons">
+              <button id="toggle-campgrounds-button" onClick={() => toggleCampgrounds()}>{campgroundsToggleState} ({numCampgrounds})</button>
+              <AddToTripDropdown 
+                type='park'
+                route={`/park/${parkData.parkCode}`}
+                name={parkData.fullName}
+                description={parkData.description}
+                parkcode={parkData.parkCode}
+                latitude={parkData.latitude}
+                longitude={parkData.longitude}
+              />
+            </div>
             <Sun centerPosition={centerPosition} />
           </div>
 

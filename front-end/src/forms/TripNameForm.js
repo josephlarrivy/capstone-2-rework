@@ -5,6 +5,8 @@ import NavBar from "../NavBar";
 import { AxiosError } from "axios";
 import useLocalStorage from "../hooks/useLocalStorage";
 
+import '../css/TripNameForm.css'
+
 const TripNameForm = ({ token, setToken }) => {
 
   const [error, setError] = useState(null)
