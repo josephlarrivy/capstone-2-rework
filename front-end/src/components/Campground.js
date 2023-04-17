@@ -8,6 +8,8 @@ const Campground = ({token, setToken}) => {
 
   const { id } = useParams()
 
+  
+
   useEffect(() => {
     const getDetails = async () => {
       const data = await NParksServiceRequest.getCampgroundDetails(id)

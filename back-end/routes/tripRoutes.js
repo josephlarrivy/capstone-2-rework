@@ -95,4 +95,18 @@ router.get('/getTripItems', async function (req, res, next) {
   }
 });
 
+
+router.post('/deleteItem', async function (req, res, next) {
+  let itemid = req.query.itemid
+  try {
+    const item = await Trip.deleteItem(itemid);
+    return res.status(202).json({ 'data': item })
+  } catch (err) {
+    if (err instanceof BadRequestError) {
+      return res.status(400).json({ message: err.message });
+    }
+    return next(err);
+  }
+});
+
 module.exports = router;

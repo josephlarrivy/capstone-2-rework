@@ -1,0 +1,140 @@
+#trip-details-container {
+
+}
+
+#trip-details-inner-container {
+
+}
+
+#trip-details-inner-container h1 {
+    text-align: center;
+}
+
+#page-split {
+    display: flex;
+    justify-content: space-around;
+}
+
+#left-side {
+    width: 56%;
+    height: 80vh;
+    overflow-y: scroll;
+    background-color:aqua;    
+}
+
+#right-side {
+    width: 41%;
+    height: 80vh;
+    background-color:aqua;
+}
+
+.single-item {
+    width: 94%;
+    height: 150px;
+    background-color: pink;
+    margin-bottom: 10px;
+    margin-left: 3%;
+    cursor: move;
+    display: flex;
+    flex-direction: row;
+}
+
+.item-left-container {
+    width: 100px;
+    height: 150px;
+    text-align: center;
+    /* margin-top: -15px; */
+}
+
+.item-left-container button {
+    height: 20px;
+    width: 90px;
+    font-size: 14px;
+    line-height: 10px;
+    margin-top: 2px;
+}
+
+.item-category {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    color: white;
+}
+
+.item-right-container {
+    margin-left: 5px;
+}
+
+.item-right-container h4 {
+    /* background-color: beige; */
+    padding: 0px;
+    margin-bottom: 1px;
+}
+
+.item-right-container p {
+    /* background-color: beige; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* icons page: https://www.nps.gov/maps/tools/symbol-library/index.html */
+
+.item-category-park {
+    width: 100px;
+    height: 100px;
+    background-image: url('https://www.nps.gov/maps/tools/symbol-library/assets/img/wilderness-black-22.svg');
+    /* background-color: #ff6600; */
+    background-size: 100px 100px;
+    color: white;
+}
+
+.item-category-tour {
+    width: 100px;
+    height: 100px;
+    background-image: url('https://www.nps.gov/maps/tools/symbol-library/assets/img/maps-black-22.svg');
+    /* background-color: #ff6600; */
+    background-size: 100px 100px;
+    color: white;
+}
+
+.item-category-event {
+    width: 100px;
+    height: 100px;
+    background-image: url('https://www.nps.gov/maps/tools/symbol-library/assets/img/calendar-events-black-22.svg');
+    /* background-color: #ff6600; */
+    background-size: 100px 100px;
+    color: white;
+}
+
+.item-category-visitorCenter {
+    width: 100px;
+    height: 100px;
+    background-image: url('https://www.nps.gov/maps/tools/symbol-library/assets/img/visitor-center-black-22.svg');
+    /* background-color: #ff6600; */
+    background-size: 100px 100px;
+    color: white;
+}
+
+.item-category-campground {
+    width: 100px;
+    height: 100px;
+    background-image: url('https://www.nps.gov/maps/tools/symbol-library/assets/img/campsite-black-22.svg');
+    /* background-color: #ff6600; */
+    background-size: 100px 100px;
+    color: white;
+}

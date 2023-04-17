@@ -95,6 +95,20 @@ class Trip {
       throw new Error('Failed to get user trips');
     }
   }
+
+
+  static async deleteItem(itemid) {
+    try {
+      const result = await db.query(
+        `DELETE FROM tripitems WHERE itemid = $1`,
+        [itemid]
+      );
+      return result.rows;
+    } catch (err) {
+      console.error(err);
+      throw new Error('Failed to get user trips');
+    }
+  }
 }
 
 

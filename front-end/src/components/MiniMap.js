@@ -9,11 +9,10 @@ import '../css/MiniMap.css'
 const MiniMap = ({ zoom, centerPosition, campgrounds, campgroundsToggleState }) => {
 
   const customIcon = L.icon({
-    iconUrl: require('../images/tent-icon.png'),
-    // markerColor: 'red',
+    iconUrl: 'https://www.nps.gov/maps/tools/symbol-library/assets/img/campsite-black-22.svg',
     iconSize: [25, 25],
-    // iconAnchor: [12, 41]
   });
+
 
 
   return (

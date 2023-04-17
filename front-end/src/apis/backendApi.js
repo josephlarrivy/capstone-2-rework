@@ -96,6 +96,16 @@ class BackendApiRequest {
     }
   }
 
+  static async deleteItem(itemid) {
+    const params = { 'itemid': itemid };
+    try {
+      const response = await this.makeRequest('post', '/trip/deleteItem', null, null, null, params);
+      return response
+    } catch (err) {
+      return err;
+    }
+  }
+
 }
 
 export default BackendApiRequest;
