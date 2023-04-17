@@ -67,11 +67,11 @@ const MiniMap = ({ zoom, centerPosition, campgrounds, campgroundsToggleState }) 
 
 
                   <div className='popup-description-div'>
-                    {/* <p><Link
+                    <p><Link
                       className='link-info'
-                      to={`/park/${park.parkCode}`
-                      }>View Park
-                    </Link></p> */}
+                      to={`/campground/${site.id}`
+                      }>View campground details
+                    </Link></p>
                     <p className='popup-description'>{site.description}</p>
                   </div>
                 </Popup>

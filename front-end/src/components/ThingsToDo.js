@@ -3,10 +3,13 @@ import { useParams, useNavigate } from "react-router-dom";
 
 
 import '../css/ThingsToDo.css'
+import AddToTripDropdown from "./AddToTripDropdown";
 
 const ThingsToDo = ({ stateName, data }) => {
 
   const navigate = useNavigate();
+  const { type, USstate } = useParams();
+
 
   useEffect(() => {
     console.log(data)
@@ -79,11 +82,21 @@ const ThingsToDo = ({ stateName, data }) => {
                 </div>
                 : <></>
               }
-              {item.season.length >0
+              {item.season.length > 0
                 ? <p><b>Seasons: </b>{seasonsBroken}</p>
                 : <p></p>
               }
-              
+              <div className="add-to-trip-dropdown">
+                <AddToTripDropdown
+                  type='thingsToDo'
+                  route={`/supplemental/${type}/${USstate}`}
+                  name={item.title}
+                  description={item.activities[0].name}
+                  parkcode={item.relatedParks[0].parkCode}
+                  latitude={item.latitude}
+                  longitude={item.longitude}
+                />
+              </div>
             </div>
           </div>
         )

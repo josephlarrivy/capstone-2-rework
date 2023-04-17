@@ -20,6 +20,7 @@ const AddToTripDropdown = ({ type, route, name, description, parkcode, latitude,
       setUsername(token.username)
     }
     getUsername()
+    console.log('AddToTripDropdown loaded')
   }, [])
 
   useEffect(() => {

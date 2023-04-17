@@ -74,7 +74,7 @@ const Park = ({token, setToken}) => {
 
     const getCampgrounds = async (code) => {
       const campgroundsData = await NParksServiceRequest.getCampgroundsByPark(code)
-      // console.log(campgroundsData)
+      console.log(campgroundsData)
       setCampgrounds(campgroundsData)
       setNumCampgrounds(campgroundsData.length)
       if (campgroundsData.length === 0) {

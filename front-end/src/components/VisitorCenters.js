@@ -5,6 +5,7 @@ import useStateNameConverter from "../hooks/useStateNameConverter";
 import NParksServiceRequest from "../apis/nationalParksApi";
 
 import '../css/VisitorsCenters.css'
+import AddToTripDropdown from "./AddToTripDropdown";
 
 const VisitorCenters = ({token, setToken}) => {
 
@@ -48,7 +49,29 @@ const VisitorCenters = ({token, setToken}) => {
               </div>
               <div className="visitor-centers-item-header">
                 <p className="visitor-center-name">{item.name}</p>
-                <p><button onClick={() => navigate(`/park/${item.parkCode}`)}>Go To Park Details</button></p>
+
+
+                <div id="buttons-sub-container">
+
+                  <button 
+                    onClick={() => navigate(`/park/${item.parkCode}`)}>
+                    Go To Park Details
+                  </button>
+                
+                
+                  <AddToTripDropdown
+                    type='visitorCenter'
+                    route={`/visitorcenters/${USstate}`}
+                    name={item.name}
+                    description={item.description}
+                    parkcode={item.parkCode}
+                    latitude={item.latitude}
+                    longitude={item.longitude}
+                  />
+                </div>
+
+
+
                 {item.addresses.length > 0
                   ? <p>{item.addresses[0].line1} {item.addresses[0].city}, {item.addresses[0].stateCode} {item.addresses[0].postalCode}</p>
                   : <p></p>

@@ -61,3 +61,16 @@
     font-size: 0.9em;
     text-align: center;
 }
+
+
+
+#buttons-sub-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#buttons-sub-container button {
+    height: 40px !important;
+    padding: 5px !important;
+    margin-top: 10px !important;
+}

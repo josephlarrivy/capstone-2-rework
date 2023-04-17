@@ -166,6 +166,11 @@ class NParksServiceRequest {
     return resp.data.data
   }
 
+  static async getCampgroundDetails(id) {
+    const resp = await this.makeRequest(`/campgrounds?q=${id}`)
+    return resp.data.data[0]
+  }
+
 }
 
 export default NParksServiceRequest;

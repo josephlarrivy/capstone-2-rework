@@ -20,6 +20,7 @@ import Book from "./components/Book";
 import TripNameForm from './forms/TripNameForm'
 import MyTrips from "./components/MyTrips";
 import TripDetails from "./components/TripDetails";
+import Campground from "./components/Campground";
 
 
 const ApplicationRoutes = ({token, setToken}) => {
@@ -141,6 +142,13 @@ const ApplicationRoutes = ({token, setToken}) => {
         <Route
           exact path="/tripDetails/:id/:tripname"
           element={<TripDetails
+            token={token}
+            setToken={setToken}
+          />}
+        />
+        <Route
+          exact path="/campground/:id"
+          element={<Campground
             token={token}
             setToken={setToken}
           />}
