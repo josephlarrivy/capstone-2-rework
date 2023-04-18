@@ -42,15 +42,8 @@ const AddToTripDropdown = ({ type, route, name, description, parkcode, latitude,
   }, [username])
 
   const handleSelect = async (e) => {
-    // console.log(type, route, name, description, parkcode, latitude, longitude, tripname)
     const id = e.target.value
-
     const response = await BackendApiRequest.addTripItem(type, route, name, description, parkcode, latitude, longitude, id)
-    // console.log(response)
-
-
-
-    // setSelectedOption(option);
     setIsOpen(false);
   };
 
@@ -66,7 +59,7 @@ const AddToTripDropdown = ({ type, route, name, description, parkcode, latitude,
       {isOpen && trips.length > 0 &&
         <div className="dropdown-menu">
           {selectedOption.map((option) => (
-            <button className="dropdown-item" key={option} value={option.id} onClick={(e) => handleSelect(e)}>
+            <button className="dropdown-item" key={option.id} value={option.id} onClick={(e) => handleSelect(e)}>
               {option.tripname}
             </button>
           ))}

@@ -28,19 +28,12 @@ const Events = ({stateName, data}) => {
       console.log(siteCodesArray)
       for (let item of siteCodesArray) {
         const latLng = await NParksServiceRequest.getParkLatLong(item)
-        // console.log(item)
-        // console.log(latLng.latitude)
-        // console.log(latLng.longitude)
         siteCodes.push(
           {
             'code' : item,
             'lat' : latLng.latitude,
             'lon': latLng.longitude
           }
-          // {
-          //   'code': item,
-          //   'coords' : [latLng.latitude, latLng.longitude]
-          // }
         )
       }
 

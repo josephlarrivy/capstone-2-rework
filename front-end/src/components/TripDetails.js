@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import BackendApiRequest from "../apis/backendApi";
 import NavBar from "../NavBar";
 
 import '../css/TripDetails.css'
 
-const TripDetails = ({token, setToken}) => {
+const TripDetails = ({ token, setToken }) => {
 
   const { id, tripname } = useParams()
   const navigate = useNavigate()
@@ -39,34 +39,26 @@ const TripDetails = ({token, setToken}) => {
       />
       <div id="trip-details-inner-container">
         <h1>Trip Details: {tripname}</h1>
-        <div id="page-split">
-          <div id="left-side">
-            <h1>Itinerary</h1>
-            {usersItems && usersItems.map(item => {
-              return (
+        <h1>Itinerary</h1>
+        {usersItems && usersItems.map(item => {
+          return (
 
-                <div key={item.itemid} className="single-item">
-                  <div className="item-left-container">
-                    <div className={`item-category-${item.type}`}>
-                      {/* <p>{item.type}</p> */}
-                    </div>
-                      <button onClick={() => navigate(`${item.route}`)} >Details</button>
-                      <button onClick={() => {deleteItem(item.itemid)}}>Delete</button>
-                  </div>
-                  <div className="item-right-container">
-                    <h4>{item.name} - <small>{item.type}</small></h4>
-                    <p>{item.description}</p>
-                  </div>
+            <div key={item.itemid} className="single-item">
+              <div className="item-left-container">
+                <div className={`item-category-${item.type}`}>
+                  {/* <p>{item.type}</p> */}
                 </div>
+                <button onClick={() => navigate(`${item.route}`)} >Details</button>
+                <button onClick={() => { deleteItem(item.itemid) }}>Delete</button>
+              </div>
+              <div className="item-middle-container">
+                <h4>{item.name} - <small>{item.type}</small></h4>
+                <p>{item.description}</p>
+              </div>
+            </div>
 
-              )
-            })}
-          </div>
-          <div id="right-side">
-            
-          </div>
-        </div>
-       
+          )
+        })}
       </div>
     </div>
   )
