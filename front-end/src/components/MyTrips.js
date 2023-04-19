@@ -14,6 +14,12 @@ const MyTrips = ({token, setToken}) => {
   const [trips, setTrips] = useState(null)
   const navigate = useNavigate()
 
+  const getTrips = async () => {
+    const data = await BackendApiRequest.getUserTrips(username)
+    console.log(data)
+    setTrips(data)
+  }
+  
   useEffect(() => {
     const getUsername = async () => {
       const token = await localDecodeToken()
@@ -21,15 +27,11 @@ const MyTrips = ({token, setToken}) => {
     }
     getUsername()
   }, [])
-
   
   useEffect(() => {
-    const getTrips = async () => {
-      const data = await BackendApiRequest.getUserTrips(username)
-      console.log(data)
-      setTrips(data)
+    if (username) {
+      getTrips()
     }
-    getTrips()
   }, [username])
 
   const deleteTrip = async (tripname) => {
@@ -58,16 +60,16 @@ const MyTrips = ({token, setToken}) => {
       <div id="my-trips-page-container">
         <h1>My Trips</h1>
         <div id="trip-name-form">
-          <TripNameForm />
+          <TripNameForm getTrips={getTrips}/>
         </div>
         <div id="trip-list-container">
           {trips && trips.map(trip => {
             return (
               <div className="trip-container">
-                <p key={trip.tripname}>{trip.tripname}
+                <h4 key={trip.tripname}>{trip.tripname}
                   <button onClick={() => { deleteTrip(trip.tripname) }}>delete trip</button>
                   <button onClick={() => { viewTripDetails(`${trip.id}/${trip.tripname}`) }}>view trip</button>
-                </p>
+                </h4>
               </div>
             )
           })

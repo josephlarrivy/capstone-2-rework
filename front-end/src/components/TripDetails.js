@@ -41,8 +41,10 @@ const TripDetails = ({ token, setToken }) => {
         <h1>Trip Details: {tripname}</h1>
         <h1>Itinerary</h1>
         {usersItems && usersItems.map(item => {
-          return (
 
+          const itemTypeUppercase = item.type.toUpperCase();
+
+          return (
             <div key={item.itemid} className="single-item">
               <div className="item-left-container">
                 <div className={`item-category-${item.type}`}>
@@ -52,7 +54,7 @@ const TripDetails = ({ token, setToken }) => {
                 <button onClick={() => { deleteItem(item.itemid) }}>Delete</button>
               </div>
               <div className="item-middle-container">
-                <h4>{item.name} - <small>{item.type}</small></h4>
+                <h4>{itemTypeUppercase} - {item.name}</h4>
                 <p>{item.description}</p>
               </div>
             </div>

@@ -11,7 +11,7 @@
 }
 
 .single-item {
-    width: 1100px;
+    width: 90%;
     height: 150px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -19,7 +19,6 @@
     padding: 5px;
     margin-bottom: 10px;
     margin-left: 3%;
-    cursor: move;
     display: flex;
     flex-direction: row;
 }
@@ -47,8 +46,8 @@
 }
 
 .item-middle-container {
-    /* margin-left: 5px; */
-    width: 900px;
+    margin-left: 10px;
+    width: 80%;
 }
 
 .item-middle-container h4 {

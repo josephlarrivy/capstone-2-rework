@@ -7,7 +7,7 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
 import '../css/TripNameForm.css'
 
-const TripNameForm = ({ token, setToken }) => {
+const TripNameForm = ({ token, setToken, getTrips }) => {
 
   const [error, setError] = useState(null)
   const [username, setUsername] = useState(null)
@@ -40,20 +40,14 @@ const TripNameForm = ({ token, setToken }) => {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     const request = await BackendApiRequest.addTripName(formData)
-    console.log('TripNameForm')
-    console.log(request)
-    console.log('TripNameForm')
     if (request instanceof AxiosError) {
       setError('AxiosError')
       return 'error'
     } else {
-      // const token = request.data.token
-      // setToken(token)
-      // localStoreToken(token)
-      // setFormData(INITIAL_STATE)
-      // navigate('/')
       console.log('good request')
     }
+    setFormData(INITIAL_STATE)
+    getTrips()
   }
 
 
@@ -61,8 +55,8 @@ const TripNameForm = ({ token, setToken }) => {
   return (
     // <div id="trip-form-main-container">
     //   <div id="form-inner-container">
-        <div id="form-container">
-          <h4>Name your trip below</h4>
+        <div id="trip-name-form-container">
+          <h4>Name your next adventure</h4>
           {error
             ? <div className="error-container">
               <p>Error:</p>
@@ -81,7 +75,7 @@ const TripNameForm = ({ token, setToken }) => {
               value={formData.tripname}
               onChange={handleChange}
             />
-            <label htmlFor="tripname" className="label">tripname</label>
+            <label htmlFor="tripname" className="label">Trip Name</label>
             <br></br><br></br>
 
             <button id="submit-button">Submit</button>
