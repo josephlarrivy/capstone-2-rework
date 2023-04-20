@@ -1,15 +1,18 @@
 .map-container {
-    position: absolute;
+    position: fixed;
     width: 100vw;
-    height: 100vh;
+    height: 95vh;
     /* margin-top: 5vh; */
     /* background-color: black; */
     overflow: hidden;
+    outline: none;
+    /* margin-top: 5vh; */
 }
 
 .main-map-container {
-    position: absolute;
+    /* position: absolute; */
     width: 100vw;
-    height: 95vh;
+    height: 98vh;
+    margin-top: 3vh;
     /* background-color: aqua; */
 }

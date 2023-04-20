@@ -26,81 +26,83 @@ const VisitorCenters = ({token, setToken}) => {
   }, [])
 
   return (
-    <div id="visitor-centers-container">
+    <div id="visitor-centers-main-container">
       <NavBar
         token={token}
         setToken={setToken}
       />
-      <h1>Visitor Centers in {stateName}</h1>
-      <div id='visitor-centers-items'>
-        {data && data.map(item => {
-          return (
-            <div key={item.id} className="visitor-centers-item">
-              <div className="visitor-centers-item-image">
-                {item.images.length > 0
-                  ? <div className="visitor-centers-item-image-container">
-                      <img src={item.images[0].url}></img>
+      <div id="visitor-centers-container">
+        <h1>Visitor Centers in {stateName}</h1>
+        <div id='visitor-centers-items'>
+          {data && data.map(item => {
+            return (
+              <div key={item.id} className="visitor-centers-item">
+                <div className="visitor-centers-item-image">
+                  {item.images.length > 0
+                    ? <div className="visitor-centers-item-image-container">
+                        <img src={item.images[0].url}></img>
+                      </div>
+                    : <div className="visitor-centers-item-image-container">
+                        <img src={require('../images/black.png')}></img>
+                        {/* <p>no image</p> */}
                     </div>
-                  : <div className="visitor-centers-item-image-container">
-                      <img src={require('../images/black.png')}></img>
-                      {/* <p>no image</p> */}
-                  </div>
-                }
-              </div>
-              <div className="visitor-centers-item-header">
-                <p className="visitor-center-name">{item.name}</p>
-
-
-                <div id="buttons-sub-container">
-
-                  <button 
-                    onClick={() => navigate(`/park/${item.parkCode}`)}>
-                    Go To Park Details
-                  </button>
-                
-                
-                  <AddToTripDropdown
-                    type='visitorCenter'
-                    route={`/visitorcenters/${USstate}`}
-                    name={item.name}
-                    description={item.description}
-                    parkcode={item.parkCode}
-                    latitude={item.latitude}
-                    longitude={item.longitude}
-                  />
+                  }
                 </div>
+                <div className="visitor-centers-item-header">
+                  <p className="visitor-center-name">{item.name}</p>
+
+
+                  <div id="buttons-sub-container">
+
+                    <button 
+                      onClick={() => navigate(`/park/${item.parkCode}`)}>
+                      Go To Park Details
+                    </button>
+                  
+                  
+                    <AddToTripDropdown
+                      type='visitorCenter'
+                      route={`/visitorcenters/${USstate}`}
+                      name={item.name}
+                      description={item.description}
+                      parkcode={item.parkCode}
+                      latitude={item.latitude}
+                      longitude={item.longitude}
+                    />
+                  </div>
 
 
 
-                {item.addresses.length > 0
-                  ? <p>{item.addresses[0].line1} {item.addresses[0].city}, {item.addresses[0].stateCode} {item.addresses[0].postalCode}</p>
-                  : <p></p>
-                }
-                <p className="visitor-center-description">{item.description}</p>
+                  {item.addresses.length > 0
+                    ? <p>{item.addresses[0].line1} {item.addresses[0].city}, {item.addresses[0].stateCode} {item.addresses[0].postalCode}</p>
+                    : <p></p>
+                  }
+                  <p className="visitor-center-description">{item.description}</p>
+                </div>
+                <div className="visitor-centers-item-info">  
+                  {item.contacts.emailAddresses.length > 0
+                    ? <p>email: {item.contacts.emailAddresses[0].emailAddress}</p>
+                    : <p></p>
+                  }
+                  {item.contacts.phoneNumbers.length > 0
+                    ? <p>phone: {item.contacts.phoneNumbers[0].phoneNumber}</p>
+                    : <p></p>
+                  }
+                </div>
+                {/* <div className="operating-hours">
+                  {item.operatingHours.length > 0
+                    ? <p>operating hours</p>
+                    : <p>hours not given</p>
+                  }
+                </div> */}
               </div>
-              <div className="visitor-centers-item-info">  
-                {item.contacts.emailAddresses.length > 0
-                  ? <p>email: {item.contacts.emailAddresses[0].emailAddress}</p>
-                  : <p></p>
-                }
-                {item.contacts.phoneNumbers.length > 0
-                  ? <p>phone: {item.contacts.phoneNumbers[0].phoneNumber}</p>
-                  : <p></p>
-                }
-              </div>
-              {/* <div className="operating-hours">
-                {item.operatingHours.length > 0
-                  ? <p>operating hours</p>
-                  : <p>hours not given</p>
-                }
-              </div> */}
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
+        <br></br>
+        <br></br>
+        <br></br>
       </div>
-      <br></br>
-      <br></br>
-      <br></br>
     </div>
   )
 }

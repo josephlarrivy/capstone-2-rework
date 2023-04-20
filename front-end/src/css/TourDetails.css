@@ -9,6 +9,10 @@
     /* height: 40vh; */
 }
 
+.tour-details-main-container {
+    margin-top: 22px;
+}
+
 .tour-details-header-map-conatiner {
     position: relative;
     width: 100%;

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
 import '../css/MainMap.css'
+import NavBar from '../NavBar';
 
 const MainMap = ({showingParks}) => {
 
@@ -12,7 +13,7 @@ const MainMap = ({showingParks}) => {
   const [centerPosition, setCenterPosition] = useState([35, -94])
 
   return (
-    // <div className='map-container'>
+    <div className='map-container'>
       <MapContainer
         key={'MapContainer'}
         center={centerPosition}
@@ -65,7 +66,7 @@ const MainMap = ({showingParks}) => {
 
 
       </MapContainer>
-    // </div>
+    </div>
   )
 }
 
