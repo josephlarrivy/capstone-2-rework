@@ -13,6 +13,9 @@ const MiniMap = ({ zoom, centerPosition, campgrounds, campgroundsToggleState }) 
     iconSize: [25, 25],
   });
 
+  useEffect(() => {
+    console.log(campgrounds)
+  }, [])
 
 
   return (
@@ -54,24 +57,36 @@ const MiniMap = ({ zoom, centerPosition, campgrounds, campgroundsToggleState }) 
                 icon={customIcon}
               >
                 <Popup>
-                  <h4>{site.name}</h4>
+                  <div className='campground-marker-popup'>
+                    <h4>{site.name}</h4>
 
 
-                  <div className='popup-image-div'>
-                    <img
-                      className='popup-image'
-                      src={site.images[0].url}
-                    ></img>
-                  </div>
+                    {site.images.length > 0
+                      ?
+                      <div className='popup-image-div'>
+                        <img
+                          className='popup-image'
+                          src={site.images[0].url}
+                        ></img>
+                      </div>
+                      :
+                      <div className='popup-image-div'>
+                        <img
+                          className='popup-image'
+                          src={require('../images/black.png')}
+                        ></img>
+                      </div>
+                    }
 
 
-                  <div className='popup-description-div'>
-                    {/* <p><Link
+                    <div className='popup-description-div'>
+                      {/* <p><Link
                       className='link-info'
                       to={`/campground/${site.id}`
                       }>View campground details
                     </Link></p> */}
-                    <p className='popup-description'>{site.description}</p>
+                      <p className='popup-description'>{site.description}</p>
+                    </div>
                   </div>
                 </Popup>
               </Marker>
