@@ -69,12 +69,17 @@ class Trip {
   }) {
     const key = await this.generateRandomString(20);
     console.log("Trip (addTripItemToTrip):", type, route);
+
+    function removeHtmlCssFromString(str) {
+      return str.replace(/<[^>]*>/g, '');
+    }
+
     const result = await db.query(
       `INSERT INTO tripitems
         (itemid, type, route, name, description, parkcode, latitude, longitude, id)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
         RETURNING id, type, route, name, description, parkcode, latitude, longitude`,
-      [key, type, route, name, description, parkcode, latitude, longitude, id]
+      [key, type, route, name, removeHtmlCssFromString(description), parkcode, latitude, longitude, id]
     );
     const item = result.rows[0];
     return item;

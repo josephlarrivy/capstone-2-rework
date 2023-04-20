@@ -65,11 +65,14 @@ const MyTrips = ({token, setToken}) => {
         <div id="trip-list-container">
           {trips && trips.map(trip => {
             return (
-              <div className="trip-container">
-                <h4 key={trip.tripname}>{trip.tripname}
-                  <button onClick={() => { deleteTrip(trip.tripname) }}>delete trip</button>
-                  <button onClick={() => { viewTripDetails(`${trip.id}/${trip.tripname}`) }}>view trip</button>
-                </h4>
+              <div key={trip.tripname} className="trip-container">
+                  <div className="trip-name-container">
+                    <h4>{trip.tripname}</h4>
+                  </div>
+                  <div className="buttons-container">
+                    <button onClick={() => { viewTripDetails(`${trip.id}/${trip.tripname}`) }}>view trip</button>
+                    <button onClick={() => { deleteTrip(trip.tripname) }}>delete trip</button>
+                  </div>
               </div>
             )
           })

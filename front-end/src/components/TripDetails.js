@@ -39,7 +39,7 @@ const TripDetails = ({ token, setToken }) => {
       />
       <div id="trip-details-inner-container">
         <h1>Trip Details: {tripname}</h1>
-        <h1>Itinerary</h1>
+        {/* <h1>Itinerary</h1> */}
         {usersItems && usersItems.map(item => {
 
           const itemTypeUppercase = item.type.toUpperCase();

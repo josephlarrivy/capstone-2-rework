@@ -62,13 +62,13 @@ const ApplicationRoutes = ({token, setToken}) => {
             setToken={setToken}
           />}
         />
-        <Route
+        {/* <Route
           exact path="/gallery"
           element={<PhotoGallery
             token={token}
             setToken={setToken}
           />}
-        />
+        /> */}
         <Route
           exact path="supplemental/:type/:USstate"
           element={<Supplemental

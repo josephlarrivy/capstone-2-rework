@@ -1,11 +1,12 @@
 #my-trips-main-container {
-    
+    height: 100vh;
+    overflow: hidden;
 }
 
 #my-trips-page-container {
     width: 100vw;
     height: 100vh;
-    background-image: url(https://www.nps.gov/common/uploads/structured_data/3C7A89F4-1DD8-B71B-0B52204A2EBF61A4.jpg);
+    background-image: url(https://www.nps.gov/common/uploads/structured_data/68BFC1AC-BF96-629F-89D261D78F181C64.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -19,14 +20,27 @@
 
 #trip-list-container {
     margin-top: 20px;
+    /* overflow-y: scroll; */
     /* background-color: black; */
 }
 
 .trip-container {
     background-color: white;
-    width: 80%;
+    width: 40%;
     height: 50px;
     margin: 10px auto;
     padding: 10px;
     border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.trip-name-container {
+    display: flex;
+    align-items: center;
+}
+
+.buttons-container {
+    display: flex;
+    align-items: center;
 }
