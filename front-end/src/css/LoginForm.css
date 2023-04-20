@@ -8,6 +8,7 @@
 #form-inner-container {
     width: 100vw;
     height: 100vh;
+    margin-top: 20px;
     background-image: url(https://www.nps.gov/common/uploads/structured_data/3C7A89F4-1DD8-B71B-0B52204A2EBF61A4.jpg);
     background-size: cover;
     background-repeat: no-repeat;
