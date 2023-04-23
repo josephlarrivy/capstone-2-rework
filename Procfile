@@ -1,1 +1,1 @@
-web: bin/boot
+web: node -v 18.12.1 && npm start
