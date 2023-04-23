@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "build": "echo 'build start!' && npm install && npm run build-app && rm -rf dist && mkdir dist && cp -r public dist && cp -r server dist && cp package.json dist && cp package-lock.json dist && echo 'build complete!'"
+    "build": "echo 'build start!' && npm install && rm -rf dist && mkdir dist && cp -r public dist && cp -r server dist && cp package.json dist && cp package-lock.json dist && echo 'build complete!'"
   },
   "keywords": [],
   "author": "",
