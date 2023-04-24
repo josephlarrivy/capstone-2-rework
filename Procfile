@@ -1,1 +1,0 @@
-web: node -v 18.12.1 && npm run build
