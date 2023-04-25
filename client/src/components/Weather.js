@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 import WeatherAPI from "../apis/weatherApi";
-import { weatherApiKey } from '../keys'
 
 import '../css/Weather.css'
 
-const weatherAPI = new WeatherAPI(weatherApiKey);
+const weatherAPI = new WeatherAPI("0486eaf725aeecc834735c80086222e9");
 
 
 const Weather = ({centerPosition}) => {

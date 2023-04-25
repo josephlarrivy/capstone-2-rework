@@ -2,7 +2,8 @@ import axios from "axios";
 import jwtDecode from "jwt-decode";
 
 
-const BASE_URL = "http://localhost:3001";
+// const BASE_URL = "http://localhost:3001";
+const BASE_URL = 'https://parkexplorerpro-server.herokuapp.com'
 
 class BackendApiRequest {
 

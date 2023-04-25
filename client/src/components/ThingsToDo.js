@@ -87,7 +87,7 @@ const ThingsToDo = ({ stateName, data }) => {
                 : <p></p>
               }
               <div className="add-to-trip-dropdown">
-                <AddToTripDropdown
+                {/* <AddToTripDropdown
                   type='thingsToDo'
                   route={`/supplemental/${type}/${USstate}`}
                   name={item.title}
@@ -95,7 +95,7 @@ const ThingsToDo = ({ stateName, data }) => {
                   parkcode={item.relatedParks[0].parkCode}
                   latitude={item.latitude}
                   longitude={item.longitude}
-                />
+                /> */}
               </div>
             </div>
           </div>

@@ -123,7 +123,7 @@ const Park = ({token, setToken}) => {
           <div className="park-map-footer">
             <div id="park-options-buttons">
               <button id="toggle-campgrounds-button" onClick={() => toggleCampgrounds()}>{campgroundsToggleState} ({numCampgrounds})</button>
-              <AddToTripDropdown 
+              {/* <AddToTripDropdown 
                 type='park'
                 route={`/park/${parkData.parkCode}`}
                 name={parkData.fullName}
@@ -131,7 +131,7 @@ const Park = ({token, setToken}) => {
                 parkcode={parkData.parkCode}
                 latitude={parkData.latitude}
                 longitude={parkData.longitude}
-              />
+              /> */}
             </div>
             <Sun centerPosition={centerPosition} />
           </div>

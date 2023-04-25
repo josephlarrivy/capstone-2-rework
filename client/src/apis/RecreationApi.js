@@ -1,9 +1,9 @@
-import { recreation_api_key } from "../keys";
+
 import axios from 'axios';
 
 class RecreationAPI {
   constructor() {
-    this.apiKey = recreation_api_key;
+    this.apiKey = 'c11dbfdf-cc78-48d8-b7a4-77062b39b3bb';
     this.baseUrl = 'https://ridb.recreation.gov/api/v1';
   }
 

@@ -73,7 +73,7 @@ const Events = ({stateName, data}) => {
               <hr></hr>
               <p className="event-times">{item.times[0].timestart}</p>
               <div className="add-to-trip-dropdown">
-                <AddToTripDropdown
+                {/* <AddToTripDropdown
                   type='event'
                   route={`/supplemental/${type}/${USstate}`}
                   name={item.title}
@@ -81,7 +81,7 @@ const Events = ({stateName, data}) => {
                   parkcode={item.sitecode}
                   latitude={lat}
                   longitude={lon}
-                />
+                /> */}
               </div>
             </div>
             <div className="events-item-container-main">
