@@ -135,21 +135,16 @@ class NParksServiceRequest {
   }
 
   static async getSingleParkImages(code) {
-    const resp = await this.makeRequest(`/parks?parkCode=${code}`);
-    const imagesArr = [];
-    const maxImages = 3; // Maximum number of images to return
-
-    for (let i = 0; i < resp.data.data[0].images.length && i < maxImages; i++) {
-      const image = resp.data.data[0].images[i];
-      imagesArr.push({
-        url: image.url,
-        credit: image.credit
-      });
+    const resp = await this.makeRequest(`/parks?parkCode=${code}`)
+    const imagesArr = []
+    for (let image of resp.data.data[0].images) {
+      imagesArr.push(
+        { 'url': image.url,
+        'credit': image.credit }
+      )
     }
-
-    return imagesArr;
+    return imagesArr
   }
-
 
   static async getAlertsByParkCode(code) {
     const resp = await this.makeRequest(`/alerts?parkCode=${code}`)

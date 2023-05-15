@@ -60,7 +60,7 @@ const VisitorCenters = ({token, setToken}) => {
                     </button>
                   
                   
-                    {/* <AddToTripDropdown
+                    <AddToTripDropdown
                       type='visitorCenter'
                       route={`/visitorcenters/${USstate}`}
                       name={item.name}
@@ -68,7 +68,7 @@ const VisitorCenters = ({token, setToken}) => {
                       parkcode={item.parkCode}
                       latitude={item.latitude}
                       longitude={item.longitude}
-                    /> */}
+                    />
                   </div>
 
 

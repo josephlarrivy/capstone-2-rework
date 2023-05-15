@@ -25,7 +25,7 @@ const AddToTripDropdown = ({ type, route, name, description, parkcode, latitude,
 
   useEffect(() => {
     const getTrips = async () => {
-      if (username) { // Only fetch trips if username is available
+      if (username) { 
         try {
           const data = await BackendApiRequest.getUserTrips(username);
           console.log(data);
@@ -37,7 +37,6 @@ const AddToTripDropdown = ({ type, route, name, description, parkcode, latitude,
           }));
           setSelectedOption(optionsArray);
         } catch (error) {
-          // Handle the error if the request fails
           console.error(error);
         }
       }

@@ -150,13 +150,6 @@ const Park = ({token, setToken}) => {
               ? <p><b>Directions: </b>{parkData.directionsInfo}<a href={parkData.directionsUrl} target='blank'><img className="more-info-icon-park-page" src={require('../images/more-info-icon.png')}></img></a></p>
               : <></>
             }
-            {parkData.entranceFees[0].description && parkData.entranceFees[0].cost
-              ? <div className="entrance-fees">
-                  <p><b>Entrance Fees:</b> {parkData.entranceFees[0].description}</p>
-                  <p><b>Cost:</b> {parkData.entranceFees[0].cost}</p>
-                </div>
-              : <></>
-            }
             {parkData && typeof parkData.description !== 'undefined' && (
               <p>{parkData.description}</p>
             )}

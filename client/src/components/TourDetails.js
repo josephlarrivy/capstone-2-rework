@@ -87,7 +87,7 @@ const TourDetails = ({token, setToken}) => {
               />
             </div>
           <div id="park-options-buttons">
-            {/* <AddToTripDropdown
+            <AddToTripDropdown
               type='tour'
               route={`/tourDetails/${data.id}`}
               name={data.park.fullName}
@@ -95,7 +95,7 @@ const TourDetails = ({token, setToken}) => {
               parkcode={data.park.parkCode}
               latitude={centerPosition[0].toString()}
               longitude={centerPosition[1].toString()}
-            /> */}
+            />
           </div>
             <div className="tour-details-map-footer">
               <Sun centerPosition={centerPosition} />

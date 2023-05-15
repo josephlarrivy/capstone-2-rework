@@ -81,6 +81,9 @@ class BackendApiRequest {
   }
 
   static async addTripItem(type, route, name, description, parkcode, latitude, longitude, id) {
+    if (!description) {
+      description = 'no description';
+    }
     const data = { type, route, name, description, parkcode, latitude, longitude, id }
     return (
       await this.makeRequest('post', '/trip/addTripItem', null, data)
