@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link, Navigate, Route, Routes } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from 'react-router';
 
 import '../css/Park.css'
@@ -10,12 +9,11 @@ import Weather from "./Weather";
 
 import Sun from "./Sun";
 import Loading from "./Loading";
-import ImagesDisplayer from "./ImagesDisplayer";
+// import ImagesDisplayer from "./ImagesDisplayer";
 import ImageCollage from "./ImageCollage";
-import AlertsByPark from "./AlertsByPark";
+// import AlertsByPark from "./AlertsByPark";
 
 import NParksServiceRequest from "../apis/nationalParksApi";
-import RecreationAPI from "../apis/RecreationApi";
 import AddToTripDropdown from "./AddToTripDropdown";
 
 
@@ -29,7 +27,7 @@ const Park = ({token, setToken}) => {
   const [centerPosition, setCenterPosition] = useState(null)
   const [imagesArray, setImagesArray] = useState(null)
   const [tourLinks, setTourLinks] = useState(null)
-  const [alerts, setAlerts] = useState(null)
+  // const [alerts, setAlerts] = useState(null)
   const [campgrounds, setCampgrounds] = useState(null)
   const [campgroundsToggleState, setCampgroundsToggleState] = useState('Show Campgrounds')
   const [numCampgrounds, setNumCampgrounds] = useState(0)
@@ -65,12 +63,12 @@ const Park = ({token, setToken}) => {
     }
     createTourLinks(parkCode.code)
 
-    const getParkAlerts = async (code) => {
-      const alertsData = await NParksServiceRequest.getAlertsByParkCode(code)
-      // console.log(alertsData)
-      setAlerts(alertsData)
-    }
-    getParkAlerts(parkCode.code)
+    // const getParkAlerts = async (code) => {
+    //   const alertsData = await NParksServiceRequest.getAlertsByParkCode(code)
+    //   // console.log(alertsData)
+    //   setAlerts(alertsData)
+    // }
+    // getParkAlerts(parkCode.code)
 
     const getCampgrounds = async (code) => {
       const campgroundsData = await NParksServiceRequest.getCampgroundsByPark(code)
@@ -159,21 +157,18 @@ const Park = ({token, setToken}) => {
                 </div>
               : <></>
             }
-            {parkData.description
-              ? <p>{parkData.description}</p>
-              : <></>
-            }
+            {parkData && typeof parkData.description !== 'undefined' && (
+              <p>{parkData.description}</p>
+            )}
           </div>
         </div>
-
         {imagesArray && 
           <ImageCollage imagesArray={imagesArray}/>
         }
-        {alerts
+        {/* {alerts
           ? <AlertsByPark code={parkCode.code} />
           : <></>
-        }
-
+        } */}
       </div>
     )
   }

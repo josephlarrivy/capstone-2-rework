@@ -25,21 +25,27 @@ const AddToTripDropdown = ({ type, route, name, description, parkcode, latitude,
 
   useEffect(() => {
     const getTrips = async () => {
-      const data = await BackendApiRequest.getUserTrips(username)
-      console.log(data)
-      setTrips(data)
+      if (username) { // Only fetch trips if username is available
+        try {
+          const data = await BackendApiRequest.getUserTrips(username);
+          console.log(data);
+          setTrips(data);
 
-      const optionsArray = []
-      for (let item of data) {
-        optionsArray.push(
-          {'id': item.id,
-           'tripname' : item.tripname }
-        )
+          const optionsArray = data.map((item) => ({
+            id: item.id,
+            tripname: item.tripname,
+          }));
+          setSelectedOption(optionsArray);
+        } catch (error) {
+          // Handle the error if the request fails
+          console.error(error);
+        }
       }
-      setSelectedOption(optionsArray)
-    }
-    getTrips()
-  }, [username])
+    };
+
+    getTrips();
+  }, [username]);
+
 
   const handleSelect = async (e) => {
     const id = e.target.value

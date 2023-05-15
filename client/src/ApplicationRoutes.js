@@ -10,12 +10,10 @@ import Supplemental from "./components/Supplemental";
 import VisitorCenters from "./components/VisitorCenters";
 
 import './css/NavBar.css'
-import PhotoGallery from "./components/PhotoGallery";
 import ParksSearchResults from "./components/ParksSearchResults";
 import ArticlesSearchResults from "./components/ArticlesSearchResults";
 import ToursSearchResults from "./components/ToursSearchResults";
 import TourDetails from "./components/TourDetails";
-import PlanEventsTrip from "./components/PlanEventsTrip";
 import Book from "./components/Book";
 import TripNameForm from './forms/TripNameForm'
 import MyTrips from "./components/MyTrips";
@@ -62,13 +60,6 @@ const ApplicationRoutes = ({token, setToken}) => {
             setToken={setToken}
           />}
         />
-        {/* <Route
-          exact path="/gallery"
-          element={<PhotoGallery
-            token={token}
-            setToken={setToken}
-          />}
-        /> */}
         <Route
           exact path="supplemental/:type/:USstate"
           element={<Supplemental
@@ -111,13 +102,6 @@ const ApplicationRoutes = ({token, setToken}) => {
             setToken={setToken}
           />}
         />
-        {/* <Route
-          exact path="/planTrip/events"
-          element={<PlanEventsTrip
-            token={token}
-            setToken={setToken}
-          />}
-        /> */}
         <Route
           exact path="/book"
           element={<Book
