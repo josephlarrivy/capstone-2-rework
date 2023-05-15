@@ -68,7 +68,7 @@ const LoginForm = ({ token, setToken }) => {
           }
           <form onSubmit={handleSubmit}>
 
-            
+            <label htmlFor="username" className="label">Username</label>
             <input
               required
               id={formData.username}
@@ -79,21 +79,20 @@ const LoginForm = ({ token, setToken }) => {
               onChange={handleChange}
               className="col-md-6"
             />
-            <label htmlFor="username" className="label">username</label>
+            
             <br></br><br></br>
 
-            
+            <label htmlFor="password" className="label">Password</label>
             <input
               required
               id={formData.password}
-              type="text"
+              type="password"
               name="password"
               // placeholder="password"
               value={formData.password}
               onChange={handleChange}
               className="col-md-6"
             />
-            <label htmlFor="password" className="label">password</label>
             <br></br><br></br>
 
             <button id="submit-button">Submit</button>

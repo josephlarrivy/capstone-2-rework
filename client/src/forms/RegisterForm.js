@@ -53,100 +53,95 @@ const RegisterForm = ({token, setToken}) => {
 
   return (
     <div id="register-form-main-container">
-      <NavBar
-        token={token}
-        setToken={setToken}
-      />
+      <NavBar token={token} setToken={setToken} />
       <div id="form-inner-container">
         <div id="form-container">
           <h4>Register</h4>
-          {error
-            ? <div className="error-container">
-                <p>Registration error:</p>
-                <p>{error}</p>
-              </div>
-            : <></>
-          }
+          {error && (
+            <div className="error-container">
+              <p>Registration error:</p>
+              <p>{error}</p>
+            </div>
+          )}
           <form onSubmit={handleSubmit}>
-
-            <div className="name-form-conatiner">
+            <div className="name-form-container">
               <div className="name-subcontainer">
+                <label htmlFor="firstName" className="register-label">
+                  First Name
+                </label>
                 <input
                   required
-                  id={formData.firstName}
+                  id="firstName"
                   type="text"
                   name="firstName"
-                  // placeholder="first name"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className='firstName'
-                  onFocus={(e) => e.target.placeholder = ''}
+                  className="register-input"
                 />
-                <label htmlFor="firstName" className="register-label">First Name</label>
               </div>
               <div className="name-subcontainer">
+                <label htmlFor="lastName" className="register-label">
+                  Last Name
+                </label>
                 <input
                   required
-                  id={formData.lastName}
+                  id="lastName"
                   type="text"
                   name="lastName"
-                  // placeholder="last name"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className='lastName'
-                  onFocus={(e) => e.target.placeholder = ''}
+                  className="register-input"
                 />
-                <label htmlFor="lastName" className="register-label">Last Name</label>
               </div>
-              
             </div>
-            <br></br><br></br>
-
-            <label htmlFor="username" className="register-label">Username: </label>
+            <br />
+            <label htmlFor="username" className="register-label">
+              Username:
+            </label>
             <input
               required
-              id={formData.username}
+              id="username"
               type="text"
               name="username"
-              // placeholder="username"
               value={formData.username}
               onChange={handleChange}
-              className='username'
-              onFocus={(e) => e.target.placeholder = ''}
-            /><br></br><br></br>
-
-            <label htmlFor="password" className="register-label">Password: </label>
+              className="register-input"
+            />
+            <br />
+            <label htmlFor="password" className="register-label">
+              Password:
+            </label>
             <input
               required
-              id={formData.password}
-              type="text"
+              id="password"
+              type="password"
               name="password"
-              // placeholder="password"
               value={formData.password}
               onChange={handleChange}
-              className='password'
-              onFocus={(e) => e.target.placeholder = ''}
-            /><br></br><br></br>
-
-            <label htmlFor="email" className="register-label">Email: </label>
+              className="register-input"
+            />
+            <br />
+            <label htmlFor="email" className="register-label">
+              Email:
+            </label>
             <input
               required
-              id={formData.email}
+              id="email"
               type="email"
               name="email"
-              // placeholder="email"
               value={formData.email}
               onChange={handleChange}
-              className='email'
-              onFocus={(e) => e.target.placeholder = ''}
-            /><br></br><br></br>
-
+              className="register-input"
+            />
+            <br />
+            <br />
             <button id="submit-button">Submit</button>
           </form>
         </div>
       </div>
     </div>
-  )
+  );
+
 }
 
 export default RegisterForm;

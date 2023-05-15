@@ -20,9 +20,7 @@
     margin-left: 30vw;
     margin-top: 100px;
     padding: 20px;
-    /* border: 1px solid black; */
     border-radius: 10px;
-    /* box-shadow: 5px 5px gray; */
     background-color: white;
 }
 
@@ -31,28 +29,29 @@
 }
 
 form {
-    /* background-color: aqua; */
     display: flex;
     flex-direction: column;
 }
 
 label {
-    /* background-color: pink; */
     width: 20vw;
-    margin: auto auto;
+    margin: auto 0;
     display: block;
-    text-align: center;
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
 }
 
 input {
     width: 20vw;
     height: 30px;
-    font-size: 20px;
+    font-size: 1rem;
     border-radius: 5px;
-    border: 1px solid black;
-    margin: auto auto;
+    border: 1px solid #ccc;
+    margin: auto;
     display: block;
     text-align: center;
+    padding: 5px;
 }
 
 .name-form-conatiner {
@@ -60,50 +59,45 @@ input {
     justify-content: space-around;
 }
 
-.firstName {
-    width: 15vw;
-    height: 30px;
-    font-size: 20px;
-    border-radius: 5px;
-    border: 1px solid black;
-    margin: auto auto;
-    display: block;
-    text-align: center;
-}
-
+.firstName,
 .lastName {
     width: 15vw;
     height: 30px;
-    font-size: 20px;
+    font-size: 1rem;
     border-radius: 5px;
-    border: 1px solid black;
-    margin: auto auto;
+    border: 1px solid #ccc;
+    margin: auto;
     display: block;
     text-align: center;
+    padding: 5px;
 }
 
 .register-label {
-    color: black;
+    color: #444;
     text-shadow: none;
 }
 
 #submit-button {
     width: 10vw;
-    margin: auto auto;
+    margin: auto;
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid #333;
+    font-size: 1rem;
+    padding: 5px;
+    cursor: pointer;
 }
 
 #submit-button:hover {
-    background-color: black;
-    border: 1px solid white;
+    background-color: #333;
     color: white;
 }
-
 
 .error-container {
     border: 2px solid red;
     text-align: center;
     margin-bottom: 10px;
     margin-top: -20px;
+    padding: 5px;
+    color: red;
+    font-weight: bold;
 }
