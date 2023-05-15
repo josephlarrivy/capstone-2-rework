@@ -21,4 +21,4 @@ f. Keep the API in there, and if you have anything to say about the API then add
 g. Identify the technology stack used to create your website
     React/node/express/psql
 h. Include anything else that you feel is important to share
-    
+    other projects are available at www.josephlarrivy.com
