@@ -50,39 +50,41 @@ const TripNameForm = ({ token, setToken, getTrips }) => {
     getTrips()
   }
 
-
+  if (!username) {
+    return (
+      <div id="trip-name-form-container">
+        <h4>Please create an account or log in first</h4>
+      </div>
+    )
+  }
 
   return (
-    // <div id="trip-form-main-container">
-    //   <div id="form-inner-container">
-        <div id="trip-name-form-container">
-          <h4>Name your next adventure</h4>
-          {error
-            ? <div className="error-container">
-              <p>Error:</p>
-              <p>{error}</p>
-            </div>
-            : <></>
-          }
-          <form onSubmit={handleSubmit}>
-
-            <input
-              required
-              id={formData.tripname}
-              type="text"
-              name="tripname"
-              // placeholder="password"
-              value={formData.tripname}
-              onChange={handleChange}
-            />
-            <label htmlFor="tripname" className="label">Trip Name</label>
-            <br></br><br></br>
-
-            <button id="submit-button">Submit</button>
-          </form>
+    <div id="trip-name-form-container">
+      <h4>Name your next adventure</h4>
+      {error
+        ? <div className="error-container">
+          <p>Error:</p>
+          <p>{error}</p>
         </div>
-    //   </div>
-    // </div>
+        : <></>
+      }
+      <form onSubmit={handleSubmit}>
+
+        <input
+          required
+          id={formData.tripname}
+          type="text"
+          name="tripname"
+          // placeholder="password"
+          value={formData.tripname}
+          onChange={handleChange}
+        />
+        <label htmlFor="tripname" className="label">Trip Name</label>
+        <br></br><br></br>
+
+        <button id="submit-button">Submit</button>
+      </form>
+    </div>
   )
 }
 
