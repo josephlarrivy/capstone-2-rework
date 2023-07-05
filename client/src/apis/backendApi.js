@@ -20,8 +20,6 @@ class BackendApiRequest {
     }
   }
 
-
-
   static async test(data) {
     const resp = await this.makeRequest('get', '/auth/test', null, data)
     console.log(resp)
@@ -73,7 +71,7 @@ class BackendApiRequest {
   static async deleteTrip(tripname) {
     const params = { 'tripname': tripname };
     try {
-      const response = await this.makeRequest('post', '/trip/deleteTrip', null, null, null, params);
+      const response = await this.makeRequest('delete', '/trip/deleteTrip', null, null, null, params);
       return response
     } catch (err) {
       return err;
@@ -103,7 +101,7 @@ class BackendApiRequest {
   static async deleteItem(itemid) {
     const params = { 'itemid': itemid };
     try {
-      const response = await this.makeRequest('post', '/trip/deleteItem', null, null, null, params);
+      const response = await this.makeRequest('delete', '/trip/deleteItem', null, null, null, params);
       return response
     } catch (err) {
       return err;

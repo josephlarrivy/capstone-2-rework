@@ -27,6 +27,7 @@ CREATE TABLE tripnames (
 
 CREATE TABLE tripitems (
   itemid varchar(255) PRIMARY KEY NOT NULL,
+  -- change to just 'id'
   type varchar(60) NOT NULL,
   route varchar(60) NOT NULL,
   name varchar(1000) NOT NULL,
@@ -35,5 +36,6 @@ CREATE TABLE tripitems (
   latitude varchar(60) NOT NULL,
   longitude varchar(60) NOT NULL,
   id varchar(255) NOT NULL,
+  -- should be tripId
   FOREIGN KEY (id) REFERENCES tripnames (id) ON DELETE CASCADE
 );

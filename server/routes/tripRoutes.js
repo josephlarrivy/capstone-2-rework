@@ -48,7 +48,7 @@ router.get('/getTrips', async function (req, res, next) {
 });
 
 
-router.post('/deleteTrip', async function (req, res, next) {
+router.delete('/deleteTrip', async function (req, res, next) {
   let tripname = req.query.tripname
   try {
     const trip = await Trip.deleteTrip(tripname);
@@ -96,7 +96,7 @@ router.get('/getTripItems', async function (req, res, next) {
 });
 
 
-router.post('/deleteItem', async function (req, res, next) {
+router.delete('/deleteItem', async function (req, res, next) {
   let itemid = req.query.itemid
   try {
     const item = await Trip.deleteItem(itemid);
